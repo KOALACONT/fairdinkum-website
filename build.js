@@ -35,8 +35,30 @@ const fs = require("fs");
 const path = require("path");
 
 const S = require("./data/site.json");
-const LOCS = require("./data/locations.json").locations;
 const P = require("./data/products.json");
+
+/* Localities are split across regional files under data/locations/ rather than
+   one 300KB blob — easier to edit, easier to review in a diff, and it keeps any
+   single file inside what tooling will handle. The ORDER of this list sets the
+   order localities appear in the footer, the delivery-areas hub and the home
+   page grid. It deliberately does NOT affect the rotated locality copy: that is
+   keyed on the slug via rank(), so reordering or adding a region cannot
+   silently rewrite the wording of the existing pages. */
+const LOC_REGIONS = ["seq", "downs", "north", "south"];
+const LOCS = LOC_REGIONS.reduce((a, r) => a.concat(require(`./data/locations/${r}.json`).locations), []);
+(function checkLocalities() {
+  const seen = new Set();
+  LOCS.forEach((l) => {
+    if (seen.has(l.slug)) throw new Error(`duplicate locality slug: ${l.slug}`);
+    seen.add(l.slug);
+    ["slug", "name", "state", "postcode", "depot", "leadTime", "truck", "metaDesc", "line", "uses", "access"].forEach((k) => {
+      if (!l[k]) throw new Error(`locality ${l.slug} is missing "${k}"`);
+    });
+    if (!Array.isArray(l.sections) || !l.sections.length) throw new Error(`locality ${l.slug} has no sections`);
+    if (!Array.isArray(l.faqs) || !l.faqs.length) throw new Error(`locality ${l.slug} has no faqs`);
+    if (!Array.isArray(l.near) || !l.near.length) throw new Error(`locality ${l.slug} has no near list`);
+  });
+})();
 const POSTS = require("./data/posts.js");
 
 const OUT = process.env.OUT_DIR || "dist";
