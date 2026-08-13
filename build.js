@@ -155,6 +155,27 @@ function paras(v, targetWords) {
   return para(chunks);
 }
 
+/* ---- asset cache busting ------------------------------------------------
+   .htaccess sets `ExpiresByType text/css "access plus 1 year"`, which is right
+   for performance and lethal without a version in the URL: a returning visitor
+   keeps the old stylesheet for a year and never sees a change. This bit the
+   staging site — the HTML updated, the CSS did not, and a fixed hero scrim
+   appeared not to have deployed at all.
+
+   So the URL carries a short content hash. Same bytes, same URL, still cached;
+   different bytes, different URL, fetched immediately. Computed from the file
+   on disk at build time so it cannot be forgotten. */
+function assetHash(rel) {
+  const f = path.join(__dirname, "static", rel);
+  if (!fs.existsSync(f)) return "0";
+  let h = 0x811c9dc5;
+  const buf = fs.readFileSync(f);
+  for (let i = 0; i < buf.length; i++) { h ^= buf[i]; h = Math.imul(h, 0x01000193) >>> 0; }
+  return h.toString(36);
+}
+const CSS_V = assetHash("css/style.css");
+const JS_V = assetHash("js/app.js");
+
 function out(urlPath, html) {
   const dir = urlPath ? path.join(DIST, urlPath) : DIST;
   fs.mkdirSync(dir, { recursive: true });
@@ -176,7 +197,6 @@ function IMG(name, alt, opts) {
   PHOTO_USED.add(name);
   return `<img src="/img/photos/${name}.webp" alt="${esc(alt)}" width="${o.w || 1600}" height="${o.h || 1200}"${o.eager ? '' : ' loading="lazy"'} decoding="async">`;
 }
-
 /* Locality pages draw imagery from shared POOLS rather than a photo per town.
    There are 34 localities with four image slots each — 136 photographs — and
    the library does not hold 136 distinct usable shots. It would also be
@@ -239,7 +259,7 @@ ${noindex || TEST ? '<meta name="robots" content="noindex,nofollow">' : '<meta n
 <meta name="theme-color" content="#0E2A1C">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700;800;900&family=Inter:wght@400;500;600;650&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.css?v=${CSS_V}">
 <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
 <link rel="apple-touch-icon" href="/img/favicon.svg">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
@@ -419,7 +439,7 @@ function foot() {
 </div></footer>
 <div class="actionbar"><a class="btn btn-green" href="${S.phoneHref}">Call ${esc(S.phone)}</a><a class="btn btn-primary" href="/contact/">Get a price</a></div>
 <script id="site-config" type="application/json">${JSON.stringify({ endpoint: S.leadEndpoint, brand: S.leadBrand, domain: S.leadSource, phone: S.phone, phoneHref: S.phoneHref, email: S.email, promise: PROMISE })}</script>
-<script src="/js/app.js" defer></script></body></html>`;
+<script src="/js/app.js?v=${JS_V}" defer></script></body></html>`;
 }
 
 const shell = (o, body) => head(o.t, o.d, o.c, o.schema, o.noindex) + mast() + `<main id="main">` + body + `</main>` + foot();
