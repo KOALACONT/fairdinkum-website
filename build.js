@@ -85,11 +85,37 @@ const SERVICE_AREA = S.serviceArea || "Australia-wide";
 const PROMISE = S.responsePromise;
 const PROMISE_DETAIL = S.responseDetail;
 
-/* Review rating and count are NOT rendered. site.json carries the numbers off
-   the verified Google Business Profile, but a hardcoded count goes stale and
-   is indistinguishable from fabrication. AggregateRating is emitted only when
-   reviews.show is true AND the numbers are pulled live. Leave it false. */
+/* Reviews. James, 13/08/2026: turn them on. The numbers come from the verified
+   Google Business Profile — 4.8 from 34 — so unlike every previous case in this
+   programme the claim is evidenced rather than invented.
+
+   The danger with a published review count has never been the first day. It is
+   day four hundred, when the figure is wrong, nobody remembers where it came
+   from, and an unevidenced claim is sitting on a money page. So the freshness
+   is enforced rather than trusted: `asOf` must be within `maxAgeDays` or THE
+   BUILD FAILS. Refresh the numbers and the date together, or set show:false.
+   That is what makes this safe to leave switched on. */
 const SHOW_REVIEWS = !!(S.reviews && S.reviews.show === true);
+const REV = S.reviews || {};
+if (SHOW_REVIEWS) {
+  if (!(REV.rating > 0) || !(REV.count > 0) || !REV.asOf) {
+    throw new Error("reviews.show is true but rating, count or asOf is missing");
+  }
+  const ageDays = Math.floor((Date.now() - Date.parse(REV.asOf + "T00:00:00Z")) / 86400000);
+  const maxAge = REV.maxAgeDays || 120;
+  if (ageDays > maxAge) {
+    throw new Error(
+      `Review figures are ${ageDays} days old (limit ${maxAge}). ` +
+      `Re-read the rating and count off the Google Business Profile, update ` +
+      `rating/count/asOf in data/site.json together, or set reviews.show to false. ` +
+      `A stale review count is an unevidenced claim.`
+    );
+  }
+}
+/* One string, used everywhere the rating appears, so it cannot drift. */
+const reviewLine = () => SHOW_REVIEWS
+  ? `${REV.rating} out of 5 from ${REV.count} Google reviews`
+  : "";
 
 const ADDR = S.address || {};
 function postalAddress() {
@@ -274,6 +300,7 @@ function mast() {
   <a class="top-brand" href="/" aria-label="${esc(BRAND)} home">${markDark}</a>
   <div class="top-say"><b>${esc(S.yardPromise)} — ${esc(ADDR.suburb)}, ${esc(ADDR.state)}</b><span>${esc(S.yardDetail)}</span></div>
   <div class="top-act">
+    ${SHOW_REVIEWS ? `<span class="top-rating" title="${esc(REV.source || "Google")}, as at ${esc(auDate(REV.asOf))}"><b>${esc(String(REV.rating))}</b><span class="stars" aria-hidden="true">★★★★★</span><small>${esc(String(REV.count))} Google reviews</small></span>` : ""}
     <a class="top-tel" href="${S.phoneHref}"><small>Talk to a person</small>${esc(S.phone)}</a>
     <a class="btn btn-primary" href="/contact/">Get a price</a>
   </div>
@@ -575,6 +602,7 @@ function home() {
         <li>Every cargo-worthy unit checked wind and watertight before it leaves</li>
         <li>Photos of your actual container on request, before delivery</li>
         <li>A real yard at ${esc(ADDR.suburb)} you are welcome to walk into</li>
+        ${SHOW_REVIEWS ? `<li>Rated ${esc(reviewLine())}</li>` : ""}
       </ul>
     </div>
     <div class="quotecard">
@@ -737,7 +765,7 @@ module.exports = { esc, aud };
    below, purely to keep each file readable. Both halves share this module's
    helpers through the object exported above and the globals assigned here. */
 Object.assign(global, {
-  __FD: { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, TEL_E164, HOURS, SERVICE_AREA, PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, postalAddress, esc, aud, auDate, para, paras, out, IMG, IMGP, havePhoto, PHOTO_USED, markDark, markLight, head, biz, crumbsLd, faqLd, productLd, g, mast, promiseStrip, quoteForm, ask, foot, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat, rangeGrid, specTable, priceBox, gallery, hash32, rank, pick, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS, PROCESS_LINES, FREIGHT_LINES, ASK_LINES, SHOW_REVIEWS }
+  __FD: { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, TEL_E164, HOURS, SERVICE_AREA, PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, postalAddress, esc, aud, auDate, para, paras, out, IMG, IMGP, havePhoto, PHOTO_USED, markDark, markLight, head, biz, crumbsLd, faqLd, productLd, g, mast, promiseStrip, quoteForm, ask, foot, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat, rangeGrid, specTable, priceBox, gallery, hash32, rank, pick, reviewLine, REV, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS, PROCESS_LINES, FREIGHT_LINES, ASK_LINES, SHOW_REVIEWS }
 });
 
 home();
