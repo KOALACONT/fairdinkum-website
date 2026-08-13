@@ -151,6 +151,32 @@ function IMG(name, alt, opts) {
   return `<img src="/img/photos/${name}.webp" alt="${esc(alt)}" width="${o.w || 1600}" height="${o.h || 1200}"${o.eager ? '' : ' loading="lazy"'} decoding="async">`;
 }
 
+/* Locality pages draw imagery from shared POOLS rather than a photo per town.
+   There are 34 localities with four image slots each — 136 photographs — and
+   the library does not hold 136 distinct usable shots. It would also be
+   dishonest to imply a generic yard photo was taken in that particular town.
+   So each locality picks deterministically from a pool by slug hash: the pages
+   differ from one another, the choice is stable across builds, and nothing is
+   claimed about where a photo was taken. Pool members are named
+   <pool>-01, <pool>-02 … and are discovered on disk, so adding a photo to a
+   pool is a file copy and needs no code change. */
+const POOL_CACHE = Object.create(null);
+function poolMembers(name) {
+  if (POOL_CACHE[name]) return POOL_CACHE[name];
+  const out = [];
+  for (let i = 1; i <= 60; i++) {
+    const n = `${name}-${String(i).padStart(2, "0")}`;
+    if (havePhoto(n)) out.push(n);
+  }
+  POOL_CACHE[name] = out;
+  return out;
+}
+function IMGP(name, salt, key, alt, opts) {
+  const m = poolMembers(name);
+  if (!m.length) return "";
+  return IMG(m[rank(salt, key) % m.length], alt, opts);
+}
+
 /* ----------------------------------------------------------- brand mark --
    The Fair Dinkum wordmark, rebuilt as SVG from the live logo: "Fair Dinkum"
    in near-black over "Containers" in brand green, with a corrugated container
@@ -382,7 +408,7 @@ const typeChips = () => `<div class="chips">${P.types.map((x) => `<a href="/${x.
    half image half copy, alternating side. */
 function band(o) {
   return `<section class="band${o.alt ? " band-alt" : ""}${o.dark ? " band-dark" : ""}${o.wash ? " band-wash" : ""}">
-  <div class="band-media">${IMG(o.photo, o.alt_text || o.h, { w: 1200, h: 900 })}</div>
+  <div class="band-media">${o.poolPhoto ? IMGP(o.poolPhoto[0], o.poolPhoto[1], o.poolPhoto[2], o.alt_text || o.h, { w: 1200, h: 900 }) : IMG(o.photo, o.alt_text || o.h, { w: 1200, h: 900 })}</div>
   <div class="band-body"><div class="wrapless reveal">
     ${o.eyebrow ? `<p class="eyebrow">${esc(o.eyebrow)}</p>` : ""}
     <h2>${esc(o.h)}</h2>
@@ -711,7 +737,7 @@ module.exports = { esc, aud };
    below, purely to keep each file readable. Both halves share this module's
    helpers through the object exported above and the globals assigned here. */
 Object.assign(global, {
-  __FD: { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, TEL_E164, HOURS, SERVICE_AREA, PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, postalAddress, esc, aud, auDate, para, paras, out, IMG, havePhoto, PHOTO_USED, markDark, markLight, head, biz, crumbsLd, faqLd, productLd, g, mast, promiseStrip, quoteForm, ask, foot, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat, rangeGrid, specTable, priceBox, gallery, hash32, rank, pick, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS, PROCESS_LINES, FREIGHT_LINES, ASK_LINES, SHOW_REVIEWS }
+  __FD: { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, TEL_E164, HOURS, SERVICE_AREA, PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, postalAddress, esc, aud, auDate, para, paras, out, IMG, IMGP, havePhoto, PHOTO_USED, markDark, markLight, head, biz, crumbsLd, faqLd, productLd, g, mast, promiseStrip, quoteForm, ask, foot, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat, rangeGrid, specTable, priceBox, gallery, hash32, rank, pick, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS, PROCESS_LINES, FREIGHT_LINES, ASK_LINES, SHOW_REVIEWS }
 });
 
 home();
