@@ -4,7 +4,7 @@
    ========================================================================= */
 const F = global.__FD;
 const { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, HOURS, SERVICE_AREA,
-  PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, esc, aud, auDate, para, paras, out, IMG, havePhoto,
+  PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, esc, aud, auDate, para, paras, out, IMG, IMGP, havePhoto,
   crumbsLd, faqLd, g, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat,
   rangeGrid, gallery, rank, pick, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS,
   PROCESS_LINES, FREIGHT_LINES, ASK_LINES, ask, promiseStrip } = F;
@@ -14,7 +14,7 @@ const HOME_CRUMB = ["Home", "/"];
 /* Standard page scaffold: breadcrumb, photo header, promise strip. */
 function pageHead(o) {
   return `${crumbHtml(o.crumbs)}
-<header class="phead"><div class="phead-media">${IMG(o.photo, o.h1, { w: 1800, h: 900, eager: true })}</div><div class="wrap">
+<header class="phead"><div class="phead-media">${o.poolPhoto ? IMGP(o.poolPhoto[0], o.poolPhoto[1], o.poolPhoto[2], o.h1, { w: 1800, h: 900, eager: true }) : IMG(o.photo, o.h1, { w: 1800, h: 900, eager: true })}</div><div class="wrap">
   <p class="eyebrow">${esc(o.eyebrow)}</p>
   <h1>${esc(o.h1)}</h1>
   <p class="phead-lede">${esc(o.lede)}</p>
@@ -43,7 +43,7 @@ function localityPages() {
     };
 
     const body = `${pageHead({
-      crumbs, photo: "loc-" + l.slug, eyebrow: `${l.name}, ${l.state}`,
+      crumbs, poolPhoto: ["pool-lochead", "lh", l.slug], eyebrow: `${l.name}, ${l.state}`,
       h1: `Shipping containers ${l.name}`,
       lede: l.line,
       facts: [["Delivered from", l.depot], ["Typical lead time", l.leadTime], ["Usual truck", l.truck]]
@@ -59,7 +59,7 @@ ${sec("", `<div class="narrow">
 ${sec("sec-wash", secHead("The range", `Containers we deliver to ${l.name}`, "Guide prices in AUD, ex GST. Delivery is quoted with the container.") + rangeGrid(P.sizes) + `<div style="margin-top:1.6rem">${typeChips()}</div>`)}
 
 ${l.sections.map((s, i) => band({
-      photo: "loc-" + l.slug + "-" + (i + 1),
+      poolPhoto: ["pool-locband" + (i + 1), "lb" + (i + 1), l.slug],
       eyebrow: i === 0 ? l.name : i === 1 ? "On the ground" : "Worth knowing",
       h: s.h, p: s.p, alt: i % 2 === 1, dark: i === 1, wash: i === 2
     })).join("\n")}
