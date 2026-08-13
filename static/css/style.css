@@ -135,6 +135,10 @@ li:last-child { margin-bottom: 0; }
 .top-say b { font-family: var(--display); font-weight: 750; font-size: .93rem; color: var(--green-deep); }
 .top-say span { font-size: .82rem; color: var(--muted); line-height: 1.45; }
 .top-act { display: flex; align-items: center; gap: .9rem; flex: none; }
+.top-rating { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.1; padding-right: .9rem; border-right: 1px solid var(--rule); }
+.top-rating b { font-family: var(--display); font-weight: 800; font-size: 1.15rem; color: var(--ink); letter-spacing: -.02em; }
+.top-rating .stars { color: #B8860B; font-size: .8rem; letter-spacing: .06em; }
+.top-rating small { font-size: .7rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
 .top-tel { font-family: var(--display); font-weight: 800; font-size: 1.32rem; letter-spacing: -.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .top-tel:hover { color: var(--amber); }
 .top-tel small { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
@@ -418,6 +422,7 @@ li:last-child { margin-bottom: 0; }
 
 @media (max-width: 900px) {
   .top-say { display: none; }
+  .top-rating { display: none; }
   .top .wrap { min-height: 68px; gap: 1rem; }
   .top-brand svg { height: 38px; }
   .navband .wrap { justify-content: space-between; }
