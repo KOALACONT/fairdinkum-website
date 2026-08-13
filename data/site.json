@@ -1,0 +1,33 @@
+{
+  "name": "Fair Dinkum Containers",
+  "short": "Fair Dinkum",
+  "domain": "https://fairdinkumcontainers.com.au",
+  "phone": "0477 410 500",
+  "phoneHref": "tel:0477410500",
+  "email": "sales@fairdinkumcontainers.com.au",
+  "address": {
+    "street": "24 Forest Hill Fernvale Rd",
+    "suburb": "Forest Hill",
+    "state": "QLD",
+    "postcode": "4342"
+  },
+  "geo": { "lat": -27.6086, "lng": 152.3628 },
+  "hours": "Mon–Fri 7:30am–5pm, Sat 8am–12pm",
+  "hoursSchema": ["Mo-Fr 07:30-17:00", "Sa 08:00-12:00"],
+  "region": "Australia",
+  "serviceArea": "across Queensland, northern New South Wales and beyond",
+  "tagline": "Shipping containers for sale and hire, delivered Australia-wide from a real yard at Forest Hill in the Lockyer Valley — where you are welcome to walk in and look at the actual container first.",
+  "yardPromise": "A yard you can walk into",
+  "yardDetail": "Our containers sit on hardstand at Forest Hill, an hour west of Brisbane on the Warrego. Ring first, drive out, and look over the exact unit yourself.",
+  "responsePromise": "Every enquiry answered within one business day",
+  "responseDetail": "You hear back from a person, not an autoresponder. Enquiries that land on a weekend are answered the next business day.",
+  "responseShort": "Answered within one business day",
+  "leadEndpoint": "https://dcqbeydkbwfxgukfwwvm.supabase.co/functions/v1/web-lead-intake",
+  "leadBrand": "FDC",
+  "leadSource": "fairdinkumcontainers.com.au",
+  "photos": true,
+  "reviews": {
+    "show": false,
+    "note": "GBP shows 4.8 from 34 reviews as at 13/08/2026. Left OFF deliberately — a hardcoded count goes stale and reads as fabrication. Turn on only once it is pulled live. See README."
+  }
+}
