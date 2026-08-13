@@ -197,6 +197,7 @@ function IMG(name, alt, opts) {
   PHOTO_USED.add(name);
   return `<img src="/img/photos/${name}.webp" alt="${esc(alt)}" width="${o.w || 1600}" height="${o.h || 1200}"${o.eager ? '' : ' loading="lazy"'} decoding="async">`;
 }
+
 /* Locality pages draw imagery from shared POOLS rather than a photo per town.
    There are 34 localities with four image slots each — 136 photographs — and
    the library does not hold 136 distinct usable shots. It would also be
