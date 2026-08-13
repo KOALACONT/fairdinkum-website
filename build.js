@@ -626,7 +626,7 @@ function sizePages() {
       { q: `What are the dimensions of a ${x.short} shipping container?`, a: `Externally ${x.specs.ext}, internally ${x.specs.int}. The door opening is ${x.specs.door} and the internal volume is ${x.specs.cube}. Tare weight is ${x.specs.tare}. Those are standard ISO figures and they do not vary meaningfully between manufacturers — what does vary is the condition of the floor and the doors, which is a grade question rather than a size one.` },
       { q: `What fits in a ${x.short} container?`, a: x.fits },
       { q: `How much does a ${x.short} shipping container cost?`, a: `Cargo-worthy used ${x.short} units start from ${aud(x.usedFrom)} and new single-trip from ${aud(x.newFrom)}, both guide prices ex GST. What moves them is condition, what is on the ground this week and which depot the unit has to come out of. Delivery is quoted separately with the container because it varies so much with distance and access.` },
-      { q: `What does a ${x.short} container need for delivery?`, a: x.watch }
+      { q: `What does a ${x.short} container need for delivery?`, a: x.access }
     ];
     const crumbs = [["Home", "/"], ["Shipping containers", "/shipping-containers/"], [x.title, `/${x.slug}/`]];
     const body = `${crumbHtml(crumbs)}
@@ -654,7 +654,7 @@ ${sec("", `<div class="spec">
   <div class="specside">${priceBox(x)}<p class="fineprint">${esc(P.disclaimer)}</p></div>
 </div>`)}
 ${gallery(["gal-" + x.slug + "-1", "gal-" + x.slug + "-2", "gal-" + x.slug + "-3"], [`${x.title} — exterior`, `${x.title} — doors and locking bars`, `${x.title} — interior and floor`]) ? sec("sec-wash", secHead("Photos", `${x.short} containers we have delivered`, "Real units from real jobs. Ask and we will send photographs of the specific container you are buying, before delivery.") + gallery(["gal-" + x.slug + "-1", "gal-" + x.slug + "-2", "gal-" + x.slug + "-3"], [`${x.title} — exterior`, `${x.title} — doors and locking bars`, `${x.title} — interior and floor`])) : ""}
-${band({ photo: "size-alt-" + x.slug, eyebrow: "Delivery", h: `Getting a ${x.short} onto your block`, p: [x.watch, "Send three photographs with your enquiry — one from the street looking in, one down the approach and one of the spot itself — and we will tell you which truck the job needs before anyone quotes."], cta: ["/delivery/", "Delivery and access"], dark: true, alt: true })}
+${band({ photo: "size-alt-" + x.slug, eyebrow: "Delivery", h: `Getting a ${x.short} onto your block`, p: [x.access, "Send three photographs with your enquiry — one from the street looking in, one down the approach and one of the spot itself — and we will tell you which truck the job needs before anyone quotes."], cta: ["/delivery/", "Delivery and access"], dark: true, alt: true })}
 ${sec("", secHead("Other sizes", "If this one is not quite right", null) + rangeGrid(others) + `<div style="margin-top:1.6rem">${typeChips()}</div>`)}
 ${sec("sec-wash", secHead("Common questions", `About ${x.short} containers`, null) + qaHtml(faqs))}
 ${ask(`Get a price on a ${x.short}`, `Tell us where it is going and what the access is like. ${PROMISE}.`, x.slug)}`;
