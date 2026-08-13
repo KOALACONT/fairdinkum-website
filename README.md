@@ -301,7 +301,7 @@ line, the freight line and the closing CTA — is drawn from **rotating pools**.
 gives each pool its **own** ordering of the locality slugs, and `pick()` takes
 that rank modulo the pool length. Ranking rather than hashing modulo directly
 matters: a raw hash modulo 7 across 34 slugs is not balanced, a rank is. It also
-means the copy does not depend on the **order** of `data/locations.json`, so
+means the copy does not depend on the **order** of the locality data, so
 reordering that file does not silently rewrite 34 pages.
 
 **Pool lengths are deliberately different — 8, 9, 7, 10, 8, 7, 9.** Pools of
@@ -318,10 +318,17 @@ that is the only real fix for the pigeonhole.
 |---|---|
 | `data/site.json` | brand identity, phone, email, address, hours, promises, lead config, `photos` flag, reviews block |
 | `data/products.json` | 3 sizes, 4 types, 3 grades, specs, guide prices, the as-is caveat, the price disclaimer |
-| `data/locations.json` | 34 localities — depot, lead time, truck, access, 3 sections, 4 FAQs, near list |
+| `data/locations/*.json` | 34 localities, split by region — depot, lead time, truck, access, 3 sections, 4 FAQs, near list |
 | `data/posts.js` | 10 guides (slug, title, desc, date, mins, intro, HTML body) |
 
 Guide bodies must not contain `<h1>` — the page template owns the single H1.
+
+Localities live in **four regional files** — `data/locations/seq.json`,
+`downs.json`, `north.json`, `south.json` — merged by `build.js` in the order
+listed in `LOC_REGIONS`. They were split out of a single 315KB file: easier to
+edit, easier to review in a diff, and small enough for tooling to handle. A
+startup check throws if any locality is missing a required field or if two share
+a slug, so a malformed row fails the build rather than rendering a broken page.
 
 `build.js` holds the shell, the home page, the range hub and the size and type
 pages. `build-pages.js` holds everything else and the verification tail. They
