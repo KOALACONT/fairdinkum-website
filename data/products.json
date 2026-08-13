@@ -1,0 +1,185 @@
+{
+  "disclaimer": "Prices on this page are guide prices in AUD and exclude GST. They are starting figures for the grade named, they move with condition, availability and which depot the unit has to come out of, and none of them is a quote until the cartage to your address has been worked out.",
+
+  "asIsNote": "Cargo-worthy is the grade we check wind and watertight before it leaves the yard. As-is units are cheaper again and are not sold watertight — one may carry a patched repair, a soft spot in the floor, or a door seal that no longer seats properly, and we will tell you exactly what is wrong with a particular unit rather than let you find it out on delivery day. New single-trip containers are unmarked, sealed, and have made one loaded voyage. If the container has to keep rain off whatever goes inside it, buy cargo-worthy or better.",
+
+  "gradeNote": "There are three grades worth talking about. The gap between them is usually wider than the gap between two suppliers quoting you on the same grade, which is why the grade is the first question we ask and the last thing you should compare on.",
+
+  "grades": [
+    {
+      "key": "new",
+      "name": "New (single-trip)",
+      "blurb": "Built, loaded once, shipped once, unloaded here. Straight walls, clean floor, unfaded paint, seals that have never been out in the weather for long. If the container is going somewhere it will be looked at — a front yard, a shopfront, a display — this is the one.",
+      "watertight": true
+    },
+    {
+      "key": "cargo-worthy",
+      "name": "Cargo-worthy used",
+      "blurb": "A working container that is still certified fit to carry freight at sea. Dents, surface rust and old shipping-line paint are normal and expected. Wind and watertight is checked before it leaves. This is the grade most people should buy and about seventy per cent of what we sell.",
+      "watertight": true
+    },
+    {
+      "key": "as-is",
+      "name": "As-is",
+      "blurb": "Retired from sea service and sold on its faults. Cheapest by a distance and completely fine for a lot of jobs — a tool lock-up under cover, a bund, a site office shell, a base for a build. Not sold watertight. We photograph the faults and tell you what they are before you buy it.",
+      "watertight": false
+    }
+  ],
+
+  "sizes": [
+    {
+      "slug": "10ft-shipping-containers",
+      "name": "10ft Containers",
+      "short": "10ft",
+      "title": "10ft Shipping Containers",
+      "lead": "The one people ring about when the block is tight and the fence line is close. A 10ft is rarely a cut-down 20ft in the way people assume — most are purpose-built or factory-shortened, and that is exactly why they cost more per cubic metre than the box twice their length.",
+      "usedFrom": 4350,
+      "newFrom": 6400,
+      "hire": 22,
+      "pickIf": "The side passage is narrow, the council setback leaves you nothing to play with, or all you need is somewhere lockable for a mower, a compressor and a rack of tools.",
+      "specs": {
+        "ext": "2.99m × 2.44m × 2.59m",
+        "int": "2.83m × 2.35m × 2.39m",
+        "door": "2.34m × 2.28m",
+        "cube": "15.9m³",
+        "tare": "approx 1,300 kg"
+      },
+      "fits": "A ride-on, a workbench and wall shelving. Roughly a single garage's worth of gear. Two-bedroom unit's furniture at a squeeze, if it is packed properly and nothing is precious.",
+      "why": [
+        "Goes down the side of a suburban house where a 20ft never will. On a standard side passage that one fact is often the whole decision.",
+        "Lands off a plain tilt-tray and needs roughly half the run-in a 20ft does, so the delivery is cheaper and a great many more sites work.",
+        "Costs more per cubic metre than a 20ft every single time. If the room exists for the bigger unit, the bigger unit is nearly always the better buy — and we will say so on the phone rather than sell you the small one."
+      ],
+      "watch": "Ten-footers are the scarcest size in the country. Used stock moves through the yard in days rather than weeks, so a price quoted a month ago is not a price today. Ring and ask what is actually standing on the ground this week."
+    },
+    {
+      "slug": "20ft-shipping-containers",
+      "name": "20ft Containers",
+      "short": "20ft",
+      "title": "20ft Shipping Containers",
+      "lead": "The default answer, and the right one most of the time. A 20ft is the size the whole industry is built around — the most stock, the most grades to choose from, the cheapest per cubic metre, and the easiest thing in the world to get a truck under.",
+      "usedFrom": 2200,
+      "newFrom": 3300,
+      "hire": 27,
+      "pickIf": "You have about seven metres of straight, reasonably level ground to put it on and you would rather not find out in six months that you should have gone bigger.",
+      "specs": {
+        "ext": "6.06m × 2.44m × 2.59m",
+        "int": "5.90m × 2.35m × 2.39m",
+        "door": "2.34m × 2.28m",
+        "cube": "33.2m³",
+        "tare": "approx 2,200 kg"
+      },
+      "fits": "A three-bedroom house of furniture, packed sensibly. Or a full trade fit-out — racking down one wall, a bench at the end, and room to still walk in and get something out without unloading half of it first.",
+      "why": [
+        "Cheapest container in Australia per cubic metre, in almost every week of the year. Supply is deep enough that grade is a real choice rather than take-what-is-there.",
+        "Delivers off a standard tilt-tray. Needs about 20 metres of straight run-in and 3.5 metres of width at the tightest point, which most suburban and rural blocks can find.",
+        "Fits inside the vast majority of council siting rules for a temporary or ancillary structure without a fuss. Worth a phone call to your council either way — the rules genuinely differ shire to shire."
+      ],
+      "watch": "The commonest regret we hear is somebody who bought a 20ft and needed a 40ft. Two 20fts cost meaningfully more than one 40ft and take two deliveries. If there is a chance the job grows, price the 40ft before you decide."
+    },
+    {
+      "slug": "40ft-shipping-containers",
+      "name": "40ft Containers",
+      "short": "40ft",
+      "title": "40ft Shipping Containers",
+      "lead": "Twice the length, roughly twice the room, and nothing like twice the price — a used 40ft is routinely the best value per cubic metre on the yard. The catch is never the container. It is always whether a truck can get it in and lay it down straight.",
+      "usedFrom": 2600,
+      "newFrom": 5500,
+      "hire": 42,
+      "pickIf": "You have the room, the access is genuinely open, and you want the most storage per dollar available anywhere.",
+      "specs": {
+        "ext": "12.19m × 2.44m × 2.59m",
+        "int": "12.03m × 2.35m × 2.39m",
+        "door": "2.34m × 2.28m",
+        "cube": "67.7m³",
+        "tare": "approx 3,800 kg"
+      },
+      "fits": "A large house plus a shed, or a serious workshop with room down the middle to work. Commonly bought in pairs and stood parallel with a roof over the gap to make a covered bay.",
+      "why": [
+        "Best value per cubic metre we sell, most weeks. A used 40ft is often only a few hundred dollars more than a used 20ft for double the space.",
+        "One delivery instead of two, one set of cartage instead of two, one footing to prepare instead of two.",
+        "Stacks and mates cleanly with another 40ft, which is what makes the two-container covered bay such a common build."
+      ],
+      "watch": "Access decides everything on a 40ft. It needs roughly 30 metres of straight run-in, 4 metres of width at the pinch point, no low branches and ground that will not sink under four corner castings. A side loader can work tighter than a tilt-tray, but it places the container off the right-hand — driver's — side of the trailer, so which way the truck comes in matters. Send us three photos and we will tell you before anyone quotes."
+    }
+  ],
+
+  "types": [
+    {
+      "slug": "general-purpose-shipping-containers",
+      "name": "General Purpose",
+      "title": "General Purpose Shipping Containers",
+      "lead": "The standard box, and the right answer about eight times in ten. Corrugated Corten steel, marine-ply floor, double cargo doors at one end, forklift-friendly, and — in cargo-worthy grade or better — sealed against rain from above.",
+      "metaDesc": "General purpose shipping containers for sale and hire in 10ft, 20ft and 40ft. Cargo-worthy, new and as-is grades, delivered Australia-wide from Fair Dinkum Containers.",
+      "points": [
+        "New single-trip and quality used units in 10ft, 20ft and 40ft",
+        "Every cargo-worthy unit checked wind and watertight before it leaves the yard",
+        "As-is units cheaper again and not sold watertight — we tell you what is wrong with one rather than let you find out on delivery day",
+        "Lock box fitted so a padlock cannot be reached with bolt cutters",
+        "Photos of your actual unit on request, sent before delivery"
+      ],
+      "detail": [
+        "A general purpose container stands 2.59m tall externally, which leaves you about 2.39m of internal height. That is enough to stand a pallet racking bay in and enough to walk around under comfortably. It is not quite enough for a mezzanine, and it is tight for a roller door with the head clearance a forklift wants. If either of those is on your list, price a high cube instead — the extra 300mm costs less than you would think.",
+        "The floor is 28mm marine-grade plywood laid on steel cross-members, and it is the part people consistently underestimate. It will take a forklift and it will take a pallet jack. It is also the first thing to go on a container that has spent years carrying something wet, so on any used unit the floor is what we look at first and what we photograph first.",
+        "Doors are the other wear point. Two cargo doors at one end, four locking bars, and a rubber gasket around the frame. When a container is described as wind and watertight, most of what is being checked is that gasket seating properly and the bars pulling the doors up hard against it."
+      ]
+    },
+    {
+      "slug": "high-cube-shipping-containers",
+      "name": "High Cube",
+      "title": "High Cube Shipping Containers",
+      "lead": "The same footprint as a standard container with an extra foot of headroom — 2.90m externally instead of 2.59m. It sounds minor written down and it is not minor at all once you are standing inside one.",
+      "metaDesc": "High cube shipping containers for sale and hire — 300mm extra internal height in 20ft and 40ft. Delivered across Queensland, NSW and Australia-wide.",
+      "points": [
+        "300mm more internal height than a standard container, same length and width",
+        "Available in 20ft and 40ft, new single-trip and cargo-worthy used",
+        "The size to buy if the container will be converted, lined, or fitted with a roller door",
+        "Stacks and mates with other high cubes; do not mix heights in a stack",
+        "Marked with black-and-yellow hatching on the top rail so it is obvious on site"
+      ],
+      "detail": [
+        "The whole case for a high cube is what the extra 300mm lets you do. It gives room to line the walls and ceiling and still stand up straight. It gives head clearance for a roller door that a forklift can actually drive through. It gives you the depth for a mezzanine over one end. On a standard container every one of those jobs ends up compromised.",
+        "The trade-offs are real but small. A high cube is a fraction dearer than the standard equivalent, and it is 300mm taller on the truck — which matters under a carport, under a low branch, or through a gateway with a header beam. Measure the height of everything the truck has to pass under, not just the width.",
+        "One rule worth knowing before you buy two: never mix a high cube and a standard in the same stack. The corner castings line up but the loads do not sit where they should, and the result is not safe. If there is any chance of stacking later, buy both the same height now."
+      ]
+    },
+    {
+      "slug": "side-opening-shipping-containers",
+      "name": "Side Opening",
+      "title": "Side Opening Shipping Containers",
+      "lead": "A container with doors down the full length of one side as well as the end. Every pallet reachable from the front, nothing buried at the back, and a forklift able to get at any position without unloading what is in front of it.",
+      "metaDesc": "Side opening shipping containers for sale and hire — full-length side doors for forklift access to every pallet position. Delivered Australia-wide.",
+      "points": [
+        "Full-length doors down one side, plus the standard cargo doors at the end",
+        "Available new in 20ft and 40ft; used side openers turn up rarely and go quickly",
+        "Turns a container from a tunnel into a shelf — every position reachable from outside",
+        "Needs clear standing room down the door side, which changes where it can be sited",
+        "Substantially dearer than a general purpose unit, and worth it for the right job"
+      ],
+      "detail": [
+        "The reason to buy one is access. In a standard container, anything you want is behind everything you put in first, and the practical answer is usually to unload half of it onto the ground. A side opener removes that entirely. For a workshop, a parts store, a hire depot or anywhere stock turns over, it changes how the container is used day to day.",
+        "The siting rules are different and people get caught by this. The doors swing outward along the full length, so you need roughly three metres of clear, level standing room down that side, and you need to decide which way the container faces before it lands. Turning one around afterwards means another truck. Work out the door side first, tell us, and the driver will set it down the right way.",
+        "Side openers are heavier and structurally more complex than a general purpose container, so they cost more and there are fewer of them about. Used ones exist but they are uncommon — if you want one, it is worth telling us early so we can watch for it rather than waiting for one to appear."
+      ]
+    },
+    {
+      "slug": "dangerous-goods-shipping-containers",
+      "name": "Dangerous Goods",
+      "title": "Dangerous Goods Shipping Containers",
+      "lead": "Purpose-built storage for flammable liquids and other dangerous goods — bunded floor, vents top and bottom, shelving, and the compliance plate that lets a workplace inspector sign it off.",
+      "metaDesc": "Dangerous goods storage containers for sale and hire — bunded, vented and compliant to AS1940 for flammable liquid storage. Delivered Australia-wide.",
+      "points": [
+        "Bunded sump floor sized to contain a spill rather than let it run out the door",
+        "High and low ventilation, hazard placarding and compliance plate",
+        "Built and certified to the relevant Australian Standard for the class stored",
+        "Available in 10ft and 20ft, for sale or hire",
+        "Not a converted general purpose box — a DG unit is a different container from the floor up"
+      ],
+      "detail": [
+        "A dangerous goods container is not a normal container with a sticker on it. The floor is a sealed bund designed to hold a proportion of the contents if a drum lets go, the ventilation is engineered rather than incidental, the internal fit-out is non-sparking, and the whole thing carries a plate stating what it was built to. That plate is what an inspector or an insurer asks for.",
+        "Which standard applies depends on what you are storing. Flammable liquids, oxidising agents, corrosives and toxics all have different requirements, and a unit built for one class is not automatically compliant for another. Tell us the class and the volume before anything else — that determines the container, not the other way around.",
+        "Almost everyone buying one has a compliance deadline behind them. Say so when you ring. DG units are made to order more often than they sit in a yard, and lead times are longer than a standard container, so the date matters as much as the specification."
+      ]
+    }
+  ]
+}
