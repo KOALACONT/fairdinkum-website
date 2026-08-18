@@ -172,7 +172,14 @@ li:last-child { margin-bottom: 0; }
 
 /* ---------- hero: split, photo + overlapping quote card ---------- */
 .hero { position: relative; background: var(--forest); color: var(--white); overflow: hidden; }
-.hero-media { position: absolute; inset: 0; }
+/* pointer-events:none is load-bearing. The ::before scrim below carries
+   z-index:1 and .hero-grid does not, so the scrim paints AND hit-tests above
+   the hero content. Without this the whole lower half of the hero — the CTAs,
+   the phone button and every field of the quote card — is unclickable while
+   looking perfectly normal. Found live 18/08/2026. Nothing inside .hero-media
+   is interactive, so switching off hit-testing on the layer costs nothing and
+   changes no pixels. */
+.hero-media { position: absolute; inset: 0; pointer-events: none; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; }
 /* Scrim over the hero photograph. This has to do two jobs at once: keep the
    white display type at 4.5:1 over whatever is behind it, and still let the
@@ -342,7 +349,10 @@ li:last-child { margin-bottom: 0; }
 
 /* ---------- page header (non-home) ---------- */
 .phead { background: var(--forest); color: var(--pale); position: relative; overflow: hidden; }
-.phead-media { position: absolute; inset: 0; }
+/* Same guard as .hero-media. Not currently broken here — the ::after scrim has
+   no z-index — but this layer sits over the page header on all 67 other pages
+   and one added z-index would silently kill anything interactive underneath. */
+.phead-media { position: absolute; inset: 0; pointer-events: none; }
 .phead-media img { width: 100%; height: 100%; object-fit: cover; }
 .phead-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(98deg, rgba(11,34,22,.94) 0%, rgba(11,34,22,.84) 34%, rgba(12,36,24,.6) 62%, rgba(14,42,28,.34) 100%); }
 .phead .wrap { position: relative; padding: clamp(2.6rem, 5.5vw, 4.4rem) 0; }
