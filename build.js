@@ -246,7 +246,20 @@ const markDark = mark("#12211A", "#2D8856", "#FFFFFF", "#2D8856");
 const markLight = mark("#FFFFFF", "#9CCFB4", "#0E2A1C", "#9CCFB4");
 
 /* ------------------------------------------------------------- the shell -- */
+/* Title and description length. This WARNS and never throws: monthly content
+   tasks self-merge and a build that dies on a long title would take the site
+   off the air over a cosmetic problem. The list prints once at the end. */
+const METRIC_WARN = [];
+process.on("exit", () => {
+  if (!METRIC_WARN.length) return;
+  console.warn(`  ! ${METRIC_WARN.length} page(s) over the title/description limits:`);
+  METRIC_WARN.slice(0, 10).forEach((w) => console.warn("    " + w));
+  if (METRIC_WARN.length > 10) console.warn(`    ...and ${METRIC_WARN.length - 10} more`);
+});
+
 function head(t, d, canon, schema, noindex) {
+  if (t && t.length > 60) METRIC_WARN.push(`${canon} title ${t.length}/60`);
+  if (d && d.length > 155) METRIC_WARN.push(`${canon} description ${d.length}/155`);
   return `<!DOCTYPE html><html lang="en-AU"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(t)}</title>
@@ -506,6 +519,22 @@ const priceBox = (x) => `<div class="pricebox reveal">
   <a class="btn btn-primary btn-wide" href="/contact/">Get a price for your address</a>
 </div>`;
 
+/* Price per cubic metre, computed from the same numbers printed above it so the
+   two can never drift apart. This is the honest answer to "is a 10ft worth it",
+   and putting it on the page rather than hiding it is the point. Rendered inside
+   the existing two-column .spectable so it needs no new CSS. */
+const cubicM = (x) => parseFloat(String(x.specs.cube).replace(/[^\d.]/g, ""));
+const perCube = (x) => Math.round(x.usedFrom / cubicM(x));
+const valueTable = () => `<table class="spectable"><caption>Cargo-worthy used — what a cubic metre actually costs</caption><tbody>
+${P.sizes.map((s) => `<tr><th scope="row">${esc(s.short)} · ${esc(s.specs.cube)}</th><td>from ${aud(s.usedFrom)} · ${aud(perCube(s))} per m³</td></tr>`).join("")}
+</tbody></table>`;
+
+/* In-body contextual links out of a size page. Anchor text carries the phrase
+   people actually search rather than "click here", and the locality links give
+   the size pages a route down into the local pages instead of only up. */
+const sizeLinks = (x, others) => `<p>Not sure this is the right size? Compare ${others.map((y) => `<a href="/${y.slug}/">${esc(y.title.toLowerCase())}</a>`).join(" and ")} on the same figures, check every measurement on the <a href="/dimensions/">shipping container dimensions</a> page, or read what <a href="/container-grades/">the three grades</a> mean before you compare anybody's prices.${x.hire ? ` If you only need one for a while, <a href="/shipping-container-hire/">container hire</a> starts from ${aud(x.hire)} a week ex GST.` : ""}</p>
+<p>Getting one to you: what the truck needs is set out on the <a href="/delivery/">delivery and access</a> page. We deliver ${esc(x.short)} containers to ${LOCS.slice(0, 6).map((l) => `<a href="/${l.slug}/">${esc(l.name)}</a>`).join(", ")} and <a href="/delivery-areas/">everywhere else we run</a>.</p>`;
+
 const gallery = (names, alts) => {
   const shown = names.map((n, i) => ({ n, a: alts[i] })).filter((x) => havePhoto(x.n));
   if (!shown.length) return "";
@@ -685,12 +714,12 @@ function hub() {
   <p class="phead-lede">Ten foot, twenty foot and forty foot. General purpose, high cube, side opening and dangerous goods. New single-trip, cargo-worthy used, and as-is. Here is what each one is actually for.</p>
 </div></header>
 ${promiseStrip()}
-${sec("", secHead("By size", "Start with the space you have", "The commonest mistake is choosing the container before measuring the spot it has to land on. Size is decided by access as often as it is by volume.") + rangeGrid(P.sizes) + `<div style="margin-top:1.8rem">${asIs()}</div><p class="fineprint">${esc(P.disclaimer)}</p>`)}
+${sec("", secHead("By size", "Start with the space you have", "The commonest mistake is choosing the container before measuring the spot it has to land on. Size is decided by access as often as it is by volume.") + rangeGrid(P.sizes) + `<p class="reveal" style="margin-top:1.8rem">Straight to the size: ${P.sizes.map((x) => `<a href="/${x.slug}/">${esc(x.title.toLowerCase())}</a> ${esc(x.hubLine)}`).join("; ")}.</p><div style="margin-top:1.8rem">${asIs()}</div><p class="fineprint">${esc(P.disclaimer)}</p>`)}
 ${sec("sec-wash", secHead("By configuration", "What the box is set up to do", null) + rangeGrid(P.types))}
 ${band({ photo: "grades-lineup", eyebrow: "Grades", h: "Grade moves the price more than size does", p: [P.gradeNote, "Two cargo-worthy 20fts standing next to each other can be a thousand dollars apart on the strength of the floor and the door seals alone. It is the first question we ask and the last thing worth comparing suppliers on."], cta: ["/container-grades/", "Grades explained"], dark: true, alt: true })}
 ${sec("", secHead("Common questions", "About choosing a container", null) + qaHtml(faqs))}
 ${ask("Not sure which one you need?", "Tell us what is going in it and where it is going. We will tell you which size and grade the job actually needs — including when the cheaper one is the right answer.", "hub")}`;
-  out("shipping-containers", shell({ t: `Shipping Containers For Sale & Hire — 10ft, 20ft & 40ft | ${BRAND}`, d: `The full range of shipping containers for sale and hire — 10ft, 20ft and 40ft in general purpose, high cube, side opening and dangerous goods. New, cargo-worthy and as-is grades.`, c: "/shipping-containers/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("shipping-containers", shell({ t: `Shipping Containers For Sale & Hire — 10ft, 20ft & 40ft`, d: `The full range of shipping containers for sale and hire — 10ft, 20ft and 40ft, in new, cargo-worthy and as-is grades. Guide prices, ex GST.`, c: "/shipping-containers/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ============================== SIZE PAGES ============================== */
@@ -702,12 +731,12 @@ function sizePages() {
       { q: `What fits in a ${x.short} container?`, a: x.fits },
       { q: `How much does a ${x.short} shipping container cost?`, a: `Cargo-worthy used ${x.short} units start from ${aud(x.usedFrom)} and new single-trip from ${aud(x.newFrom)}, both guide prices ex GST. What moves them is condition, what is on the ground this week and which depot the unit has to come out of. Delivery is quoted separately with the container because it varies so much with distance and access.` },
       { q: `What does a ${x.short} container need for delivery?`, a: x.access }
-    ];
+    ].concat(Array.isArray(x.faqsExtra) ? x.faqsExtra : []);
     const crumbs = [["Home", "/"], ["Shipping containers", "/shipping-containers/"], [x.title, `/${x.slug}/`]];
     const body = `${crumbHtml(crumbs)}
 <header class="phead"><div class="phead-media">${IMG("head-" + x.slug, x.title, { w: 1800, h: 900, eager: true })}</div><div class="wrap">
   <p class="eyebrow">${esc(x.short)} containers</p>
-  <h1>${esc(x.title)} for sale and hire</h1>
+  <h1>${esc(x.title)} for sale and hire — delivered Australia-wide</h1>
   <p class="phead-lede">${esc(x.lead)}</p>
   <dl class="phead-facts">
     <div><dt>External</dt><dd>${esc(x.specs.ext)}</dd></div>
@@ -728,12 +757,18 @@ ${sec("", `<div class="spec">
   </div>
   <div class="specside">${priceBox(x)}<p class="fineprint">${esc(P.disclaimer)}</p></div>
 </div>`)}
+${x.depth ? `
+${sec("sec-wash", secHead("What fits", x.depth.fitsHead, x.depth.fitsLede) + `<ul class="reveal">${x.depth.fitsList.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>`)}
+${sec("", secHead("Value", x.depth.valueHead, x.depth.valueLede) + `<div class="reveal">${valueTable()}</div><div class="reveal" style="margin-top:1.8rem">${para(x.depth.valueNote)}</div>`)}
+${sec("sec-wash", secHead("Siting", x.depth.siteHead, null) + `<div class="reveal">${para(x.depth.siting)}</div>`)}
+${sec("", secHead("Moving it later", x.depth.moveHead, null) + `<div class="reveal">${para(x.depth.moveLater)}</div>`)}
+${sec("sec-wash", secHead("Grades", x.depth.gradeHead, null) + `<div class="reveal">${para(x.depth.gradeNote)}</div>`)}` : ""}
 ${gallery(["gal-" + x.slug + "-1", "gal-" + x.slug + "-2", "gal-" + x.slug + "-3"], [`${x.title} — exterior`, `${x.title} — doors and locking bars`, `${x.title} — interior and floor`]) ? sec("sec-wash", secHead("Photos", `${x.short} containers we have delivered`, "Real units from real jobs. Ask and we will send photographs of the specific container you are buying, before delivery.") + gallery(["gal-" + x.slug + "-1", "gal-" + x.slug + "-2", "gal-" + x.slug + "-3"], [`${x.title} — exterior`, `${x.title} — doors and locking bars`, `${x.title} — interior and floor`])) : ""}
 ${band({ photo: "size-alt-" + x.slug, eyebrow: "Delivery", h: `Getting a ${x.short} onto your block`, p: [x.access, "Send three photographs with your enquiry — one from the street looking in, one down the approach and one of the spot itself — and we will tell you which truck the job needs before anyone quotes."], cta: ["/delivery/", "Delivery and access"], dark: true, alt: true })}
-${sec("", secHead("Other sizes", "If this one is not quite right", null) + rangeGrid(others) + `<div style="margin-top:1.6rem">${typeChips()}</div>`)}
+${sec("", secHead("Other sizes", "If this one is not quite right", null) + rangeGrid(others) + `<div style="margin-top:1.6rem">${typeChips()}</div><div class="reveal" style="margin-top:2rem">${sizeLinks(x, others)}</div>`)}
 ${sec("sec-wash", secHead("Common questions", `About ${x.short} containers`, null) + qaHtml(faqs))}
 ${ask(`Get a price on a ${x.short}`, `Tell us where it is going and what the access is like. ${PROMISE}.`, x.slug)}`;
-    out(x.slug, shell({ t: `${x.title} For Sale & Hire — From ${aud(x.usedFrom)} | ${BRAND}`, d: `${x.title} for sale and hire from ${aud(x.usedFrom)} ex GST. ${x.specs.ext} external, ${x.specs.cube} internal. New, cargo-worthy and as-is grades, delivered Australia-wide.`, c: `/${x.slug}/`, schema: g(crumbsLd(crumbs), faqLd(faqs), productLd(x)) }, body));
+    out(x.slug, shell({ t: `${x.title} For Sale & Hire — From ${aud(x.usedFrom)}`, d: `${x.short} shipping containers for sale and hire from ${aud(x.usedFrom)} ex GST. ${x.specs.cube} inside, ${x.metaHook}. New, cargo-worthy or as-is. Ring ${S.phone}.`, c: `/${x.slug}/`, schema: g(crumbsLd(crumbs), faqLd(faqs), productLd(x)) }, body));
   });
 }
 
