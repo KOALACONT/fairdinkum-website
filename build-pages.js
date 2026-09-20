@@ -46,7 +46,7 @@ function localityPages() {
       crumbs, poolPhoto: ["pool-lochead", "lh", l.slug], eyebrow: `${l.name}, ${l.state}`,
       h1: `Shipping containers ${l.name}`,
       lede: l.line,
-      facts: [["Delivered from", l.depot], ["Typical lead time", l.leadTime], ["Usual truck", l.truck]]
+      facts: [["Delivered from", l.depot], ["What sets the timing", l.leadTime], ["Usual truck", l.truck]]
     })}
 
 ${sec("", `<div class="narrow">
@@ -356,7 +356,7 @@ ${ask("Work out which size you need", `Tell us what is going in it and how much 
 function howItWorks() {
   const crumbs = [HOME_CRUMB, ["How it works", "/how-it-works/"]];
   const faqs = [
-    { q: "How long does the whole process take?", a: "For a standard unit going somewhere reasonably accessible in south-east Queensland, usually a few business days from the phone call to the container being on the ground. Longer for the far north, for made-to-order units like dangerous goods containers, and in the wet season when unsealed access roads close. Tell us the date you actually need it and you will get an honest answer about whether it is achievable." },
+    { q: "How long does the whole process take?", a: "Two things set it: whether the unit you want is already on the ground, and what the access at your end needs. A standard unit going somewhere reasonably accessible in south-east Queensland is the straightforward case. Longer for the far north, for made-to-order units like dangerous goods containers, and in the wet season when unsealed access roads close. Tell us the date you actually need it and you will get an honest answer about whether it is achievable, confirmed when you place the order." },
     { q: "What do you need from me to quote?", a: "Four things: what is going in it, what size you think you need, the delivery address, and what the access looks like. The last one is the one people leave out and the one that most often changes the number. Three photographs of the site — from the street, down the approach and of the spot — usually answer it completely." },
     { q: "When do I pay?", a: "Before the container leaves. That is standard across the industry and it is what lets us hold a specific unit for you. It is also why we will happily photograph the exact container or have you come and inspect it first — you should know exactly what you are buying, and know it first." },
     { q: "What happens on delivery day?", a: "You get a delivery window and a call from the driver, usually when they are on the way. Somebody should be on site who can point at the exact spot and make a decision if something needs adjusting. The driver will not put a container somewhere they judge unsafe, and that judgement is worth trusting." }
