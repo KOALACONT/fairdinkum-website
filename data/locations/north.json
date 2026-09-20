@@ -7,7 +7,7 @@
    "postcode": "4700",
    "flagship": true,
    "depot": "Central Queensland depot stock wherever we can source it, rather than a long haul up from the Lockyer Valley",
-   "leadTime": "Usually five to eight business days, longer if the exact spec has to come north from the south",
+   "leadTime": "Comes down to whether Central Queensland depot stock matches the spec or the unit has to come north. We agree the date with you at the order.",
    "truck": "Tilt-tray for 10ft and 20ft; 40ft on a side loader, or a crane truck where a Rocky back yard has no run-up",
    "metaDesc": "Shipping containers for sale and hire in Rockhampton and Central Queensland. Honest advice on the Fitzroy, black soil, heat and Bowen Basin work.",
    "line": "Rockhampton is a long way north of our Forest Hill yard, and pretending otherwise helps nobody. Most Rocky orders get filled out of Central Queensland stock rather than trucked eleven hundred kilometres, which is quicker and better for you. The trade-off is that what sits closest is not always the exact grade you had in mind, so the conversation is about matching what is available to what the job needs.",
@@ -70,7 +70,7 @@
    "postcode": "4680",
    "flagship": false,
    "depot": "Central Queensland stock where it matches, otherwise loaded in the Lockyer Valley and run north on the Bruce",
-   "leadTime": "Usually five to eight business days, and worth booking further out around a shutdown",
+   "leadTime": "Depends on matching Central Queensland stock and, around a shutdown, on how far out the yards are booked; the day is set when you order.",
    "truck": "Side loader for 40ft into a laydown yard; tilt-tray for 10ft and 20ft; crane truck where a unit has to go over a fence line",
    "metaDesc": "Shipping containers for sale and hire in Gladstone. Industrial site storage, shutdown season, harbour air and honest advice on lead times and access.",
    "line": "Gladstone is an industrial town and it buys containers like one. Most enquiries here are about site storage, laydown yards and secure lockups on a project, not a box in a back yard. The easy part is access, because industrial estates are built for trucks. The hard part is timing, because demand here moves in waves and the wave everyone forgets about is shutdown season.",
@@ -133,7 +133,7 @@
    "postcode": "4740",
    "flagship": false,
    "depot": "North Queensland depot stock where we can match it, otherwise a long run north from the Lockyer Valley",
-   "leadTime": "Around one to two weeks, and longer through the middle of the wet",
+   "leadTime": "Driven by whether a North Queensland unit matches the spec, and by the wet. You get a date once the order is in.",
    "truck": "Tilt-tray for 10ft and 20ft; side loader for 40ft where there is length to work with, which cane country generally has",
    "metaDesc": "Shipping containers for sale and hire in Mackay and the Pioneer Valley. Cane farm access, wet season timing, mining services and honest lead times.",
    "line": "Mackay sits a long way north of us and the honest answer is that we source close to the job wherever the stock allows. What Mackay has in its favour is space. Cane country, mining service yards and Pioneer Valley farms all have room to land a container properly. What it does not have in its favour is the wet, and that is worth planning around.",
@@ -196,7 +196,7 @@
    "postcode": "4810",
    "flagship": true,
    "depot": "North Queensland depot stock as the first option, with Lockyer Valley units brought north when the spec demands it",
-   "leadTime": "Around one to two weeks, depending on where the right unit is starting from",
+   "leadTime": "Where the right unit starts from decides it — North Queensland stock, or a Lockyer Valley unit brought north. We give you the date once the order is placed.",
    "truck": "Tilt-tray for 10ft and 20ft; side loader for 40ft into the industrial estates; crane truck for lifts over an obstruction",
    "metaDesc": "Shipping containers for sale and hire in Townsville. Dry tropics ground, cyclone season, port and defence work, plus honest lead times from the south.",
    "line": "Townsville is a long haul from the Lockyer Valley, so we work from northern stock where the grade and size line up, and say plainly when a unit has to come up from the south. What makes Townsville interesting is the ground rather than the trucking. The dry tropics bake to a surface that holds anything for eight months, then one storm turns it to slop.",
@@ -241,7 +241,7 @@
     },
     {
      "q": "How long does a Townsville delivery take to organise?",
-     "a": "Generally one to two weeks, and the variable is where the right unit starts from. If northern depot stock matches what you need, it is at the shorter end. If the size, grade or spec has to come up from South East Queensland, it is at the longer end, and grouping it with other freight heading north is usually what makes that sensible. Through the wet, add room to the date. We would rather quote you a realistic window than a good-sounding one we have to walk back."
+     "a": "The variable is where the right unit starts from. If northern depot stock matches what you need, it is a short job. If the size, grade or spec has to come up from South East Queensland, it takes longer, and grouping it with other freight heading north is usually what makes that sensible. Through the wet, leave room in your plans. We will give you a date with the order rather than a good-sounding one we have to walk back."
     }
    ],
    "near": [
@@ -259,7 +259,7 @@
    "postcode": "4870",
    "flagship": false,
    "depot": "Far North Queensland depot stock as the first option, with units run north from South East Queensland when needed",
-   "leadTime": "Usually around two weeks, and longer through the wet when access dictates the date",
+   "leadTime": "Far North depot stock sets the start and, through the wet, access at your end sets the rest. We schedule the day with you when you book.",
    "truck": "Tilt-tray for 10ft and 20ft; 40ft on a side loader where there is room; crane truck for tight coastal and hillside blocks",
    "metaDesc": "Shipping containers for sale and hire in Cairns and the Far North. Wet tropics humidity, corrosion, range road access and realistic wet season timing.",
    "line": "Cairns is the furthest north we deliver regularly, and stock comes from a Far North depot wherever the grade allows, because trucking a box two thousand kilometres serves nobody. The bigger issue up here is not distance, it is climate. The wet tropics are hard on steel, hard on what is stored in it, and for months a year they decide when a truck reaches an unsealed block.",
@@ -322,7 +322,7 @@
    "postcode": "4670",
    "flagship": false,
    "depot": "Loaded at the Lockyer Valley yard and run north up the Bruce, or brought across from Wide Bay depot stock",
-   "leadTime": "Usually three to five business days",
+   "leadTime": "A straight run north up the Bruce, so stock and the day's load list set it. The date comes back with your order.",
    "truck": "Tilt-tray for 10ft and 20ft; side loader for 40ft, which suits farm entries and industrial yards here",
    "metaDesc": "Shipping containers for sale and hire in Bundaberg and the Burnett. Cane and small crop storage, sandy coastal soils, river flooding and real access advice.",
    "line": "Bundaberg is the closest of our northern runs and the easiest to service properly. It is a straight trip up the Bruce, so lead times here look more like the south than like Cairns. What makes Bundy its own job is the ground: cane and small crop country inland with real substance to it, and sandy coastal blocks that lie about how much weight they will take.",
@@ -385,7 +385,7 @@
    "postcode": "4655",
    "flagship": false,
    "depot": "Loaded at the Lockyer Valley yard and run north up the Bruce through Gympie and Maryborough",
-   "leadTime": "Usually three to five business days",
+   "leadTime": "Set by what is ready at the Lockyer yard and the Bruce run through Gympie and Maryborough; crane jobs are booked to a day with you.",
    "truck": "Tilt-tray for 10ft and 20ft on a normal block; crane truck where a unit has to go over a fence on a canal or beachside lot",
    "metaDesc": "Shipping containers for sale and hire in Hervey Bay. Advice on tight beachside blocks, canal frontages, sea air, caravan and boat storage and hire options.",
    "line": "Hervey Bay is an easy run for us and a fiddly one to deliver into, and those two things are unrelated. The trip up the Bruce is short and so is the lead time. The difficulty is on the block: tidy, tightly planned lots, canal frontages, and yards that already hold a boat and a caravan. Getting the size right matters more here than anywhere on this list.",
@@ -448,7 +448,7 @@
    "postcode": "4650",
    "flagship": false,
    "depot": "Loaded at the Lockyer Valley yard and run straight up the Bruce Highway",
-   "leadTime": "Usually three to five business days",
+   "leadTime": "Straight up the Bruce from the Lockyer yard, so timing follows stock and the run schedule, with the day confirmed at the order.",
    "truck": "Tilt-tray for 10ft and 20ft; side loader for 40ft into the industrial yards, where there is length to work with",
    "metaDesc": "Shipping containers for sale and hire in Maryborough. Mary River flooding, heritage streets, industrial and workshop storage, plus honest delivery advice.",
    "line": "Maryborough gets treated as an afterthought to Hervey Bay and it should not be. It is a different town: older, built around a working river, with a real industrial and engineering base, and a street pattern laid out for horses rather than for a rigid with a container on the deck. It also floods, properly, and that shapes where things get put.",
@@ -511,7 +511,7 @@
    "postcode": "4570",
    "flagship": false,
    "depot": "Loaded at the Forest Hill yard and run north up the Bruce",
-   "leadTime": "Usually two to four business days",
+   "leadTime": "Loaded at Forest Hill and run north up the Bruce — stock and the truck's list decide it, and we put a day on it when you book.",
    "truck": "Tilt-tray for 10ft and 20ft, which suits the short steep driveways here; side loader for 40ft on rural blocks with room",
    "metaDesc": "Shipping containers for sale and hire in Gympie. Steep driveways, Mary River flooding, forestry and rural blocks, with realistic delivery and placement advice.",
    "line": "Gympie is the closest town on this list to our Forest Hill yard and one of the more interesting to deliver into. The trip is short. The last few hundred metres are frequently not. This is a town built across hills above a river that floods badly and often, and both of those facts shape where a container should go far more than the trucking does.",
@@ -552,7 +552,7 @@
     },
     {
      "q": "Is Gympie close enough to get a container out quickly?",
-     "a": "Yes, and it is one of the shorter runs we do. Our yard is at Forest Hill in the Lockyer Valley and it is a straightforward trip north up the Bruce, so two to four business days is the normal window rather than the optimistic one. You are also close enough that coming to the yard to look at a unit before it is delivered is realistic if you want to, provided you ring first. If you would rather not make the trip, we can send photos of the actual unit on request before delivery."
+     "a": "Yes, and it is one of the shorter runs we do. Our yard is at Forest Hill in the Lockyer Valley and it is a straightforward trip north up the Bruce, so the date turns on what is ready to load and where the truck is going that day rather than on the distance. You are also close enough that coming to the yard to look at a unit before it is delivered is realistic if you want to, provided you ring first. If you would rather not make the trip, we can send photos of the actual unit on request before delivery."
     },
     {
      "q": "Do containers get used on forestry and timber blocks around Gympie?",
