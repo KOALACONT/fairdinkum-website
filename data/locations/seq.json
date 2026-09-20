@@ -7,7 +7,7 @@
    "postcode": "4000",
    "flagship": true,
    "depot": "Port of Brisbane at Fisherman Islands and the Wacol–Richlands industrial corridor",
-   "leadTime": "Usually 2–4 business days from order to on the ground",
+   "leadTime": "Set by what is available at the port and in the Wacol–Richlands corridor, and by the crane if one is needed. You get the day when the order goes in.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck or side loader for 40ft and for anything going over a fence",
    "metaDesc": "Shipping containers for sale and hire in Brisbane. Cargo-worthy and as-is units from the port and Wacol depots, delivered to hill suburbs and industrial yards.",
    "line": "Supply is the easy part here. The port is on the doorstep and the depots are strung along the Ipswich Motorway, so you usually get a real choice of grade and size rather than whatever happens to be standing in a yard. The hard part is the last forty metres, because Brisbane is a city of ridges, gullies and old river flats and very few of them give a truck a straight, level run.",
@@ -44,7 +44,7 @@
     },
     {
      "q": "How quickly can a container be delivered in Brisbane?",
-     "a": "Two to four business days is the normal window from order to on the ground, and it is often quicker for a standard 20ft going to an address with clear access. What stretches it is a crane booking, a unit that has to be moved between depots first, or wet weather on soft ground where waiting two days beats bogging a truck in your yard. If you have a fixed date — a settlement, a site start, a move-out — tell us at the enquiry and we will build the run around it."
+     "a": "A standard 20ft going to an address with clear access is the quickest job on the board, because the stock sits at the port and through the Wacol–Richlands corridor. What stretches it is a crane booking, a unit that has to be moved between depots first, or wet weather on soft ground where waiting beats bogging a truck in your yard. If you have a fixed date — a settlement, a site start, a move-out — tell us at the enquiry and we will build the run around it."
     },
     {
      "q": "Can I see the container before it is delivered to my Brisbane address?",
@@ -70,7 +70,7 @@
    "postcode": "4305",
    "flagship": false,
    "depot": "our own yard in the Lockyer Valley, about forty minutes west up the Warrego",
-   "leadTime": "Often next business day, and usually inside two",
+   "leadTime": "Forty minutes east of our own yard, so it hangs on stock and the day's run. We confirm the day when you place the order.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck for 40ft and for tight older streets",
    "metaDesc": "Shipping containers for sale and hire in Ipswich, delivered short-haul from our Lockyer Valley yard. Real advice on flood levels, clay ground and street access.",
    "line": "Ipswich is one of the few places we can call genuinely short-haul, because the yard is forty minutes west of you up the Warrego rather than the other side of a capital city. That shows up in how fast we can get a truck to you and in what the cartage is worth. What it does not change is the ground and the water, and Ipswich has strong opinions about both.",
@@ -82,7 +82,7 @@
     {
      "h": "Forty minutes down the Warrego",
      "p": [
-      "Most container sellers quoting an Ipswich job are working out of a depot on the far side of Brisbane, which means the truck runs the Ipswich Motorway both ways and you pay for the whole trip in one form or another. Our yard is at Forest Hill, between Gatton and Laidley, and the run down the Warrego to Ipswich is short, flat and free of city traffic. Practically that means we can often get a container to you the next business day, we can be flexible if the weather pushes a booking, and if you want to come and look at the actual unit first the drive is forty minutes rather than a day out. Ring before you come so somebody is there to walk you round the yard. It also means a second trip is not a disaster. If a delivery has to be pulled at the last minute because a driveway has gone soft, or the container needs to come back and be swapped for a different grade, that is a short run for us rather than a full day's cartage across the city — which is exactly the sort of thing that makes a supplier flexible or inflexible when something goes wrong."
+      "Most container sellers quoting an Ipswich job are working out of a depot on the far side of Brisbane, which means the truck runs the Ipswich Motorway both ways and you pay for the whole trip in one form or another. Our yard is at Forest Hill, between Gatton and Laidley, and the run down the Warrego to Ipswich is short, flat and free of city traffic. Practically that means the date is set by our own yard stock rather than by somebody else's depot queue, we can be flexible if the weather pushes a booking, and if you want to come and look at the actual unit first the drive is forty minutes rather than a day out. Ring before you come so somebody is there to walk you round the yard. It also means a second trip is not a disaster. If a delivery has to be pulled at the last minute because a driveway has gone soft, or the container needs to come back and be swapped for a different grade, that is a short run for us rather than a full day's cartage across the city — which is exactly the sort of thing that makes a supplier flexible or inflexible when something goes wrong."
      ]
     },
     {
@@ -107,7 +107,7 @@
     },
     {
      "q": "How quickly can you deliver a container to Ipswich?",
-     "a": "Faster than most, because our yard is at Forest Hill in the Lockyer Valley, roughly forty minutes west of Ipswich on the Warrego rather than on the far side of Brisbane. Next business day happens regularly on a standard 20ft with clear access. What slows it down is a crane booking, wet weather on clay where a day's wait beats a bogged truck, or a unit that needs a lockbox or a vent fitted before it goes. Tell us your date at the enquiry — a settlement, a site start, a removalist already booked — and we will build the run around it rather than telling you afterwards that it did not fit."
+     "a": "Faster than most, because our yard is at Forest Hill in the Lockyer Valley, roughly forty minutes west of Ipswich on the Warrego rather than on the far side of Brisbane. A standard 20ft with clear access is about as straightforward as it gets. What slows it down is a crane booking, wet weather on clay where waiting beats a bogged truck, or a unit that needs a lockbox or a vent fitted before it goes. Tell us your date at the enquiry — a settlement, a site start, a removalist already booked — and we will build the run around it rather than telling you afterwards that it did not fit."
     },
     {
      "q": "Can a truck get into a new estate street at Ripley or Springfield?",
@@ -133,7 +133,7 @@
    "postcode": "4217",
    "flagship": false,
    "depot": "Port of Brisbane and the Yatala–Stapylton industrial corridor",
-   "leadTime": "Usually 2–4 business days; add a day where a crane is booked",
+   "leadTime": "Port and Yatala–Stapylton stock set the base; a booked crane sets the rest. We lock the day in with you at the order.",
    "truck": "Tilt-tray where there is side access; crane truck for canal blocks and anything lifted over a house or fence",
    "metaDesc": "Shipping containers for sale and hire on the Gold Coast. Canal-front craning, body corporate access and sandy-block delivery handled properly. Give us a call.",
    "line": "Getting a container to the Gold Coast is nothing. Getting it onto the block is the whole job. The M1 runs a truck to any postcode from Coomera to Coolangatta without drama, and then you meet a canal-front lot with a two-metre side gate, a body corporate with an opinion, and sand that a truck's rear duals will find the bottom of.",
@@ -196,7 +196,7 @@
    "postcode": "4551",
    "flagship": false,
    "depot": "Port of Brisbane, run north up the Bruce Highway",
-   "leadTime": "Usually 2–5 business days; hinterland drops are scheduled around the range run",
+   "leadTime": "Coastal drops follow the Bruce run out of the port; hinterland drops are scheduled around the range run, and we confirm the day when you order.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck or side loader for 40ft where the approach allows it",
    "metaDesc": "Shipping containers for sale and hire on the Sunshine Coast, coast to Blackall Range. Straight advice on range roads, sand and acreage delivery access.",
    "line": "There are two Sunshine Coasts as far as a truck is concerned, and the boundary is the escarpment. Below it, the flat coastal strip and the growth corridor are straightforward apart from sand. Above it, the range roads to Maleny, Montville and Mapleton decide what size container you can realistically have, and it is better to have that conversation before you order than after.",
@@ -237,7 +237,7 @@
     },
     {
      "q": "How long does delivery take to the Sunshine Coast?",
-     "a": "Two to five business days is normal, with coastal addresses at the shorter end. Hinterland and range deliveries get scheduled around the run up the escarpment, so they can sit a day or two longer, and heavy rain will push a soft or unsealed driveway back rather than risk bogging a truck on your property. If you have a hard date, say so at the enquiry — we would rather build the schedule around it than tell you afterwards that it did not fit."
+     "a": "Coastal addresses are the straightforward ones, because the run comes north up the Bruce from the port. Hinterland and range deliveries get scheduled around the run up the escarpment, so they take longer to place, and heavy rain will push a soft or unsealed driveway back rather than risk bogging a truck on your property. If you have a hard date, say so at the enquiry — we would rather build the schedule around it than tell you afterwards that it did not fit."
     },
     {
      "q": "Can I look at a container before it comes to the Sunshine Coast?",
@@ -259,7 +259,7 @@
    "postcode": "4114",
    "flagship": false,
    "depot": "the Wacol and Yatala industrial corridors either side of Logan",
-   "leadTime": "Usually 2–4 business days from order to on the ground",
+   "leadTime": "Depends on stock in the Wacol and Yatala corridors either side of Logan and how the day's runs fall; the date is agreed when the order is placed.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck for 40ft and for tight estate frontages",
    "metaDesc": "Shipping containers for sale and hire across Logan. Narrow new-estate streets, service pits and wide industrial yards — access scoped before the truck rolls.",
    "line": "Logan is not one place, it is about seventy of them stitched together, and the delivery ranges from the easiest job of the week to the tightest. A hardstand yard at Crestmead takes ten minutes. A new-estate frontage at Yarrabilba with cars both sides of the road, a service pit on the kerb line and a two-metre gate is a different afternoon entirely.",
@@ -322,7 +322,7 @@
    "postcode": "4280",
    "flagship": false,
    "depot": "the Yatala corridor and our own Lockyer Valley yard",
-   "leadTime": "Usually 2–4 business days; wet weather moves unsealed-driveway drops",
+   "leadTime": "Acreage timing turns on the state of the unsealed driveways and what is ready in the Yatala corridor or our own yard. You get the date with the order.",
    "truck": "Tilt-tray for most acreage drops; crane truck where the gate or the yard is tight",
    "metaDesc": "Shipping containers for sale and hire around Jimboomba. Acreage delivery done properly: cattle grids, unsealed driveways and horse properties allowed for.",
    "line": "Jimboomba is acreage country, and acreage is the friendliest delivery there is right up until it is not. There is space, there is no body corporate and nobody is parking a Corolla where the truck needs to stand. What there is instead is four hundred metres of unsealed driveway, a grid of unknown load rating, and a gate somebody set out for a tractor rather than a rigid truck.",
@@ -385,7 +385,7 @@
    "postcode": "4285",
    "flagship": false,
    "depot": "the Yatala corridor, run out along the Mount Lindesay Highway",
-   "leadTime": "Usually 2–4 business days, weather permitting on the back roads",
+   "leadTime": "Follows the run out along the Mount Lindesay Highway and the condition of the back roads; we name the day when you book.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck where the approach or the yard is tight",
    "metaDesc": "Shipping containers for sale and hire in Beaudesert and the Scenic Rim. Creek crossings, unsealed approaches and cattle country access planned in advance.",
    "line": "Beaudesert is working country and the containers that go out there work for a living too. The town itself is an easy delivery. It is the country behind it — Kooralbyn, Rathdowney, Christmas Creek, Laravale, the roads climbing toward the border ranges — where the creek crossings, the unsealed approaches and the weather do the deciding, and where a phone call ahead of the truck saves a wasted day.",
@@ -448,7 +448,7 @@
    "postcode": "4163",
    "flagship": false,
    "depot": "Port of Brisbane, a short run around the bay",
-   "leadTime": "Usually 2–4 business days on the mainland; island deliveries are arranged case by case",
+   "leadTime": "A short run around the bay from the port, so stock and the truck list decide it. Island drops are arranged case by case.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck for 40ft, tight bayside blocks and over-fence lifts",
    "metaDesc": "Shipping containers for sale and hire across the Redlands. Sandy and boggy bayside ground, plus barge access to the bay islands arranged with your quote.",
    "line": "The Redlands sit closer to the port than almost anywhere we deliver, so the haul is short and the container is cheap to get to the shire. Everything interesting happens after that: ground that is sand on one street and boggy wetland margin on the next, small bayside blocks with no side access, and a set of islands where the last leg is a barge rather than a road.",
