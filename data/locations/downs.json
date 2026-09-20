@@ -7,7 +7,7 @@
    "postcode": "4350",
    "flagship": true,
    "depot": "Loaded at our Lockyer Valley yard, at the bottom of the range",
-   "leadTime": "Commonly next business day, and rarely more than three",
+   "leadTime": "Set by what is on the ground at the Lockyer yard and when the next run goes up the range — we give you the date on the order.",
    "truck": "Tilt-tray handles 10ft and 20ft; a 40ft goes on a side loader, or a crane truck where the block is tight",
    "metaDesc": "Shipping containers for sale and hire in Toowoomba. Hauled up the range from our Lockyer Valley yard, with real advice on black soil, streets and frost.",
    "line": "Toowoomba sits about 700 metres above the coastal plain, so every container that lands here has been hauled up a range to get there. That part is routine for us, because we load at the bottom of it. The harder half is the ground: black soil that greases up in the wet and opens into cracks in the dry, and old streets with big trees leaning over them.",
@@ -48,7 +48,7 @@
     },
     {
      "q": "How long does it take to get a container to Toowoomba?",
-     "a": "Usually the next business day, and rarely more than three. Our yard is at Forest Hill in the Lockyer Valley, roughly forty-five minutes down the range from the Toowoomba CBD, so this is a short run for us rather than a country freight job. The timing that matters more is at your end: confirming where the unit is going, what the approach looks like and whether the ground is dry. Ring in the morning with that sorted and there is a fair chance it is on the ground the following day."
+     "a": "Less time than people expect, because our yard is at Forest Hill in the Lockyer Valley, roughly forty-five minutes down the range from the Toowoomba CBD. That makes it a short run for us rather than a country freight job, so the two things that actually set the date are whether the unit you want is on the ground and when the next truck is heading up the range. The rest is at your end: confirming where the unit is going, what the approach looks like and whether the ground is dry. Ring with that sorted and we will give you a date on the order."
     },
     {
      "q": "Can I inspect a container before it is trucked up to Toowoomba?",
@@ -70,7 +70,7 @@
    "postcode": "4343",
    "flagship": true,
    "depot": "Our own hardstand at Forest Hill, ten minutes down the road",
-   "leadTime": "Frequently the same day when the unit is ready and the truck is free, otherwise next morning",
+   "leadTime": "Ten minutes from the hardstand, so it comes down to whether your unit is ready and the tilt-tray is free. We tell you the day when you order.",
    "truck": "Tilt-tray for 10ft and 20ft, side loader for 40ft, all of it dispatched from the yard up the road",
    "metaDesc": "Shipping containers for sale and hire in Gatton. Our yard is ten minutes away at Forest Hill, so you can come and walk the rows before your unit is loaded.",
    "line": "Gatton is about as close as this job gets. Our yard sits at Forest Hill, ten minutes east on the Forest Hill Fernvale Road, which means the haul is short, the freight component is small, and you can drive out, walk the rows and put your hand on the actual container before anyone loads it. The complication here is not distance. It is irrigated ground.",
@@ -107,7 +107,7 @@
     },
     {
      "q": "How fast can you get a container onto a farm near Gatton?",
-     "a": "Often the same day if the unit is on the ground, the truck is free and the access is sorted, and the next morning if it is not. Ten minutes of driving does not take much organising. What slows a Gatton delivery down is almost never the distance. It is finding out on arrival that the paddock had water on it this week, or that the gate is narrower than the truck. Answer those two on the phone and this is about as quick as container delivery gets anywhere."
+     "a": "Quickly, because ten minutes of driving does not take much organising. What decides it is whether the unit is on the ground, whether the truck is free and whether the access is sorted — get those three lined up and we will give you a date when you place the order. What slows a Gatton delivery down is almost never the distance. It is finding out on arrival that the paddock had water on it this week, or that the gate is narrower than the truck. Answer those two on the phone and this is about as quick as container delivery gets anywhere."
     },
     {
      "q": "Will a container sit safely on cultivated ground?",
@@ -133,7 +133,7 @@
    "postcode": "4341",
    "flagship": false,
    "depot": "Loaded at our Forest Hill yard, a few minutes up the road",
-   "leadTime": "Usually next business day, and often the same day when the yard has the unit ready",
+   "leadTime": "Depends on yard stock at Forest Hill and where the truck is that day; the date gets pinned down when you place the order.",
    "truck": "Tilt-tray for 10ft and 20ft; a 40ft goes out on a side loader, because a lot of entries here will not take a semi turning",
    "metaDesc": "Shipping containers for sale and hire in Laidley. Short haul from our Forest Hill yard, with honest advice on narrow blocks, creek crossings and wet ground.",
    "line": "Laidley is close enough to the yard that our trucks pass through it on the way to somewhere else. That helps. What does not help is the town itself, which was laid out long before anybody was reversing a twelve-metre tray down a driveway, and the creek, which has been through the middle of it more than once.",
@@ -196,7 +196,7 @@
    "postcode": "4312",
    "flagship": false,
    "depot": "Out of the Lockyer yard and up the Brisbane Valley Highway",
-   "leadTime": "Usually two to three business days",
+   "leadTime": "Driven by the run up the Brisbane Valley Highway and what is ready to load, and you get a date when the order goes in.",
    "truck": "Tilt-tray for 10ft and 20ft; a 40ft on a side loader where the entry allows it, which on ridge blocks it often does not",
    "metaDesc": "Shipping containers for sale and hire in Esk and the Brisbane Valley. Delivered from our Lockyer yard, with real detail on ridge driveways, grids and gravel.",
    "line": "Esk is about forty-five minutes north of the yard, straight up the Brisbane Valley Highway, and it is genuinely different country to the Lockyer flats we load on. Ridges, timber, cattle and lifestyle blocks. The container is the easy part. Getting the truck to the right spot on the block is where the thinking goes.",
@@ -259,7 +259,7 @@
    "postcode": "4306",
    "flagship": false,
    "depot": "Our Forest Hill yard, at the southern end of the Forest Hill Fernvale Road",
-   "leadTime": "Usually one to two business days; it is a half-hour run each way",
+   "leadTime": "A half-hour run each way from Forest Hill, so stock and the day's truck list decide it, and we tell you which day when you ring.",
    "truck": "Tilt-tray for 10ft and 20ft; side loader for 40ft, which suits the newer acreage estates where there is room to work",
    "metaDesc": "Shipping containers for sale and hire in Fernvale. Our yard sits on the Forest Hill Fernvale Road, so it is a short run to your acreage block or estate.",
    "line": "There is a road called the Forest Hill Fernvale Road and our yard sits on it. That is the whole story of how close this is: about twenty-five minutes, one road, no range crossing and no city traffic. What makes Fernvale interesting is not the haul. It is that half the blocks here are five years old and the other half are a hundred.",
@@ -296,7 +296,7 @@
     },
     {
      "q": "How quickly can you get a container to Fernvale?",
-     "a": "Usually one to two business days. The yard is at Forest Hill on the Forest Hill Fernvale Road, which is named for the two ends of it, and the run is about twenty-five minutes with no range crossing and no city traffic. That short haul means we can be flexible about timing, including an early slot before the highway fills with commuter traffic, which is generally the easiest time of day to be putting a truck across a driveway on that side of town."
+     "a": "The yard is at Forest Hill on the Forest Hill Fernvale Road, which is named for the two ends of it, and the run is about twenty-five minutes with no range crossing and no city traffic, so what sets the date is stock and the day's truck list rather than the distance. That short haul means we can be flexible about timing, including an early slot before the highway fills with commuter traffic, which is generally the easiest time of day to be putting a truck across a driveway on that side of town."
     },
     {
      "q": "Can we get a container onto the block before the house is built?",
@@ -322,7 +322,7 @@
    "postcode": "4370",
    "flagship": false,
    "depot": "Loaded in the Lockyer Valley and run south, either over the Gap or down the New England",
-   "leadTime": "Usually three to five business days",
+   "leadTime": "Follows the south run, over the Gap or down the New England, and what is loaded that morning. We settle the date with you at the quote.",
    "truck": "Tilt-tray for 10ft and 20ft; 40ft on a side loader, which the wide streets and long rural entries here suit",
    "metaDesc": "Shipping containers for sale and hire in Warwick and the Southern Downs. Real advice on the Gap, black soil, granite country and delivering through a frost.",
    "line": "Two roads get a container to Warwick and neither of them is dull. The Cunningham Highway climbs Cunninghams Gap through the Main Range, narrow, steep and occasionally shut. The alternative is up the Toowoomba range and down the New England, longer but steadier. Once the truck is on the Downs flats around Warwick, the delivery itself is usually the easiest part of the day.",
@@ -385,7 +385,7 @@
    "postcode": "4405",
    "flagship": false,
    "depot": "Loaded in the Lockyer Valley and run west on the Warrego",
-   "leadTime": "Usually three to five business days, and wet weather on unsealed roads moves it",
+   "leadTime": "Governed by the western run on the Warrego and the state of the unsealed roads — we give you a firm day when you book.",
    "truck": "Tilt-tray for 10ft and 20ft; 40ft on a side loader, and farm entries out here are generally built wide enough for it",
    "metaDesc": "Shipping containers for sale and hire in Dalby. Straight talk on black soil roads, harvest traffic, feedlots and laydown yards across the Western Downs.",
    "line": "Everything about a delivery out here is decided by two things: the length of the run west, and whether it has rained. The road out is easy, sealed, straight, fast and busy with headers and road trains through harvest. The last few kilometres on black soil are the ones that matter, and they are the ones we ask about first.",
@@ -448,7 +448,7 @@
    "postcode": "4413",
    "flagship": false,
    "depot": "Loaded at the Lockyer yard for the long run west on the Warrego",
-   "leadTime": "Usually four to seven business days, and we group loads heading that way",
+   "leadTime": "A long run west on the Warrego, so we work to loads heading that way and name the day when the order is placed.",
    "truck": "Tilt-tray for 10ft and 20ft; 40ft on a side loader, and on a long western run it often makes sense to send two units on the one trip",
    "metaDesc": "Shipping containers for sale and hire in Chinchilla. A planned run west on the Warrego, with real advice on black soil, sandy melon country and work sites.",
    "line": "Chinchilla is a long day from the yard. Up over the range or around on the bypass, then west through the grain country with the highway running dead straight in front of you. That distance is the honest constraint here. It is also the reason we plan these deliveries properly rather than treating them as a run to the next town over.",
@@ -460,7 +460,7 @@
     {
      "h": "Why we group loads heading west",
      "p": [
-      "Chinchilla is far enough from the yard that a single container on a truck is an inefficient way to move it, and the efficiency or otherwise of that trip ends up in your quote. So we plan western runs rather than improvising them. If there is another job going out the same week, your unit rides with it. If you want two units, they usually go together, and that is a better outcome than two separate trips a fortnight apart. Ordering with a week or so of notice, rather than needing it on Thursday, is the single thing that makes the most difference to what a Chinchilla delivery costs and how quickly it happens.",
+      "Chinchilla is far enough from the yard that a single container on a truck is an inefficient way to move it, and the efficiency or otherwise of that trip ends up in your quote. So we plan western runs rather than improvising them. If there is another job heading the same way, your unit rides with it. If you want two units, they usually go together, and that is a better outcome than two separate trips. Ordering with a week or so of notice, rather than needing it on Thursday, is the single thing that makes the most difference to what a Chinchilla delivery costs and how quickly it happens.",
       "Freight to the Western Downs is quoted with the container rather than published, because it genuinely depends: how far past town you are, whether the last stretch is sealed, what has to be sent to do the job, and whether we can pair the trip with something else going the same way. One phone call gets you an exact number for your address rather than a range that turns into a different number later. Container prices we are happy to talk about openly. The truck is the part that changes with every single job, and pretending otherwise would only mean quoting you twice."
      ]
     },
