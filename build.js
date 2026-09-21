@@ -92,9 +92,19 @@ const PROMISE_DETAIL = S.responseDetail;
    The danger with a published review count has never been the first day. It is
    day four hundred, when the figure is wrong, nobody remembers where it came
    from, and an unevidenced claim is sitting on a money page. So the freshness
-   is enforced rather than trusted: `asOf` must be within `maxAgeDays` or THE
-   BUILD FAILS. Refresh the numbers and the date together, or set show:false.
-   That is what makes this safe to leave switched on. */
+   is checked on every build: if `asOf` is older than `maxAgeDays` the build
+   WARNS loudly but still succeeds. Refresh the numbers and the date together,
+   or set show:false. 21/09/2026: this used to throw. A build that fails only
+   because a date passed breaks unattended CI runs while the repo still looks
+   healthy, so it now matches every other guard in this group — warn, never
+   throw.
+
+   The rating is deliberately NOT emitted as schema.org aggregateRating.
+   Google's review-snippet documentation rules out self-serving reviews: a
+   LocalBusiness/Organization rating about itself is ineligible for star
+   treatment and is against the policy. The figure stays visible to human
+   readers, where it is useful and true, and stays out of the structured data.
+   21/09/2026. */
 const SHOW_REVIEWS = !!(S.reviews && S.reviews.show === true);
 const REV = S.reviews || {};
 if (SHOW_REVIEWS) {
@@ -104,8 +114,8 @@ if (SHOW_REVIEWS) {
   const ageDays = Math.floor((Date.now() - Date.parse(REV.asOf + "T00:00:00Z")) / 86400000);
   const maxAge = REV.maxAgeDays || 120;
   if (ageDays > maxAge) {
-    throw new Error(
-      `Review figures are ${ageDays} days old (limit ${maxAge}). ` +
+    console.warn(
+      `! Review figures are ${ageDays} days old (limit ${maxAge}). ` +
       `Re-read the rating and count off the Google Business Profile, update ` +
       `rating/count/asOf in data/site.json together, or set reviews.show to false. ` +
       `A stale review count is an unevidenced claim.`
@@ -298,9 +308,11 @@ const biz = () => {
     ...(Array.isArray(S.hoursSchema) && S.hoursSchema.length ? { openingHours: S.hoursSchema } : {}),
     areaServed: [{ "@type": "Country", name: "Australia" }].concat(LOCS.map((l) => ({ "@type": "City", name: l.name })))
   };
-  if (SHOW_REVIEWS && S.reviews.rating && S.reviews.count) {
-    b.aggregateRating = { "@type": "AggregateRating", ratingValue: S.reviews.rating, reviewCount: S.reviews.count };
-  }
+  /* No aggregateRating here. A business rating itself is a self-serving
+     review: Google's review-snippet policy makes LocalBusiness/Organization
+     pages ineligible for star treatment when the entity controls the reviews
+     about itself. The rating stays on the page for readers, not in the
+     structured data. 21/09/2026. */
   return b;
 };
 const crumbsLd = (c) => ({ "@type": "BreadcrumbList", itemListElement: c.map((x, i) => ({ "@type": "ListItem", position: i + 1, name: x[0], item: `${D}${x[1]}` })) });
