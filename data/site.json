@@ -39,6 +39,6 @@
     "asOf": "2026-08-13",
     "source": "Google Business Profile",
     "maxAgeDays": 120,
-    "note": "Read from the verified Google Business Profile. build.js FAILS THE BUILD if asOf is older than maxAgeDays — that is what stops this going stale and becoming a fabricated claim. Refresh the numbers and the date together, or set show to false."
+    "note": "Read from the verified Google Business Profile. Shown as visible, dated text only (masthead and home hero, with the asOf date) — never as AggregateRating schema. build.js WARNS (it does not fail) once asOf is older than maxAgeDays. Refresh rating, count and asOf together from the profile, or set show to false."
   }
 }
