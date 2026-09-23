@@ -7,7 +7,11 @@ const { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, HOURS, 
   PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, esc, aud, auDate, para, paras, out, IMG, IMGP, havePhoto,
   crumbsLd, faqLd, g, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat,
   rangeGrid, gallery, rank, pick, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS,
-  PROCESS_LINES, FREIGHT_LINES, ASK_LINES, ask, promiseStrip } = F;
+  PROCESS_LINES, FREIGHT_LINES, ASK_LINES, ask, promiseStrip, fitTitle, guideLinks, locGuides } = F;
+
+/* Search-result title and description per guide, keyed by slug. Kept out of
+   posts.js so the article bodies are not touched to change a snippet. */
+const POST_SEO = require("./data/post-seo.json");
 
 const HOME_CRUMB = ["Home", "/"];
 
@@ -66,7 +70,7 @@ ${l.sections.map((s, i) => band({
 
 ${sec("", `<div class="narrow">
   <div class="reveal"><h2>What delivery to ${esc(l.name)} costs</h2><p>${esc(freightLine)}</p><p>${esc(processLine)}</p></div>
-  <div class="reveal" style="margin-top:2.4rem"><h2>${esc(nearHead)}</h2><p>We also deliver to ${l.near.map((n) => esc(n)).join(", ")} and the surrounding district. If your town is not on the list, ring — it almost certainly still works.</p><div class="chips" style="margin-top:1rem"><a href="/delivery-areas/">All delivery areas</a><a href="/delivery/">How delivery works</a></div></div>
+  <div class="reveal" style="margin-top:2.4rem"><h2>${esc(nearHead)}</h2><p>We also deliver to ${l.near.map((n) => esc(n)).join(", ")} and the surrounding district. If your town is not on the list, ring — it almost certainly still works.</p><div class="chips" style="margin-top:1rem"><a href="/delivery-areas/">All delivery areas</a><a href="/delivery/">How delivery works</a></div>${guideLinks(locGuides(l), `Worth reading before you order for ${l.name}:`)}</div>
 </div>`)}
 
 ${sec("sec-wash", secHead("Common questions", `Buying a container in ${l.name}`, null) + qaHtml(l.faqs))}
@@ -74,7 +78,7 @@ ${sec("sec-wash", secHead("Common questions", `Buying a container in ${l.name}`,
 ${ask(askLine, `We deliver to ${l.name} and the surrounding district. Tell us what is going in it and what the access is like, and you will get a price with the cartage worked out. ${PROMISE}.`, l.slug)}`;
 
     out(l.slug, shell({
-      t: `Shipping Containers ${l.name} — For Sale & Hire | ${BRAND}`,
+      t: fitTitle(`Shipping Containers ${l.name} — For Sale & Hire`),
       d: l.metaDesc, c: `/${l.slug}/`,
       schema: g(crumbsLd(crumbs), faqLd(l.faqs), svc)
     }, body));
@@ -102,7 +106,7 @@ ${order.filter((st) => byState[st]).map((st, i) => sec(i % 2 ? "sec-wash" : "", 
 ${band({ photo: "yard-forest-hill", eyebrow: "The yard", h: "Not on the list? Ring anyway.", p: [`We deliver a long way past the towns above. The list is limited to places we can say something true and specific about rather than places we will go — those are two different lists, and padding the first one with the second is how container websites end up full of pages that say nothing.`, `If your town is not here, ring ${S.phone} and we will tell you honestly what the haul looks like, which depot the unit would come from and how long it would take.`], cta: ["/contact/", "Get in touch"], dark: true, alt: true })}
 ${sec("", secHead("Common questions", "About delivery areas", null) + qaHtml(faqs))}
 ${ask("Tell us where it is going", `Give us the suburb or postcode and we will tell you which depot it comes from and what the delivery looks like. ${PROMISE}.`, "areas")}`;
-  out("delivery-areas", shell({ t: `Where We Deliver — Shipping Container Delivery Australia-Wide | ${BRAND}`, d: `Shipping container delivery across Queensland, New South Wales, Victoria and Australia-wide from our ${ADDR.suburb} yard and depots around the country. ${LOCS.length} delivery areas covered in detail.`, c: "/delivery-areas/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("delivery-areas", shell({ t: fitTitle("Shipping Container Delivery Areas Australia-Wide"), d: `Shipping container delivery across Queensland, NSW, Victoria and Australia-wide from our ${ADDR.suburb} yard and depots. ${LOCS.length} areas covered in detail.`, c: "/delivery-areas/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ============================== DELIVERY ================================ */
@@ -148,7 +152,7 @@ ${sec("", `<div class="narrow">${secHead("Cost", "Why there is no delivery price
 </div>`)}
 ${sec("sec-wash", secHead("Common questions", "About delivery and access", null) + qaHtml(faqs))}
 ${ask("Send us the site photos", `Three photographs and an address is usually all it takes. We will tell you which truck the job needs and what it costs delivered. ${PROMISE}.`, "delivery")}`;
-  out("delivery", shell({ t: `Shipping Container Delivery & Site Access | ${BRAND}`, d: "What a container delivery actually needs: run-in length, width at the pinch point, headroom and ground bearing. Tilt-tray, side loader and crane truck explained, and the three photos that answer nearly every access question.", c: "/delivery/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("delivery", shell({ t: fitTitle("Shipping Container Delivery & Site Access"), d: "What a container delivery needs: run-in length, pinch-point width, headroom and ground bearing. Tilt-tray, side loader and crane truck explained.", c: "/delivery/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ================================ HIRE ================================== */
@@ -195,7 +199,7 @@ ${band({ photo: "hire-site", eyebrow: "How it works", h: "Four steps and a phone
 ${sec("sec-wash", secHead("Sizes", "Available for hire", null) + rangeGrid(P.sizes))}
 ${sec("", secHead("Common questions", "About container hire", null) + qaHtml(faqs))}
 ${ask("Get a hire price", `Tell us the size, roughly how long you need it and where it is going. ${PROMISE}.`, "hire")}`;
-  out("shipping-container-hire", shell({ t: `Shipping Container Hire — From ${aud(P.sizes.find((x) => x.short === "20ft").hire)}/week | ${BRAND}`, d: `Shipping container hire in 10ft, 20ft and 40ft from ${aud(P.sizes.find((x) => x.short === "20ft").hire)} a week ex GST. Cargo-worthy units checked wind and watertight, delivered across Queensland, NSW and Australia-wide.`, c: "/shipping-container-hire/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("shipping-container-hire", shell({ t: fitTitle(`Shipping Container Hire — From ${aud(P.sizes.find((x) => x.short === "20ft").hire)}/week`), d: `Shipping container hire in 10ft, 20ft and 40ft from ${aud(P.sizes.find((x) => x.short === "20ft").hire)} a week ex GST. Cargo-worthy units checked wind and watertight, delivered Australia-wide.`, c: "/shipping-container-hire/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ================================ SALES ================================= */
@@ -224,7 +228,7 @@ ${band({ photo: "inspect-floor", eyebrow: "Inspection", h: "What to look at, in 
 ${sec("", secHead("The range", "What we sell", null) + rangeGrid(P.sizes) + `<div style="margin-top:1.6rem">${typeChips()}</div><p class="fineprint" style="margin-top:1.6rem">${esc(P.disclaimer)}</p>`)}
 ${sec("sec-wash", secHead("Common questions", "About buying a container", null) + qaHtml(faqs))}
 ${ask("Get a price", `Tell us what the container is for, where it is going and what the access is like. We will tell you which grade the job actually needs. ${PROMISE}.`, "sales")}`;
-  out("container-sales", shell({ t: `Buying A Shipping Container — Grades, Sizes & Prices | ${BRAND}`, d: "How to buy a shipping container without buying the wrong one. New, cargo-worthy and as-is grades explained, what to inspect and in what order, and guide prices for 10ft, 20ft and 40ft units.", c: "/container-sales/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("container-sales", shell({ t: fitTitle("Buying A Shipping Container — Grades, Sizes & Prices"), d: "How to buy a shipping container without buying the wrong one: the grades explained, what to inspect, and guide prices for 10ft, 20ft and 40ft units.", c: "/container-sales/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* =============================== STORAGE ================================ */
@@ -239,7 +243,7 @@ function storage() {
   const body = `${pageHead({
     crumbs, photo: "head-storage", eyebrow: "Storage",
     h1: "Container storage",
-    lede: "A shipping container is the cheapest weatherproof, lockable, relocatable storage there is. Getting it right comes down to three things: grade, siting and air."
+    lede: "A shipping container is the cheapest lockable, relocatable storage there is, and in cargo-worthy grade or better it keeps the weather out. Getting it right comes down to three things: grade, siting and air."
   })}
 ${sec("", `<div class="narrow">
   <div class="reveal"><h2>The three things that decide whether container storage works</h2></div>
@@ -254,7 +258,7 @@ ${band({ photo: "storage-site", eyebrow: "Security", h: "Lock boxes, and where t
 ${sec("sec-wash", secHead("Sizes", "How much storage you actually need", null) + rangeGrid(P.sizes))}
 ${sec("", secHead("Common questions", "About container storage", null) + qaHtml(faqs))}
 ${ask("Work out what you need", `Tell us what is going in it and where it is going. ${PROMISE}.`, "storage")}`;
-  out("container-storage", shell({ t: `Shipping Container Storage — Buy Or Hire | ${BRAND}`, d: "Using a shipping container for storage: which grade keeps the weather out, how to site it, and how to deal with condensation. Storage containers for sale and hire, delivered Australia-wide.", c: "/container-storage/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("container-storage", shell({ t: fitTitle("Shipping Container Storage — Buy Or Hire"), d: "Shipping container storage: which grade keeps the weather out, how to site it and how to deal with condensation. Storage containers for sale and hire.", c: "/container-storage/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ================================ GRADES ================================ */
@@ -280,7 +284,7 @@ ${band({ photo: "grades-floor", eyebrow: "In practice", h: "What actually separa
 ${sec("sec-wash", secHead("By size", "Guide prices by grade and size", "Cargo-worthy used and new single-trip starting figures. As-is pricing moves too much with the specific fault to publish usefully — ring and ask what is on the ground.") + rangeGrid(P.sizes) + `<p class="fineprint" style="margin-top:1.6rem">${esc(P.disclaimer)}</p>`)}
 ${sec("", secHead("Common questions", "About container grades", null) + qaHtml(faqs))}
 ${ask("Not sure which grade you need?", `Tell us what is going in the container and where it will sit. That is enough for us to tell you which grade the job needs — including when the cheaper one will do. ${PROMISE}.`, "grades")}`;
-  out("container-grades", shell({ t: `Shipping Container Grades — New, Cargo-Worthy & As-Is Explained | ${BRAND}`, d: "New single-trip, cargo-worthy and as-is container grades explained plainly — what each one means, what it is good for, which are sold watertight and why grade moves price more than size does.", c: "/container-grades/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("container-grades", shell({ t: fitTitle("Shipping Container Grades — New, Cargo-Worthy & As-Is"), d: "New single-trip, cargo-worthy and as-is container grades explained — what each means, which are sold watertight, and why grade moves price most.", c: "/container-grades/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ============================== INSPECTION ============================== */
@@ -311,7 +315,7 @@ ${sec("", `<div class="narrow">
 ${band({ photo: "inspect-yard", eyebrow: "At our yard", h: "Come and do it yourself", p: [`Our containers sit on hardstand at ${ADDR_LINE}. Ring first so we know you are coming and can have the units you are interested in accessible, then take as long as you like over them.`, "If you cannot get out here, ask and we will photograph the specific unit — floor, doors, roof and any faults — and send it through before delivery. On as-is stock we will tell you exactly what is wrong with it, because finding out on delivery day helps nobody."], cta: ["/contact/", "Arrange an inspection"], dark: true, alt: true })}
 ${sec("sec-wash", secHead("Common questions", "About inspecting containers", null) + qaHtml(faqs))}
 ${ask("Ask about a specific unit", `Tell us the size and grade you are after and we will tell you what is standing on the ground this week. ${PROMISE}.`, "inspection")}`;
-  out("container-inspection", shell({ t: `How To Inspect A Used Shipping Container — Checklist | ${BRAND}`, d: "A used container inspection checklist in the order that matters: floor, doors and seals, daylight test, roof, frame and castings, CSC plate. What matters structurally and what is only cosmetic.", c: "/container-inspection/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("container-inspection", shell({ t: fitTitle("How To Inspect A Used Shipping Container — Checklist"), d: "A used container inspection checklist in the order that matters: floor, doors and seals, daylight test, roof, frame and castings, then the CSC plate.", c: "/container-inspection/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ============================== DIMENSIONS ============================== */
@@ -349,7 +353,7 @@ ${sec("", `<div class="reveal">
 ${sec("sec-wash", secHead("By size", "The full range", null) + rangeGrid(P.sizes) + `<div style="margin-top:1.6rem">${typeChips()}</div>`)}
 ${sec("", secHead("Common questions", "About container dimensions", null) + qaHtml(faqs))}
 ${ask("Work out which size you need", `Tell us what is going in it and how much room you have. ${PROMISE}.`, "dims")}`;
-  out("dimensions", shell({ t: `Shipping Container Dimensions & Weights — 10ft, 20ft, 40ft | ${BRAND}`, d: "Full shipping container dimensions: external and internal length, width and height, door openings, internal volume and tare weight for 10ft, 20ft, 40ft and high cube containers.", c: "/dimensions/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("dimensions", shell({ t: fitTitle("Shipping Container Dimensions & Weights — 10ft, 20ft, 40ft"), d: "Shipping container dimensions: external and internal sizes, door openings, volume and tare weight for 10ft, 20ft, 40ft and high cube containers.", c: "/dimensions/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ============================= HOW IT WORKS ============================= */
@@ -375,7 +379,7 @@ ${sec("", `<div class="narrow"><ol class="steps">
 ${band({ photo: "process-yard", eyebrow: "What we need", h: "The three photographs that save everybody a bad day", p: ["One from the street looking in. One standing at the entry looking down the approach. One of the spot the container has to end up on, with something in frame for scale.", "That is genuinely most of what a good quote needs, and it is the difference between a delivery that takes twenty minutes and one that does not happen. Send them with your enquiry and we can usually tell you the truck and the timing straight back."], cta: ["/delivery/", "Delivery and access"], dark: true, alt: true })}
 ${sec("sec-wash", secHead("Common questions", "About the process", null) + qaHtml(faqs))}
 ${ask("Start with a phone call", `Or fill this in — either works, and both reach a person. ${PROMISE}.`, "how")}`;
-  out("how-it-works", shell({ t: `How Ordering A Shipping Container Works | ${BRAND}`, d: "The four steps from first phone call to container on the ground: what we need to quote, how to see the actual unit before you buy, when payment happens and what to expect on delivery day.", c: "/how-it-works/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("how-it-works", shell({ t: fitTitle("How Ordering A Shipping Container Works"), d: "From first call to container on the ground: what we need to quote, seeing the actual unit before you buy, when payment happens and delivery day.", c: "/how-it-works/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ================================ ABOUT ================================= */
@@ -405,7 +409,7 @@ ${sec("", `<div class="narrow">
 ${band({ photo: "yard-wide", eyebrow: "The yard", h: `${ADDR.suburb}, in the Lockyer Valley`, p: [`${ADDR_LINE}. Off the Warrego between Gatton and Laidley, about an hour west of Brisbane and twenty minutes east of Toowoomba's range.`, HOURS ? `Open ${HOURS}. Ring before you come out so we can have the units you want to see accessible.` : "Ring before you come out so we can have the units you want to see accessible."], cta: ["/contact/", "Get in touch"], dark: true, alt: true })}
 ${sec("sec-wash", secHead("Common questions", `About ${SHORT}`, null) + qaHtml(faqs))}
 ${ask("Talk to us", `Tell us what you are trying to do and we will tell you what it needs. ${PROMISE}.`, "about")}`;
-  out("about", shell({ t: `About ${BRAND} — Shipping Container Sales & Hire`, d: `${BRAND} sells and hires shipping containers Australia-wide from a yard at ${ADDR.suburb} in the Lockyer Valley. Come and look at the container before you buy it.`, c: "/about/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+  out("about", shell({ t: fitTitle("About Us — Shipping Container Sales & Hire"), d: `${BRAND} sells and hires shipping containers Australia-wide from a yard at ${ADDR.suburb} in the Lockyer Valley. Come and look first.`, c: "/about/", schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
 }
 
 /* ================================= FAQS ================================= */
@@ -449,7 +453,7 @@ function faqsPage() {
   const body = `${pageHead({ crumbs, photo: "head-faqs", eyebrow: "FAQs", h1: "Frequently asked questions", lede: "The questions people actually ring and ask, answered the way we would answer them on the phone." })}
 ${groups.map((gr, i) => sec(i % 2 ? "sec-wash" : "", secHead(null, gr.h, null) + qaHtml(gr.faqs))).join("\n")}
 ${ask("Still got a question?", `Ring us or send it through — either reaches a person. ${PROMISE}.`, "faqs")}`;
-  out("faqs", shell({ t: `Shipping Container FAQs | ${BRAND}`, d: "Frequently asked questions about buying and hiring shipping containers — sizes, grades, watertightness, delivery access, ground preparation, council approval and payment.", c: "/faqs/", schema: g(crumbsLd(crumbs), faqLd(all)) }, body));
+  out("faqs", shell({ t: fitTitle("Shipping Container FAQs"), d: "Answers on buying and hiring shipping containers — sizes, grades, watertightness, delivery access, ground preparation, council approval and payment.", c: "/faqs/", schema: g(crumbsLd(crumbs), faqLd(all)) }, body));
 }
 
 /* ================================ GUIDES ================================ */
@@ -459,11 +463,14 @@ function guides() {
   const body = `${pageHead({ crumbs, photo: "head-guides", eyebrow: "Guides", h1: "Shipping container guides", lede: "Everything we end up explaining on the phone, written down properly. Grades, access, condensation, security, modifications and the rest." })}
 ${sec("", `<div class="guides">${sorted.map((p) => `<article class="guidecard reveal"><h3><a href="/blog/${p.slug}/">${esc(p.title)}</a></h3><p>${esc(p.desc)}</p><div class="meta">${esc(String(p.mins))} min read · ${esc(auDate(p.date))}</div></article>`).join("")}</div>`)}
 ${ask("Rather just ask us?", `Ring or send an enquiry and you will get a straight answer from a person. ${PROMISE}.`, "guides")}`;
-  out("blog", shell({ t: `Shipping Container Guides | ${BRAND}`, d: "Practical guides to buying, hiring, siting and living with shipping containers — grades, delivery access, dimensions, condensation, security, site preparation and modifications.", c: "/blog/", schema: g(crumbsLd(crumbs), { "@type": "CollectionPage", name: "Shipping container guides", url: `${D}/blog/` }) }, body));
+  out("blog", shell({ t: fitTitle("Shipping Container Guides"), d: "Practical guides to buying, hiring and siting shipping containers — grades, delivery access, dimensions, condensation, security and modifications.", c: "/blog/", schema: g(crumbsLd(crumbs), { "@type": "CollectionPage", name: "Shipping container guides", url: `${D}/blog/` }) }, body));
 
   sorted.forEach((p, idx) => {
     const c = [HOME_CRUMB, ["Guides", "/blog/"], [p.title, `/blog/${p.slug}/`]];
-    const others = sorted.filter((x) => x.slug !== p.slug).slice(idx === 0 ? 1 : 0, (idx === 0 ? 1 : 0) + 3);
+    /* Rotate through the list rather than always showing the three newest, so
+       every guide is linked from three others instead of the newest three
+       collecting all the related-reading links. 23/09/2026. */
+    const others = [1, 2, 3].map((k) => sorted[(idx + k) % sorted.length]);
     const art = {
       "@type": "Article", headline: p.title, description: p.desc,
       datePublished: p.date, dateModified: p.date,
@@ -481,7 +488,7 @@ ${promiseStrip()}
 ${sec("", `<div class="narrow article reveal">${p.body}</div>`)}
 ${sec("sec-wash", secHead("More guides", "Related reading", null) + `<div class="guides">${others.map((x) => `<article class="guidecard reveal"><h3><a href="/blog/${x.slug}/">${esc(x.title)}</a></h3><p>${esc(x.desc)}</p><div class="meta">${esc(String(x.mins))} min read</div></article>`).join("")}</div>`)}
 ${ask("Got a question this did not answer?", `Ring us — ${S.phone} — or send it through. ${PROMISE}.`, "g" + idx)}`;
-    out("blog/" + p.slug, shell({ t: `${p.title} | ${BRAND}`, d: p.desc, c: `/blog/${p.slug}/`, schema: g(crumbsLd(c), art) }, body2));
+    out("blog/" + p.slug, shell({ t: fitTitle((POST_SEO[p.slug] || {}).title || p.title), d: (POST_SEO[p.slug] || {}).desc || p.desc, c: `/blog/${p.slug}/`, schema: g(crumbsLd(c), art) }, body2));
   });
 }
 
@@ -512,7 +519,7 @@ ${sec("", `<div class="spec">
   </div>
 </div>`)}
 ${band({ photo: "yard-entry", eyebrow: "Before you send it", h: "Three photographs make this much faster", p: ["One from the street looking in, one down the approach, one of the spot the container has to land on. With those we can usually tell you the truck, the timing and the delivered price straight back.", "Without them we will ask for them, which costs everybody a day."], cta: ["/delivery/", "What the truck needs"], dark: true, alt: true })}`;
-  out("contact", shell({ t: `Contact ${BRAND} — Get A Price On A Shipping Container`, d: `Get a price on a shipping container for sale or hire. Ring ${S.phone} or send an enquiry — ${PROMISE.toLowerCase()}. Yard at ${ADDR_LINE}.`, c: "/contact/", schema: g(crumbsLd(crumbs), { "@type": "ContactPage", url: `${D}/contact/` }) }, body));
+  out("contact", shell({ t: fitTitle("Contact Us — Get A Shipping Container Price"), d: `Get a price on a shipping container for sale or hire. Ring ${S.phone} or send an enquiry — ${PROMISE.toLowerCase()}.`, c: "/contact/", schema: g(crumbsLd(crumbs), { "@type": "ContactPage", url: `${D}/contact/` }) }, body));
 }
 
 /* =============================== UTILITY ================================ */
@@ -574,6 +581,64 @@ function tail() {
   fs.writeFileSync(path.join(DIST, "robots.txt"),
     TEST ? `User-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\nDisallow: /thank-you/\n\nSitemap: ${D}/sitemap.xml\n`);
 
+  /* ---- LEGACY AND ALIAS REDIRECTS ----------------------------------------
+     All 41 URLs from the old WordPress site were kept 1:1, so none of them
+     needs a redirect — and none of the rules below may match a page this
+     build makes (checked at the end of tail()). What these rules catch is the
+     rest of the WordPress/WooCommerce URL space the old install exposed —
+     archives, feeds, shop and product paths, its sitemaps — plus slugs people
+     type or that other container sites use, so a stray inbound link lands on
+     the page that answers it instead of a 404.
+
+     ONE table drives both the .htaccess rules and the JS check below, so the
+     two cannot drift. Each pattern is written without the leading slash
+     (that is how RewriteRule sees the path in .htaccess), uses only syntax
+     Apache PCRE and JavaScript share, and has "/?" and the anchors added for
+     it. Ported from koala-website, 23/09/2026. */
+  const LOC_ALT = LOCS.map((l) => l.slug).join("|");
+  const LEGACY_RULES = [
+    /* locality variants old container sites use -> the one locality page */
+    [`(?:shipping-containers-for-sale|shipping-containers|(?:new|used|buy)-shipping-containers|shipping-container-hire|container-hire)-(${LOC_ALT})`, "/$1/"],
+    [`(?:contact-us|contact-fair-dinkum-containers|get-a-quote|request-a-quote|quote)`, "/contact/"],
+    [`(?:about-us|our-story|about-fair-dinkum-containers|who-we-are)`, "/about/"],
+    [`(?:faq|frequently-asked-questions|faqs-2)`, "/faqs/"],
+    [`(?:hire|container-hire|containers-for-hire|shipping-containers-for-hire|shipping-container-rental|container-rental)`, "/shipping-container-hire/"],
+    [`(?:sales|buy|containers-for-sale|shipping-containers-for-sale|buy-shipping-containers)`, "/container-sales/"],
+    [`(?:containers|products?|our-containers|our-range|range|shop|store)`, "/shipping-containers/"],
+    [`product-category/[a-z0-9-]+(?:/page/\\d+)?`, "/shipping-containers/"],
+    [`(?:cart|checkout|my-account)(?:/[a-z0-9-]+)*`, "/shipping-containers/"],
+    [`(10|20|40)-(?:foot|ft)-shipping-containers?`, "/$1ft-shipping-containers/"],
+    [`product/[a-z0-9-]*(?:10ft|10-foot|10-ft)[a-z0-9-]*`, "/10ft-shipping-containers/"],
+    [`product/[a-z0-9-]*(?:20ft|20-foot|20-ft)[a-z0-9-]*`, "/20ft-shipping-containers/"],
+    [`product/[a-z0-9-]*(?:40ft|40-foot|40-ft)[a-z0-9-]*`, "/40ft-shipping-containers/"],
+    [`product/[a-z0-9-]+`, "/shipping-containers/"],
+    [`(?:delivery-area|areas-we-service|service-areas?|locations?|where-we-deliver)`, "/delivery-areas/"],
+    [`(?:shipping-container-delivery|container-delivery)`, "/delivery/"],
+    [`(?:privacy-policy|privacy-statement)`, "/privacy/"],
+    [`(?:storage|storage-containers|container-storage-solutions|self-storage)`, "/container-storage/"],
+    [`(?:modifications|container-modifications?|custom-containers)`, "/blog/shipping-container-modifications/"],
+    [`(?:container-dimensions|shipping-container-dimensions|sizes)`, "/dimensions/"],
+    [`(?:news|articles|guides|shipping-container-guides)`, "/blog/"],
+    [`blog/page/\\d+`, "/blog/"],
+    [`\\d{4}/\\d{2}(?:/\\d{2})?(?:/[a-z0-9-]+)?`, "/blog/"],
+    [`(?:category|tag|author)/[a-z0-9-]+(?:/page/\\d+)?`, "/blog/"],
+    [`(?:feed|comments/feed)`, "/blog/"],
+    [`(?:sitemap_index|page-sitemap|post-sitemap|product-sitemap|product_cat-sitemap|category-sitemap|wp-sitemap)\\.xml`, "/sitemap.xml", true]
+  ];
+  const LEGACY_HT = LEGACY_RULES.map(([re, to, exact]) => `  RewriteRule ^${re}${exact ? "" : "/?"}$ ${to} [R=301,L,NC]`).join("\n");
+
+  /* Canonical case. The filesystem is case sensitive, so /Toowoomba/ 404s
+     while /toowoomba/ is a real page, and capitalised URLs turn up in ads,
+     print and typed guesses. mod_rewrite cannot lowercase without a
+     RewriteMap (server config, not .htaccess), so there is one rule per page
+     from the build's own page list; the RewriteCond stops the correct URL
+     matching its own rule. Ported from koala-website, 23/09/2026. */
+  const CANONICAL_CASE = pages
+    .map((p) => p.replace(/^\/|\/$/g, ""))
+    .filter(Boolean)
+    .map((slug) => `  RewriteCond %{REQUEST_URI} !^/${slug}/$\n  RewriteRule ^${slug}/?$ /${slug}/ [R=301,L,NC]`)
+    .join("\n");
+
   fs.writeFileSync(path.join(DIST, ".htaccess"), `Options -Indexes
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
@@ -584,6 +649,12 @@ ErrorDocument 404 /404.html
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
   RewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]
   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # ---- Legacy WordPress and alias URLs (generated from LEGACY_RULES) ----
+${LEGACY_HT}
+
+  # ---- Canonical case and trailing slash, one rule per built page ----
+${CANONICAL_CASE}
 </IfModule>
 
 <IfModule mod_deflate.c>
@@ -688,6 +759,29 @@ ErrorDocument 404 /404.html
     });
   });
 
+  /* ---- LEGACY URL COVERAGE -------------------------------------------------
+     Checked against the same LEGACY_RULES table that wrote .htaccess above.
+     (1) every URL the old WordPress site published must still be a page here
+     or redirect to one; (2) no rule may match a page this build makes, or that
+     page would redirect away from itself; (3) every fixed redirect target must
+     exist. These WARN and never fail the build — a redirect gap should be seen
+     and fixed, not take the live site off the air. 23/09/2026. */
+  const LEGACY = require("./data/legacy-urls.json");
+  const LEGACY_RE = LEGACY_RULES.map(([re, to, exact]) => [new RegExp(`^/${re}${exact ? "" : "/?"}$`, "i"), to]);
+  const builtPaths = new Set(pages.map((x) => x.replace(/\/$/, "") || "/").concat(["/sitemap.xml"]));
+  const resolveLegacy = (u) => {
+    for (const [re, to] of LEGACY_RE) if (re.test(u)) return u.replace(re, to);
+    return /[A-Z]/.test(u) ? u.toLowerCase() : u; /* mirrors the canonical-case block */
+  };
+  const legacyWarn = [];
+  LEGACY.urls.forEach((u) => {
+    const dest = resolveLegacy(u).replace(/\/$/, "") || "/";
+    if (!builtPaths.has(dest)) legacyWarn.push(`legacy URL ${u} -> ${dest} is not a page`);
+  });
+  pages.forEach((p) => LEGACY_RE.forEach(([re]) => { if (re.test(p) || re.test(p.replace(/\/$/, ""))) legacyWarn.push(`redirect rule ${re} would shadow the real page ${p}`); }));
+  LEGACY_RULES.forEach(([, to]) => { if (!to.includes("$") && !builtPaths.has(to.replace(/\/$/, "") || "/")) legacyWarn.push(`redirect target ${to} is not a page`); });
+  legacyWarn.forEach((w) => console.warn("  ! " + w));
+
   const missingPhotos = [];
   ["hero-home", "yard-forest-hill", "head-range"].forEach((n) => { if (!havePhoto(n)) missingPhotos.push(n); });
 
@@ -696,6 +790,7 @@ ErrorDocument 404 /404.html
   console.log(`  ${LOCS.length} localities · ${P.sizes.length} sizes · ${P.types.length} types · ${POSTS.length} guides`);
   console.log(`  Photos: ${F.PHOTO_USED.size} rendered${missingPhotos.length ? `, placeholders in use (library not yet loaded)` : ""}`);
   console.log(`  Worst rotated-copy overlap between any locality pair: ${worst}/${slots.length} slots (${worstPair})`);
+  console.log(`  Legacy URLs: ${LEGACY.urls.length} checked, ${LEGACY_RULES.length} redirect rules, ${legacyWarn.length} warning(s)`);
   if (failures.length) {
     console.error(`\n  ✗ ${failures.length} CHECK FAILURE(S):`);
     [...new Set(failures)].slice(0, 40).forEach((x) => console.error("    - " + x));

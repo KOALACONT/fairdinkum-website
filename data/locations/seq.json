@@ -9,7 +9,7 @@
    "depot": "Port of Brisbane at Fisherman Islands and the Wacol–Richlands industrial corridor",
    "leadTime": "Set by what is available at the port and in the Wacol–Richlands corridor, and by the crane if one is needed. You get the day when the order goes in.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck or side loader for 40ft and for anything going over a fence",
-   "metaDesc": "Shipping containers for sale and hire in Brisbane. Cargo-worthy and as-is units from the port and Wacol depots, delivered to hill suburbs and industrial yards.",
+   "metaDesc": "Shipping containers for sale and hire in Brisbane. Cargo-worthy and as-is units from port and Wacol depots, for hill suburbs and industrial yards.",
    "line": "Supply is the easy part here. The port is on the doorstep and the depots are strung along the Ipswich Motorway, so you usually get a real choice of grade and size rather than whatever happens to be standing in a yard. The hard part is the last forty metres, because Brisbane is a city of ridges, gullies and old river flats and very few of them give a truck a straight, level run.",
    "uses": "lock-up storage on the tight infill blocks going in around Everton Park, Coorparoo and Morningside, parts and trade storage on the industrial land at Wacol, Archerfield and Northgate, somewhere to put a household while a renovation runs three months long, workshop and home-gym conversions tucked in under high-set houses, secure tool storage for builders juggling four sites at once, and feed and machinery storage out on the acreage fringe through Samford and Karana Downs",
    "access": [
@@ -72,7 +72,7 @@
    "depot": "our own yard in the Lockyer Valley, about forty minutes west up the Warrego",
    "leadTime": "Forty minutes east of our own yard, so it hangs on stock and the day's run. We confirm the day when you place the order.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck for 40ft and for tight older streets",
-   "metaDesc": "Shipping containers for sale and hire in Ipswich, delivered short-haul from our Lockyer Valley yard. Real advice on flood levels, clay ground and street access.",
+   "metaDesc": "Shipping containers for sale and hire in Ipswich, a short run from our Lockyer Valley yard. Advice on flood levels, clay ground and street access.",
    "line": "Ipswich is one of the few places we can call genuinely short-haul, because the yard is forty minutes west of you up the Warrego rather than the other side of a capital city. That shows up in how fast we can get a truck to you and in what the cartage is worth. What it does not change is the ground and the water, and Ipswich has strong opinions about both.",
    "uses": "storage while a Woodend or Sadliers Crossing queenslander gets restumped and reclad, dry lock-up on the new estates at Ripley, Springfield and Redbank Plains where the shed has not been built yet, trade and plant storage across the Carole Park and Wulkuraka industrial land, hay and gear storage on the small holdings out through Rosewood, Marburg and Grandchester, and a secure box to get contents up off the ground and out of a shed that has been through it before",
    "access": [
@@ -135,7 +135,7 @@
    "depot": "Port of Brisbane and the Yatala–Stapylton industrial corridor",
    "leadTime": "Port and Yatala–Stapylton stock set the base; a booked crane sets the rest. We lock the day in with you at the order.",
    "truck": "Tilt-tray where there is side access; crane truck for canal blocks and anything lifted over a house or fence",
-   "metaDesc": "Shipping containers for sale and hire on the Gold Coast. Canal-front craning, body corporate access and sandy-block delivery handled properly. Give us a call.",
+   "metaDesc": "Shipping containers for sale and hire on the Gold Coast. Canal-front craning, body corporate access and sandy-block delivery handled properly.",
    "line": "Getting a container to the Gold Coast is nothing. Getting it onto the block is the whole job. The M1 runs a truck to any postcode from Coomera to Coolangatta without drama, and then you meet a canal-front lot with a two-metre side gate, a body corporate with an opinion, and sand that a truck's rear duals will find the bottom of.",
    "uses": "storage for tourism and hire operators who need gear locked away between seasons, site stores on the constant run of knockdown-rebuild jobs from Mermaid to Paradise Point, trade storage on the industrial land at Yatala, Molendinar, Burleigh and Currumbin, event and festival gear that only comes out twice a year, board, bike and boat storage where a garage was never going to be enough, and machinery storage on the hinterland acreage through Currumbin Valley and Tallebudgera",
    "access": [
@@ -198,7 +198,7 @@
    "depot": "Port of Brisbane, run north up the Bruce Highway",
    "leadTime": "Coastal drops follow the Bruce run out of the port; hinterland drops are scheduled around the range run, and we confirm the day when you order.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck or side loader for 40ft where the approach allows it",
-   "metaDesc": "Shipping containers for sale and hire on the Sunshine Coast, coast to Blackall Range. Straight advice on range roads, sand and acreage delivery access.",
+   "metaDesc": "Shipping containers for sale and hire on the Sunshine Coast, coast to Blackall Range. Straight advice on range roads, sand and acreage access.",
    "line": "There are two Sunshine Coasts as far as a truck is concerned, and the boundary is the escarpment. Below it, the flat coastal strip and the growth corridor are straightforward apart from sand. Above it, the range roads to Maleny, Montville and Mapleton decide what size container you can realistically have, and it is better to have that conversation before you order than after.",
    "uses": "gear and feed storage on the acreage through Eumundi, Cooroy, Doonan and Belli Park, site stores for the constant build work at Palmview, Aura and Bli Bli, workshop conversions on hinterland blocks where a shed would need approval, secure storage for market and event traders who need everything to disappear between weekends, board and boat storage where the garage lost that argument years ago, and dry storage for small growers and nurseries on the flats",
    "access": [
@@ -261,7 +261,7 @@
    "depot": "the Wacol and Yatala industrial corridors either side of Logan",
    "leadTime": "Depends on stock in the Wacol and Yatala corridors either side of Logan and how the day's runs fall; the date is agreed when the order is placed.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck for 40ft and for tight estate frontages",
-   "metaDesc": "Shipping containers for sale and hire across Logan. Narrow new-estate streets, service pits and wide industrial yards — access scoped before the truck rolls.",
+   "metaDesc": "Shipping containers for sale and hire across Logan. Narrow estate streets, service pits and industrial yards — access scoped before the truck rolls.",
    "line": "Logan is not one place, it is about seventy of them stitched together, and the delivery ranges from the easiest job of the week to the tightest. A hardstand yard at Crestmead takes ten minutes. A new-estate frontage at Yarrabilba with cars both sides of the road, a service pit on the kerb line and a two-metre gate is a different afternoon entirely.",
    "uses": "trade and plant storage across the Crestmead, Berrinba, Slacks Creek and Meadowbrook industrial estates, tool and materials storage for the trades working the estate builds, extra room for growing families on small new-estate lots where the garage went to the cars, gear storage for sporting clubs and community groups, stock overflow for small businesses running out of a home shed, and secure storage on rural-residential blocks around Munruben and Chambers Flat",
    "access": [
@@ -324,7 +324,7 @@
    "depot": "the Yatala corridor and our own Lockyer Valley yard",
    "leadTime": "Acreage timing turns on the state of the unsealed driveways and what is ready in the Yatala corridor or our own yard. You get the date with the order.",
    "truck": "Tilt-tray for most acreage drops; crane truck where the gate or the yard is tight",
-   "metaDesc": "Shipping containers for sale and hire around Jimboomba. Acreage delivery done properly: cattle grids, unsealed driveways and horse properties allowed for.",
+   "metaDesc": "Shipping containers for sale and hire around Jimboomba. Acreage delivery: cattle grids, unsealed driveways and horse properties allowed for.",
    "line": "Jimboomba is acreage country, and acreage is the friendliest delivery there is right up until it is not. There is space, there is no body corporate and nobody is parking a Corolla where the truck needs to stand. What there is instead is four hundred metres of unsealed driveway, a grid of unknown load rating, and a gate somebody set out for a tractor rather than a rigid truck.",
    "uses": "hay, chaff and feed kept dry and away from vermin, tack and rugs stored properly instead of in a leaking shed, tractors, slashers and side-by-sides locked up out of the weather, fencing gear and star pickets in one place instead of four, building materials and tools for owner-builders working on a block with no shed yet, and a secure store on a new acreage purchase where the house is still two years away",
    "access": [
@@ -387,7 +387,7 @@
    "depot": "the Yatala corridor, run out along the Mount Lindesay Highway",
    "leadTime": "Follows the run out along the Mount Lindesay Highway and the condition of the back roads; we name the day when you book.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck where the approach or the yard is tight",
-   "metaDesc": "Shipping containers for sale and hire in Beaudesert and the Scenic Rim. Creek crossings, unsealed approaches and cattle country access planned in advance.",
+   "metaDesc": "Shipping containers for sale and hire in Beaudesert and the Scenic Rim. Creek crossings, unsealed approaches and cattle country access planned ahead.",
    "line": "Beaudesert is working country and the containers that go out there work for a living too. The town itself is an easy delivery. It is the country behind it — Kooralbyn, Rathdowney, Christmas Creek, Laravale, the roads climbing toward the border ranges — where the creek crossings, the unsealed approaches and the weather do the deciding, and where a phone call ahead of the truck saves a wasted day.",
    "uses": "fodder and hay kept dry through a wet summer, fencing wire, posts and strainers in one lockable place, cattle handling gear and vet supplies stored away from the weather, chemicals and drums secured properly, tools and machinery parts on properties where the shed is full, storage for the small tourism and accommodation operators through the Scenic Rim, and a dry store while a homestead or shed is rebuilt after a storm",
    "access": [
@@ -398,7 +398,7 @@
      "h": "Rain moves the date, not the job",
      "p": [
       "We would rather ring you and shift a delivery by two days than put a loaded truck across a rising causeway or onto a driveway that has gone to grease. Nobody comes out ahead from a bogged truck — not you, standing there watching it chew a trench across your paddock and wondering who pays for the tractor, and not us, with a driver and a truck tied up for the rest of the day. Through the wet season we build a bit of slack into Scenic Rim bookings for exactly this reason, and we will ring and tell you what is happening rather than leaving you at home waiting on a truck that was never going to make it.",
-      "The flip side is that a bit of local knowledge from you is worth a lot. You know which of your crossings goes over first and how long it takes to drop. You know whether the gravel section on your road holds up or turns. Tell us at the booking and we will plan around it. If there is a firm alternative — a neighbour's sealed access, a hardstand near the road, a spot by the shed that stays solid no matter what — that is often the difference between delivering this week and delivering next. It is also worth telling us if there is a window where the road grader has just been through, because a freshly graded surface has no bind in it and will not hold a loaded truck until it has had traffic and a bit of weather on it."
+      "The flip side is that a bit of local knowledge from you is worth a lot. You know which of your crossings goes over first and how long it takes to drop. You know whether the gravel section on your road holds up or turns. Tell us at the booking and we will plan around it. If there is a firm alternative — a neighbour's sealed access, a hardstand near the road, a spot by the shed that stays solid no matter what — that is often the difference between delivering on the booked day and waiting for the ground to dry. It is also worth telling us if there is a window where the road grader has just been through, because a freshly graded surface has no bind in it and will not hold a loaded truck until it has had traffic and a bit of weather on it."
      ]
     },
     {
@@ -450,7 +450,7 @@
    "depot": "Port of Brisbane, a short run around the bay",
    "leadTime": "A short run around the bay from the port, so stock and the truck list decide it. Island drops are arranged case by case.",
    "truck": "Tilt-tray for 10ft and 20ft; crane truck for 40ft, tight bayside blocks and over-fence lifts",
-   "metaDesc": "Shipping containers for sale and hire across the Redlands. Sandy and boggy bayside ground, plus barge access to the bay islands arranged with your quote.",
+   "metaDesc": "Shipping containers for sale and hire across the Redlands. Sandy, boggy bayside ground, plus barge access to the bay islands arranged with your quote.",
    "line": "The Redlands sit closer to the port than almost anywhere we deliver, so the haul is short and the container is cheap to get to the shire. Everything interesting happens after that: ground that is sand on one street and boggy wetland margin on the next, small bayside blocks with no side access, and a set of islands where the last leg is a barge rather than a road.",
    "uses": "boat, trailer, crab pot and fishing gear storage where the garage lost that fight long ago, trade storage for the nursery, turf and landscaping businesses the shire is full of, building materials staged for a job on one of the islands, household storage while a bayside cottage is knocked down and rebuilt, gear storage for schools, clubs and community groups, and dry storage on the acreage pockets out through Mount Cotton and Sheldon",
    "access": [

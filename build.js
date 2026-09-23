@@ -122,9 +122,11 @@ if (SHOW_REVIEWS) {
     );
   }
 }
-/* One string, used everywhere the rating appears, so it cannot drift. */
+/* One string, used everywhere the rating appears, so it cannot drift. The
+   as-at date is part of the visible text, not just a tooltip: an undated
+   rating reads as current forever. 23/09/2026. */
 const reviewLine = () => SHOW_REVIEWS
-  ? `${REV.rating} out of 5 from ${REV.count} Google reviews`
+  ? `${REV.rating} out of 5 from ${REV.count} Google reviews, as at ${auDate(REV.asOf)}`
   : "";
 
 const ADDR = S.address || {};
@@ -205,7 +207,10 @@ function IMG(name, alt, opts) {
   const o = opts || {};
   if (!havePhoto(name)) return "";
   PHOTO_USED.add(name);
-  return `<img src="/img/photos/${name}.webp" alt="${esc(alt)}" width="${o.w || 1600}" height="${o.h || 1200}"${o.eager ? '' : ' loading="lazy"'} decoding="async">`;
+  /* eager is only ever the one above-the-fold header or hero image on a page,
+     so it also gets fetchpriority="high" — that is the LCP element. Everything
+     else is lazy. 23/09/2026. */
+  return `<img src="/img/photos/${name}.webp" alt="${esc(alt)}" width="${o.w || 1600}" height="${o.h || 1200}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async">`;
 }
 
 /* Locality pages draw imagery from shared POOLS rather than a photo per town.
@@ -258,7 +263,12 @@ const markLight = mark("#FFFFFF", "#9CCFB4", "#0E2A1C", "#9CCFB4");
 /* ------------------------------------------------------------- the shell -- */
 /* Title and description length. This WARNS and never throws: monthly content
    tasks self-merge and a build that dies on a long title would take the site
-   off the air over a cosmetic problem. The list prints once at the end. */
+   off the air over a cosmetic problem. The list prints once at the end.
+   23/09/2026: descriptions are held to 150 (was 155) and fitTitle() keeps a
+   title inside 60 by shortening the brand suffix, then dropping it, rather
+   than letting the results page truncate it mid-keyword. */
+const TITLE_MAX = 60, DESC_MAX = 150;
+const fitTitle = (core) => [`${core} | ${BRAND}`, `${core} | ${SHORT}`].find((t) => t.length <= TITLE_MAX) || core;
 const METRIC_WARN = [];
 process.on("exit", () => {
   if (!METRIC_WARN.length) return;
@@ -268,8 +278,8 @@ process.on("exit", () => {
 });
 
 function head(t, d, canon, schema, noindex) {
-  if (t && t.length > 60) METRIC_WARN.push(`${canon} title ${t.length}/60`);
-  if (d && d.length > 155) METRIC_WARN.push(`${canon} description ${d.length}/155`);
+  if (t && t.length > TITLE_MAX) METRIC_WARN.push(`${canon} title ${t.length}/${TITLE_MAX}`);
+  if (d && d.length > DESC_MAX) METRIC_WARN.push(`${canon} description ${d.length}/${DESC_MAX}`);
   return `<!DOCTYPE html><html lang="en-AU"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(t)}</title>
@@ -324,6 +334,41 @@ const productLd = (x) => ({
 });
 const g = (...items) => ({ "@context": "https://schema.org", "@graph": [biz(), ...items.filter(Boolean)] });
 
+/* RELATED GUIDES. A short contextual sentence linking one to three guides from
+   size and locality pages, so the guides are not reachable only through
+   /blog/. Unknown slugs are skipped; the dead-link check would catch a bad
+   href anyway. 23/09/2026. */
+const guideLinks = (slugs, lead) => {
+  const ps = (slugs || []).map((s) => POSTS.find((p) => p.slug === s)).filter(Boolean).slice(0, 3);
+  if (!ps.length) return "";
+  const a = ps.map((p) => `<a href="/blog/${p.slug}/">${esc(p.title)}</a>`);
+  const list = a.length > 1 ? a.slice(0, -1).join(", ") + " and " + a[a.length - 1] : a[0];
+  return `<p class="guide-links" style="margin-top:1.2rem">${esc(lead)} ${list}.</p>`;
+};
+/* Relevance rules for locality pages: the locality's own copy is matched
+   against each guide's subject, and the matches are taken in a slug-ranked
+   order so towns with the same matches do not all lead with the same guide.
+   Two per town. */
+const LOC_GUIDE_RULES = [
+  ["container-delivery-access-guide", /\b(crane|tilt-tray|side loader|driveway|laneway|pinch point|run-in|overhead)/i],
+  ["preparing-your-site-for-a-container", /\b(clay|black soil|sand|slope|fall|sleepers?|pads?|footings?|drainage)\b/i],
+  ["condensation-in-shipping-containers", /\b(condensation|humid|frost|tropic|wet season|monsoon|sweat)/i],
+  ["container-security-and-lock-boxes", /\b(securi|theft|lock ?box|padlock|unattended|remote)/i],
+  ["hiring-vs-buying-a-shipping-container", /\b(hire|project|shutdown|renovat|temporary|site store)/i],
+  ["shipping-container-modifications", /\b(workshop|site office|office|shelving|vents?|modif|convert)/i],
+  ["20ft-vs-40ft-shipping-container", /\b(40ft|forty)/i],
+  ["buying-a-used-shipping-container", /\b(used|second-hand|inspect)/i],
+  ["container-grades-explained", /\b(cargo-worthy|as-is|watertight|grade)/i],
+  ["shipping-container-dimensions-australia", /\b(high cube|dimension|door opening|internal height)/i]
+];
+const locGuides = (l) => {
+  const text = [l.uses, l.access, l.line, ...(l.sections || []).map((s) => [s.h, ...[].concat(s.p)].join(" "))].join(" ");
+  const hits = LOC_GUIDE_RULES.filter(([, re]) => re.test(text)).map(([s]) => s);
+  const pool = hits.length >= 2 ? hits : hits.concat(LOC_GUIDE_RULES.map(([s]) => s).filter((s) => !hits.includes(s)));
+  const start = rank("guides", l.slug) % pool.length;
+  return [pool[start], pool[(start + 1) % pool.length]];
+};
+
 /* -------------------------------------------------- two-tier masthead ---- */
 const MEGA = P.sizes.map((x) => ({ href: `/${x.slug}/`, name: x.name, blurb: x.pickIf, photo: "mega-" + x.short }))
   .concat(P.types.map((x) => ({ href: `/${x.slug}/`, name: x.name, blurb: x.lead.split(".")[0] + ".", photo: "mega-" + x.slug.split("-")[0] })));
@@ -346,7 +391,7 @@ function mast() {
   <a class="top-brand" href="/" aria-label="${esc(BRAND)} home">${markDark}</a>
   <div class="top-say"><b>${esc(S.yardPromise)} — ${esc(ADDR.suburb)}, ${esc(ADDR.state)}</b><span>${esc(S.yardDetail)}</span></div>
   <div class="top-act">
-    ${SHOW_REVIEWS ? `<span class="top-rating" title="${esc(REV.source || "Google")}, as at ${esc(auDate(REV.asOf))}"><b>${esc(String(REV.rating))}</b><span class="stars" aria-hidden="true">★★★★★</span><small>${esc(String(REV.count))} Google reviews</small></span>` : ""}
+    ${SHOW_REVIEWS ? `<span class="top-rating" title="${esc(REV.source || "Google")}, as at ${esc(auDate(REV.asOf))}"><b>${esc(String(REV.rating))}</b><span class="stars" aria-hidden="true">★★★★★</span><small>${esc(String(REV.count))} Google reviews</small><small>as at ${esc(auDate(REV.asOf))}</small></span>` : ""}
     <a class="top-tel" href="${S.phoneHref}"><small>Talk to a person</small>${esc(S.phone)}</a>
     <a class="btn btn-primary" href="/contact/">Get a price</a>
   </div>
@@ -707,7 +752,7 @@ ${sec("sec-wash", secHead("Common questions", "The things people ring and ask", 
 
 ${ask("Tell us about the job", "Four quick questions about the container and where it is going, then how to reach you. " + PROMISE + ".", "home")}
 `;
-  out("", shell({ t: `Shipping Containers For Sale & Hire | ${BRAND}`, d: `Shipping containers for sale and hire in 10ft, 20ft and 40ft, delivered Australia-wide from our ${ADDR.suburb} yard. New, cargo-worthy and as-is grades. ${PROMISE}.`, c: "/", schema }, body));
+  out("", shell({ t: fitTitle("Shipping Containers For Sale & Hire"), d: `Shipping containers for sale and hire in 10ft, 20ft and 40ft — new, cargo-worthy and as-is — delivered Australia-wide from our ${ADDR.suburb} yard.`, c: "/", schema }, body));
 }
 
 /* ============================== RANGE HUB =============================== */
@@ -777,7 +822,7 @@ ${sec("", secHead("Moving it later", x.depth.moveHead, null) + `<div class="reve
 ${sec("sec-wash", secHead("Grades", x.depth.gradeHead, null) + `<div class="reveal">${para(x.depth.gradeNote)}</div>`)}` : ""}
 ${gallery(["gal-" + x.slug + "-1", "gal-" + x.slug + "-2", "gal-" + x.slug + "-3"], [`${x.title} — exterior`, `${x.title} — doors and locking bars`, `${x.title} — interior and floor`]) ? sec("sec-wash", secHead("Photos", `${x.short} containers we have delivered`, "Real units from real jobs. Ask and we will send photographs of the specific container you are buying, before delivery.") + gallery(["gal-" + x.slug + "-1", "gal-" + x.slug + "-2", "gal-" + x.slug + "-3"], [`${x.title} — exterior`, `${x.title} — doors and locking bars`, `${x.title} — interior and floor`])) : ""}
 ${band({ photo: "size-alt-" + x.slug, eyebrow: "Delivery", h: `Getting a ${x.short} onto your block`, p: [x.access, "Send three photographs with your enquiry — one from the street looking in, one down the approach and one of the spot itself — and we will tell you which truck the job needs before anyone quotes."], cta: ["/delivery/", "Delivery and access"], dark: true, alt: true })}
-${sec("", secHead("Other sizes", "If this one is not quite right", null) + rangeGrid(others) + `<div style="margin-top:1.6rem">${typeChips()}</div><div class="reveal" style="margin-top:2rem">${sizeLinks(x, others)}</div>`)}
+${sec("", secHead("Other sizes", "If this one is not quite right", null) + rangeGrid(others) + `<div style="margin-top:1.6rem">${typeChips()}</div><div class="reveal" style="margin-top:2rem">${sizeLinks(x, others)}${guideLinks(x.guides, `Guides worth reading before you buy a ${x.short}:`)}</div>`)}
 ${sec("sec-wash", secHead("Common questions", `About ${x.short} containers`, null) + qaHtml(faqs))}
 ${ask(`Get a price on a ${x.short}`, `Tell us where it is going and what the access is like. ${PROMISE}.`, x.slug)}`;
     out(x.slug, shell({ t: `${x.title} For Sale & Hire — From ${aud(x.usedFrom)}`, d: `${x.short} shipping containers for sale and hire from ${aud(x.usedFrom)} ex GST. ${x.specs.cube} inside, ${x.metaHook}. New, cargo-worthy or as-is. Ring ${S.phone}.`, c: `/${x.slug}/`, schema: g(crumbsLd(crumbs), faqLd(faqs), productLd(x)) }, body));
@@ -823,7 +868,7 @@ ${sec("sec-dark", secHead("By size", "Available in", null) + rangeGrid(P.sizes))
 ${sec("", secHead("Other configurations", "If this is not the one", null) + rangeGrid(others))}
 ${sec("sec-wash", secHead("Common questions", `About ${x.name.toLowerCase()} containers`, null) + qaHtml(faqs))}
 ${ask(`Get a price on a ${x.name.toLowerCase()} container`, `Tell us what it has to do and where it is going. ${PROMISE}.`, x.slug)}`;
-    out(x.slug, shell({ t: `${x.title} For Sale & Hire | ${BRAND}`, d: x.metaDesc, c: `/${x.slug}/`, schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
+    out(x.slug, shell({ t: fitTitle(`${x.title} For Sale & Hire`), d: x.metaDesc, c: `/${x.slug}/`, schema: g(crumbsLd(crumbs), faqLd(faqs)) }, body));
   });
 }
 
@@ -833,7 +878,7 @@ module.exports = { esc, aud };
    below, purely to keep each file readable. Both halves share this module's
    helpers through the object exported above and the globals assigned here. */
 Object.assign(global, {
-  __FD: { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, TEL_E164, HOURS, SERVICE_AREA, PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, postalAddress, esc, aud, auDate, para, paras, out, IMG, IMGP, havePhoto, PHOTO_USED, markDark, markLight, head, biz, crumbsLd, faqLd, productLd, g, mast, promiseStrip, quoteForm, ask, foot, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat, rangeGrid, specTable, priceBox, gallery, hash32, rank, pick, reviewLine, REV, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS, PROCESS_LINES, FREIGHT_LINES, ASK_LINES, SHOW_REVIEWS }
+  __FD: { fs, path, S, LOCS, P, POSTS, DIST, TEST, D, pages, BRAND, SHORT, TEL_E164, HOURS, SERVICE_AREA, PROMISE, PROMISE_DETAIL, ADDR, ADDR_LINE, postalAddress, esc, aud, auDate, para, paras, out, IMG, IMGP, havePhoto, PHOTO_USED, markDark, markLight, head, biz, crumbsLd, faqLd, productLd, g, guideLinks, locGuides, fitTitle, TITLE_MAX, DESC_MAX, mast, promiseStrip, quoteForm, ask, foot, shell, crumbHtml, sec, secHead, qaHtml, typeChips, band, asIs, locCaveat, rangeGrid, specTable, priceBox, gallery, hash32, rank, pick, reviewLine, REV, USES_HEADS, ACCESS_HEADS, NEAR_HEADS, OPENERS, PROCESS_LINES, FREIGHT_LINES, ASK_LINES, SHOW_REVIEWS }
 });
 
 home();
