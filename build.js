@@ -234,26 +234,10 @@ function IMGP(name, salt, key, alt, opts) {
   return IMG(m[rank(salt, key) % m.length], alt, opts);
 }
 
-/* ----------------------------------------------------------- brand mark --
-   The Fair Dinkum wordmark, rebuilt as SVG from the live logo: "Fair Dinkum"
-   in near-black over "Containers" in brand green, with a corrugated container
-   glyph on the right. Vector, so it stays crisp at any size — the live site
-   serves a 768px raster. Text is derived from site.json, never typed in. */
-const MARK_TOP = SHORT;
-const MARK_SUB = BRAND.slice(SHORT.length).trim() || "Containers";
-const mark = (topFill, subFill, boxFill, boxLine) => `<svg viewBox="0 0 306 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(BRAND)}">
-<text x="0" y="40" font-family="Figtree,Poppins,Helvetica,Arial,sans-serif" font-weight="800" font-size="41" letter-spacing="-1.9" fill="${topFill}">${esc(MARK_TOP)}</text>
-<text x="1" y="85" font-family="Figtree,Poppins,Helvetica,Arial,sans-serif" font-weight="800" font-size="35" letter-spacing="-1.2" fill="${subFill}">${esc(MARK_SUB)}</text>
-<g transform="translate(202,55)">
-  <rect x="0" y="0" width="100" height="31" rx="2.5" fill="${boxFill}"/>
-  <rect x="0" y="0" width="100" height="31" rx="2.5" fill="none" stroke="${boxLine}" stroke-width="2"/>
-  <path d="M11 4v23M20 4v23M29 4v23M38 4v23M47 4v23M56 4v23M65 4v23M74 4v23" stroke="${boxLine}" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M83 2.5v26" stroke="${boxLine}" stroke-width="2.6"/>
-  <path d="M91 4v23" stroke="${boxLine}" stroke-width="2.6" stroke-linecap="round"/>
-</g>
-</svg>`;
-const markDark = mark("#12211A", "#2D8856", "#FFFFFF", "#2D8856");
-const markLight = mark("#FFFFFF", "#9CCFB4", "#0E2A1C", "#9CCFB4");
+/* Approved Fair Dinkum logo 15: outlined lettering and perspective container.
+   Shared master assets keep header/footer identical on every generated page. */
+const markDark = fs.readFileSync(path.join(__dirname, "static/img/logo15-colour.svg"), "utf8");
+const markLight = fs.readFileSync(path.join(__dirname, "static/img/logo15-white.svg"), "utf8");
 
 /* ------------------------------------------------------------- the shell -- */
 /* Title and description length. This WARNS and never throws: monthly content
@@ -284,8 +268,8 @@ ${noindex || TEST ? '<meta name="robots" content="noindex,nofollow">' : '<meta n
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700;800;900&family=Inter:wght@400;500;600;650&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css?v=${CSS_V}">
-<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-<link rel="apple-touch-icon" href="/img/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg?v=15">
+<link rel="apple-touch-icon" href="/img/favicon.svg?v=15">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
 </head><body>
 <a class="skip" href="#main">Skip to content</a>`;
