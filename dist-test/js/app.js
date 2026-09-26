@@ -29,6 +29,33 @@
   var EMAIL = CFG.email || "";
   var PROMISE = CFG.promise || "";
 
+  // Meta tracking is configured per brand and disabled on previews.
+  var metaPixelId = CFG.metaPixelId;
+  var metaHost = String(CFG.domain || "").replace(/^https?:\/\//, "").replace(/\/$/, "").replace(/^www\./, "");
+  var robots = document.querySelector('meta[name="robots"]');
+  var metaEnabled = /^\d+$/.test(metaPixelId || "") &&
+    location.hostname.replace(/^www\./, "") === metaHost &&
+    !(robots && /noindex/i.test(robots.content));
+  function metaEvent(name) {
+    if (metaEnabled && window.fbq) {
+      try { window.fbq("trackSingle", metaPixelId, name); } catch (e) {}
+    }
+  }
+  if (metaEnabled) {
+    try {
+      (function(f,b,e,v,n,t,s) {
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+        n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+        s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+      })(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+      window.fbq("set", "autoConfig", false, metaPixelId);
+      window.fbq("init", metaPixelId);
+      metaEvent("PageView");
+    } catch (e) {}
+  }
+
   // Mobile menu
   var burger = document.querySelector(".burger");
   var menu = document.querySelector(".menu");
@@ -136,6 +163,7 @@
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
       function ok() {
+        metaEvent("Lead");
         var d = document.createElement("div");
         d.className = "q-ok";
         d.innerHTML = "<strong>Got it — that's with us.</strong> " +
