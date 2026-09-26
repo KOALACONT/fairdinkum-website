@@ -448,7 +448,7 @@ function foot() {
   <div class="foot-base">© ${new Date().getFullYear()} ${esc(BRAND)} — shipping container sales, hire and delivery ${esc(SERVICE_AREA)}. ${esc(PROMISE)}. Prices shown are guide prices in AUD and exclude GST; delivery is quoted with the container.</div>
 </div></footer>
 <div class="actionbar"><a class="btn btn-green" href="${S.phoneHref}">Call ${esc(S.phone)}</a><a class="btn btn-primary" href="/contact/">Get a price</a></div>
-<script id="site-config" type="application/json">${JSON.stringify({ endpoint: S.leadEndpoint, brand: S.leadBrand, domain: S.leadSource, phone: S.phone, phoneHref: S.phoneHref, email: S.email, promise: PROMISE })}</script>
+<script id="site-config" type="application/json">${JSON.stringify({ endpoint: S.leadEndpoint, brand: S.leadBrand, domain: S.leadSource, phone: S.phone, phoneHref: S.phoneHref, email: S.email, promise: PROMISE, metaPixelId: TEST ? "" : "2914256152306810" })}</script>
 <script src="/js/app.js?v=${JS_V}" defer></script></body></html>`;
 }
 
