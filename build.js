@@ -271,6 +271,7 @@ ${noindex || TEST ? '<meta name="robots" content="noindex,nofollow">' : '<meta n
 <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?v=15">
 <link rel="apple-touch-icon" href="/img/favicon.svg?v=15">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
+<link rel="stylesheet" href="/css/mascot.css?v=20260927">
 </head><body>
 <a class="skip" href="#main">Skip to content</a>`;
 }
@@ -452,7 +453,14 @@ function foot() {
 <script src="/js/app.js?v=${JS_V}" defer></script></body></html>`;
 }
 
-const shell = (o, body) => head(o.t, o.d, o.c, o.schema, o.noindex) + mast() + `<main id="main">` + body + `</main>` + foot();
+function withBrandMascot(route, body) {
+  const img = (pose, cls) => `<img class="fd-mascot ${cls}" src="/img/mascot/${pose}.webp" width="280" height="360" alt="" loading="lazy" decoding="async">`;
+  if (route === "/") return body.replace('<div class="quotecard">', '<div class="quotecard">' + img("fd-quote", "fd-hello"));
+  if (route === "/thank-you/") return body.replace("<h1>", img("fd-cheers", "fd-success") + "<h1>");
+  if (route === "/faqs/") body = body.replace("<h1>", img("fd-curious", "fd-curious") + "<h1>");
+  return body.replace('<section class="ask" id="quote"><div class="wrap">', '<section class="ask" id="quote"><div class="wrap">' + img("fd-quote", "fd-quote"));
+}
+const shell = (o, body) => head(o.t, o.d, o.c, o.schema, o.noindex) + mast() + `<main id="main">` + withBrandMascot(o.c, body) + `</main>` + foot();
 const crumbHtml = (c) => `<nav class="crumb" aria-label="Breadcrumb"><div class="wrap">${c.map((x, i) => (i === c.length - 1 ? `<strong>${esc(x[0])}</strong>` : `<a href="${x[1]}">${esc(x[0])}</a> <span aria-hidden="true">/</span> `)).join("")}</div></nav>`;
 
 /* ------------------------------------------------------------ primitives -- */
