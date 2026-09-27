@@ -67,16 +67,58 @@
   }
 
   // UTM capture
-  function utm() {
-    var o = {};
-    try {
-      var p = new URLSearchParams(location.search);
-      ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].forEach(function (k) {
-        if (p.get(k)) o[k] = p.get(k);
+  // Remember this tab's latest tagged arrival for 30 minutes across pages.
+  // A new tagged arrival replaces ALL fields, so Google and Meta cannot mix.
+  var ATTR_KEY = "fairdinkum_campaign_attribution_v1";
+  var ATTR_TTL = 30 * 60 * 1000;
+  var ATTR_FIELDS = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","gbraid","wbraid","fbclid","campaignid","adgroupid","adid","network","device","matchtype"];
+  var attrMemory = null;
+  var attrStorage = true;
+
+  function cleanAttribution(values) {
+    var out = {};
+    if (values && typeof values === "object" && !Array.isArray(values)) {
+      ATTR_FIELDS.forEach(function (k) {
+        if (Object.prototype.hasOwnProperty.call(values, k) && typeof values[k] === "string" && values[k]) {
+          out[k] = values[k].slice(0, 500);
+        }
       });
-    } catch (e) {}
-    return o;
+    }
+    return out;
   }
+
+  function utm() {
+    var saved = attrMemory;
+    try { if (attrStorage) saved = JSON.parse(sessionStorage.getItem(ATTR_KEY) || "null"); } catch (e) {}
+    var age = saved && Date.now() - saved.at;
+    if (saved && typeof saved.at === "number" && age >= 0 && age < ATTR_TTL) {
+      return cleanAttribution(saved.values);
+    }
+    attrMemory = null;
+    try { sessionStorage.removeItem(ATTR_KEY); } catch (e) {}
+    return {};
+  }
+
+  // Capture on arrival, including pages without a form. Submitting never
+  // refreshes the expiry. Storage restrictions must never block an enquiry.
+  (function () {
+    var values = {};
+    try {
+      var params = new URLSearchParams(location.search);
+      ATTR_FIELDS.forEach(function (k) { if (params.get(k)) values[k] = params.get(k).slice(0, 500); });
+    } catch (e) {}
+    if (Object.keys(values).length) {
+      attrMemory = { at: Date.now(), values: values };
+      try { sessionStorage.setItem(ATTR_KEY, JSON.stringify(attrMemory)); } catch (e) {
+        attrStorage = false;
+        try { sessionStorage.removeItem(ATTR_KEY); } catch (ignored) {}
+      }
+    } else {
+      utm();
+    }
+  })();
+
+
 
   /* Size dropdown values map to real specifications only. A value that is not a
      size — "unsure", a hire option, a type — must NEVER be sent as a literal
@@ -154,8 +196,21 @@
         source_page: location.pathname,
         page_title: document.title,
         submitted_at: new Date().toISOString(),
-        utm_source: u.utm_source || null, utm_medium: u.utm_medium || null,
-        utm_campaign: u.utm_campaign || null, gclid: u.gclid || null
+        utm_source: u.utm_source || null,
+        utm_medium: u.utm_medium || null,
+        utm_campaign: u.utm_campaign || null,
+        utm_term: u.utm_term || null,
+        utm_content: u.utm_content || null,
+        gclid: u.gclid || null,
+        gbraid: u.gbraid || null,
+        wbraid: u.wbraid || null,
+        fbclid: u.fbclid || null,
+        campaignid: u.campaignid || null,
+        adgroupid: u.adgroupid || null,
+        adid: u.adid || null,
+        network: u.network || null,
+        device: u.device || null,
+        matchtype: u.matchtype || null
       };
 
       var btn = form.querySelector('button[type="submit"]');
