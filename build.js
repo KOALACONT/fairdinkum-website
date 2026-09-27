@@ -853,3 +853,6 @@ hub();
 sizePages();
 typePages();
 require("./build-pages.js");
+
+/* IndexNow: tells Bing & friends which pages changed. See indexnow.js. Never fails the build. */
+require("./indexnow.js");
