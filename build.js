@@ -46,6 +46,14 @@ const P = require("./data/products.json");
    silently rewrite the wording of the existing pages. */
 const LOC_REGIONS = ["seq", "downs", "north", "south"];
 const LOCS = LOC_REGIONS.reduce((a, r) => a.concat(require(`./data/locations/${r}.json`).locations), []);
+/* Optional per-locality overrides (title, cta, metaDesc) keyed by slug in
+   data/locality-overrides.json, merged onto the locality before it renders.
+   Keeps a targeted title/meta/CTA change to a one-line data edit instead of a
+   diff through an 80KB regional file. A slug absent from that file renders
+   byte-identically to before. 28/09/2026. */
+const LOC_OVERRIDES = fs.existsSync(path.join(__dirname, "data", "locality-overrides.json"))
+  ? require("./data/locality-overrides.json") : {};
+LOCS.forEach((l) => { if (LOC_OVERRIDES[l.slug]) Object.assign(l, LOC_OVERRIDES[l.slug]); });
 (function checkLocalities() {
   const seen = new Set();
   LOCS.forEach((l) => {
@@ -628,6 +636,18 @@ const ASK_LINES = [
 ];
 
 /* ================================ HOME ================================== */
+/* Optional data-driven sentence above the home locality grid. data/site.json
+   "homeFeatured": ["slug", ...] names localities worth a contextual link from the
+   home page; absent or empty, nothing renders and the home page is unchanged. */
+function homeFeatured() {
+  const slugs = Array.isArray(S.homeFeatured) ? S.homeFeatured : [];
+  const locs = slugs.map((sl) => LOCS.find((l) => l.slug === sl)).filter(Boolean);
+  if (!locs.length) return "";
+  const links = locs.map((l) => `<a href="/${l.slug}/">shipping containers ${esc(l.name)}</a>`);
+  const list = links.length > 1 ? links.slice(0, -1).join(", ") + " and " + links[links.length - 1] : links[0];
+  return `<p class="reveal" style="max-width:42em;margin-bottom:1.6rem">Further afield? Start with our local guides to ${list} — the ground, the access and which grade to buy, for sale and hire.</p>`;
+}
+
 function home() {
   const faqs = [
     { q: "Can I look at the container before I buy it?", a: `Yes, and we would rather you did. Our yard is at ${ADDR_LINE}, in the Lockyer Valley about an hour west of Brisbane. Ring first so we know you are coming and can have the units you are interested in accessible, then walk around them, open the doors and look at the floor yourself. If you cannot get out here, we will send photographs of the actual unit on request, before delivery.` },
@@ -686,7 +706,7 @@ ${band({
 
 ${sec("sec-wash", secHead("Grades", P.gradeNote, null) + `<div class="range">${P.grades.map((gr) => `<article class="rangecard reveal"><div class="rangecard-body"><h3>${esc(gr.name)}</h3><p>${esc(gr.blurb)}</p></div></article>`).join("")}</div><p style="margin-top:1.6rem"><a class="btn btn-ghost" href="/container-grades/">Grades explained in full</a></p>`)}
 
-${sec("", secHead("Where we deliver", "Delivered Australia-wide, from a Queensland yard", "We deliver everywhere. These are the places we know well enough to write something useful about — the roads, the ground, and what usually goes wrong.") + `<div class="locgrid">${LOCS.map((l) => `<a href="/${l.slug}/">${esc(l.name)}<span>${esc(l.state)} ${esc(l.postcode)}</span></a>`).join("")}</div><p style="margin-top:1.5rem"><a class="btn btn-ghost" href="/delivery-areas/">Everywhere else</a></p>`)}
+${sec("", secHead("Where we deliver", "Delivered Australia-wide, from a Queensland yard", "We deliver everywhere. These are the places we know well enough to write something useful about — the roads, the ground, and what usually goes wrong.") + homeFeatured() + `<div class="locgrid">${LOCS.map((l) => `<a href="/${l.slug}/">${esc(l.name)}<span>${esc(l.state)} ${esc(l.postcode)}</span></a>`).join("")}</div><p style="margin-top:1.5rem"><a class="btn btn-ghost" href="/delivery-areas/">Everywhere else</a></p>`)}
 
 ${sec("sec-dark", secHead("How it works", "Four steps, and no surprises at the end", null) + `<ol class="steps">
   <li><h3>Tell us the job, not the product</h3><p>What is going in it, where it is going and what the access looks like. That is what decides the size, the grade and the truck — in that order.</p></li>
