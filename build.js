@@ -454,7 +454,7 @@ function foot() {
 }
 
 function withBrandMascot(route, body) {
-  const img = (pose, cls) => `<img class="fd-mascot ${cls}" src="/img/mascot/${pose}.webp" width="280" height="360" alt="" loading="lazy" decoding="async">`;
+  const img = (pose, cls) => `<img class="fd-mascot ${cls}" src="/img/mascot/${pose.replace("fd-", "cockatoo-")}.webp" width="280" height="360" alt="" loading="lazy" decoding="async">`;
   if (route === "/") return body.replace('<div class="quotecard">', '<div class="quotecard">' + img("fd-quote", "fd-hello"));
   if (route === "/thank-you/") return body.replace("<h1>", img("fd-cheers", "fd-success") + "<h1>");
   if (route === "/faqs/") body = body.replace("<h1>", img("fd-curious", "fd-curious") + "<h1>");
