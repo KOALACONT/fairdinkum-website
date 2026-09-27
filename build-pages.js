@@ -17,7 +17,8 @@ function pageHead(o) {
 <header class="phead"><div class="phead-media">${o.poolPhoto ? IMGP(o.poolPhoto[0], o.poolPhoto[1], o.poolPhoto[2], o.h1, { w: 1800, h: 900, eager: true }) : IMG(o.photo, o.h1, { w: 1800, h: 900, eager: true })}</div><div class="wrap">
   <p class="eyebrow">${esc(o.eyebrow)}</p>
   <h1>${esc(o.h1)}</h1>
-  <p class="phead-lede">${esc(o.lede)}</p>
+  <p class="phead-lede">${esc(o.lede)}</p>${o.cta ? `
+  <div class="hero-cta" style="margin-top:1.4rem;margin-bottom:0"><a class="btn btn-primary btn-lg" href="${o.cta[1]}">${esc(o.cta[0])}</a></div>` : ""}
   ${o.facts ? `<dl class="phead-facts">${o.facts.map((f) => `<div><dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd></div>`).join("")}</dl>` : ""}
 </div></header>
 ${promiseStrip()}`;
@@ -46,6 +47,7 @@ function localityPages() {
       crumbs, poolPhoto: ["pool-lochead", "lh", l.slug], eyebrow: `${l.name}, ${l.state}`,
       h1: `Shipping containers ${l.name}`,
       lede: l.line,
+      cta: l.cta ? [l.cta, "#quote"] : null,
       facts: [["Delivered from", l.depot], ["What sets the timing", l.leadTime], ["Usual truck", l.truck]]
     })}
 
@@ -74,7 +76,7 @@ ${sec("sec-wash", secHead("Common questions", `Buying a container in ${l.name}`,
 ${ask(askLine, `We deliver to ${l.name} and the surrounding district. Tell us what is going in it and what the access is like, and you will get a price with the cartage worked out. ${PROMISE}.`, l.slug)}`;
 
     out(l.slug, shell({
-      t: `Shipping Containers ${l.name} — For Sale & Hire | ${BRAND}`,
+      t: l.title || `Shipping Containers ${l.name} — For Sale & Hire | ${BRAND}`,
       d: l.metaDesc, c: `/${l.slug}/`,
       schema: g(crumbsLd(crumbs), faqLd(l.faqs), svc)
     }, body));

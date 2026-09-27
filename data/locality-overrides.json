@@ -1,0 +1,18 @@
+{
+  "_note": "Optional per-locality overrides merged onto data/locations/*.json at build time (build.js). Keys are slugs; values may set title (full <title>, <=60 chars), cta (above-fold button text, links to #quote) and metaDesc. Localities not listed here render exactly as before. Added 28/09/2026 for the GSC CTR pulse.",
+  "rockhampton": {
+    "title": "Shipping Containers Rockhampton | Sale & Hire, Delivered",
+    "cta": "Enquire about shipping containers for Rockhampton — sale & hire",
+    "metaDesc": "New and used shipping containers for sale and hire in Rockhampton — 10ft, 20ft and 40ft, delivered to your address. Free price by phone on 0477 410 500."
+  },
+  "bendigo": {
+    "title": "Shipping Containers Bendigo | New & Used, Sale & Hire",
+    "cta": "Enquire about shipping containers for Bendigo — sale & hire",
+    "metaDesc": "New and used shipping containers for sale and hire in Bendigo and central Victoria — 10ft, 20ft and 40ft, delivered to you. Free price on 0477 410 500."
+  },
+  "ballina": {
+    "title": "Shipping Containers Ballina | Sale & Hire, Delivered to You",
+    "cta": "Enquire about shipping containers for Ballina — sale & hire",
+    "metaDesc": "New and used shipping containers for sale and hire in Ballina and the Northern Rivers — 10ft, 20ft and 40ft, delivered to you. Free price on 0477 410 500."
+  }
+}

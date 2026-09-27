@@ -20,6 +20,11 @@
     "Mo-Fr 07:30-17:00",
     "Sa 08:00-12:00"
   ],
+  "homeFeatured": [
+    "rockhampton",
+    "bendigo",
+    "ballina"
+  ],
   "region": "Australia",
   "serviceArea": "across Queensland, northern New South Wales and beyond",
   "tagline": "Shipping containers for sale and hire, delivered Australia-wide from a real yard at Forest Hill in the Lockyer Valley — where you are welcome to walk in and look at the actual container first.",
