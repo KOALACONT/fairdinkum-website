@@ -27,6 +27,7 @@ ${promiseStrip()}`;
 /* ============================ LOCALITY PAGES ============================ */
 function localityPages() {
   LOCS.forEach((l) => {
+    if (l.ownCopy) return ownCopyLocality(l);
     const crumbs = [HOME_CRUMB, ["Where we deliver", "/delivery-areas/"], [l.name, `/${l.slug}/`]];
     const usesHead = pick(USES_HEADS, "uses", l.slug);
     const accessHead = pick(ACCESS_HEADS, "access", l.slug);
@@ -83,6 +84,69 @@ ${ask(askLine, `We deliver to ${l.name} and the surrounding district. Tell us wh
   });
 }
 
+/* ownCopy localities (WA and NT, 29/09/2026). Same shell, header, range grid,
+   caveat, photo pools and schema as the pages above, but every heading and
+   paragraph comes from the locality row — nothing from the rotation pools —
+   and the page is built around a numbered "check before you order" list and
+   plain answers. topSay replaces the masthead's Forest Hill yard line, because
+   stock for these towns is held at a Fremantle or Darwin depot. */
+function ownCopyLocality(l) {
+  const crumbs = [HOME_CRUMB, ["Where we deliver", "/delivery-areas/"], [l.name, `/${l.slug}/`]];
+  const svc = {
+    "@type": "Service", name: `Shipping container sales and hire in ${l.name}`,
+    serviceType: "Shipping container sales, hire and delivery",
+    provider: { "@id": `${D}/#biz` },
+    areaServed: { "@type": "City", name: l.name, address: { "@type": "PostalAddress", addressLocality: l.name, addressRegion: l.state, postalCode: l.postcode, addressCountry: "AU" } }
+  };
+  const nearHtml = l.near.map((n) => {
+    const m = LOCS.find((x) => x.name === n && x.slug !== l.slug);
+    return m ? `<a href="/${m.slug}/">${esc(n)}</a>` : esc(n);
+  }).join(", ");
+  const body = `${pageHead({
+    crumbs, poolPhoto: ["pool-lochead", "lh", l.slug], eyebrow: `${l.name}, ${l.state}`,
+    h1: `Shipping containers ${l.name}`,
+    lede: l.line,
+    cta: l.cta ? [l.cta, "#quote"] : null,
+    facts: [["Stock held at", l.depot], ["What sets the date", l.leadTime], ["Usual truck", l.truck]]
+  })}
+
+${sec("", `<div class="narrow">
+  <p class="eyebrow reveal">${esc(l.opener)}</p>
+  <div class="reveal"><h2>${esc(l.usesHead)}</h2>${para(l.uses)}</div>
+  <div class="reveal" style="margin-top:2.6rem"><h2>${esc(l.stockHead)}</h2>${para(l.stock)}</div>
+  <div style="margin-top:2rem">${locCaveat()}</div>
+</div>`)}
+
+${sec("sec-wash", secHead("The range", `Containers we deliver to ${l.name}`, "Guide prices in AUD, ex GST. Delivery is quoted with the container.") + rangeGrid(P.sizes) + `<div style="margin-top:1.6rem">${typeChips()}</div>`)}
+
+${sec("", `<div class="narrow">
+  <div class="reveal"><h2>What to check before you order in ${esc(l.name)}</h2>${para(l.checksIntro)}</div>
+  <ol class="steps" style="margin-top:1.8rem">${l.checks.map((c) => `<li class="reveal"><h3>${esc(c.h)}</h3><p>${esc(c.p)}</p></li>`).join("")}</ol>
+</div>`)}
+
+${l.sections.map((x, i) => band({
+    poolPhoto: ["pool-locband" + (i + 1), "lb" + (i + 1), l.slug],
+    eyebrow: x.eyebrow || l.name,
+    h: x.h, p: x.p, alt: i % 2 === 1, dark: i === 1, wash: i === 2
+  })).join("\n")}
+
+${sec("", `<div class="narrow">
+  <div class="reveal"><h2>${esc(l.accessHead)}</h2>${para(l.access)}</div>
+  <div class="reveal" style="margin-top:2.4rem"><h2>${esc(l.freightHead)}</h2>${para(l.freight)}</div>
+  <div class="reveal" style="margin-top:2.4rem"><h2>${esc(l.nearHead)}</h2><p>${esc(l.nearLead)} ${nearHtml}.</p><div class="chips" style="margin-top:1rem"><a href="/delivery-areas/">All delivery areas</a><a href="/delivery/">How delivery works</a></div></div>
+</div>`)}
+
+${sec("sec-wash", secHead("Straight answers", l.faqHead, null) + qaHtml(l.faqs))}
+
+${ask(l.askHead, `${l.askSub} ${PROMISE}.`, l.slug)}`;
+
+  out(l.slug, shell({
+    t: l.title || `Shipping Containers ${l.name} — For Sale & Hire | ${BRAND}`,
+    d: l.metaDesc, c: `/${l.slug}/`, topSay: l.topSay,
+    schema: g(crumbsLd(crumbs), faqLd(l.faqs), svc)
+  }, body));
+}
+
 /* =========================== DELIVERY AREAS HUB ========================= */
 function deliveryAreas() {
   const crumbs = [HOME_CRUMB, ["Where we deliver", "/delivery-areas/"]];
@@ -100,7 +164,7 @@ function deliveryAreas() {
     h1: "Where we deliver",
     lede: `We deliver Australia-wide from our yard at ${ADDR.suburb} and from depots around the country. These are the places we know well enough to write something useful about.`
   })}
-${order.filter((st) => byState[st]).map((st, i) => sec(i % 2 ? "sec-wash" : "", secHead(st, st === "QLD" ? "Queensland" : st === "NSW" ? "New South Wales" : st === "VIC" ? "Victoria" : st, null) + `<div class="locgrid">${byState[st].map((l) => `<a href="/${l.slug}/">${esc(l.name)}<span>${esc(l.postcode)} · ${esc(l.leadTime.replace(/^Usually /, ""))}</span></a>`).join("")}</div>`)).join("\n")}
+${order.filter((st) => byState[st]).map((st, i) => sec(i % 2 ? "sec-wash" : "", secHead(st, st === "QLD" ? "Queensland" : st === "NSW" ? "New South Wales" : st === "VIC" ? "Victoria" : st === "WA" ? "Western Australia" : st === "NT" ? "Northern Territory" : st, null) + `<div class="locgrid">${byState[st].map((l) => `<a href="/${l.slug}/">${esc(l.name)}<span>${esc(l.postcode)} · ${esc(l.leadTime.replace(/^Usually /, ""))}</span></a>`).join("")}</div>`)).join("\n")}
 ${band({ photo: "yard-forest-hill", eyebrow: "The yard", h: "Not on the list? Ring anyway.", p: [`We deliver a long way past the towns above. The list is limited to places we can say something true and specific about rather than places we will go — those are two different lists, and padding the first one with the second is how container websites end up full of pages that say nothing.`, `If your town is not here, ring ${S.phone} and we will tell you honestly what the haul looks like, which depot the unit would come from and how long it would take.`], cta: ["/contact/", "Get in touch"], dark: true, alt: true })}
 ${sec("", secHead("Common questions", "About delivery areas", null) + qaHtml(faqs))}
 ${ask("Tell us where it is going", `Give us the suburb or postcode and we will tell you which depot it comes from and what the delivery looks like. ${PROMISE}.`, "areas")}`;
@@ -671,12 +735,13 @@ ErrorDocument 404 /404.html
   /* No rotated-copy pair may share every slot. */
   const slots = [["uses", USES_HEADS], ["access", ACCESS_HEADS], ["near", NEAR_HEADS], ["open", OPENERS], ["proc", PROCESS_LINES], ["freight", FREIGHT_LINES], ["ask", ASK_LINES]];
   let worst = 0, worstPair = "";
-  for (let i = 0; i < LOCS.length; i++) for (let j = i + 1; j < LOCS.length; j++) {
+  const ROT = LOCS.filter((l) => !l.ownCopy);
+  for (let i = 0; i < ROT.length; i++) for (let j = i + 1; j < ROT.length; j++) {
     /* Compare the strings actually rendered, not the ranks — pools are
        different lengths, so equal ranks do not imply equal copy. */
-    const shared = slots.filter(([salt, pool]) => pick(pool, salt, LOCS[i].slug) === pick(pool, salt, LOCS[j].slug)).length;
-    if (shared > worst) { worst = shared; worstPair = `${LOCS[i].slug}/${LOCS[j].slug}`; }
-    if (shared >= slots.length - 1) failures.push(`localities ${LOCS[i].slug} and ${LOCS[j].slug} share ${shared}/${slots.length} rotated slots`);
+    const shared = slots.filter(([salt, pool]) => pick(pool, salt, ROT[i].slug) === pick(pool, salt, ROT[j].slug)).length;
+    if (shared > worst) { worst = shared; worstPair = `${ROT[i].slug}/${ROT[j].slug}`; }
+    if (shared >= slots.length - 1) failures.push(`localities ${ROT[i].slug} and ${ROT[j].slug} share ${shared}/${slots.length} rotated slots`);
   }
 
   /* Internal links must resolve. */
