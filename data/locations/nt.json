@@ -1,0 +1,410 @@
+{
+ "locations": [
+  {
+   "slug": "darwin",
+   "name": "Darwin",
+   "state": "NT",
+   "postcode": "0800",
+   "flagship": false,
+   "ownCopy": true,
+   "title": "Shipping Containers Darwin | Fair Dinkum Containers",
+   "metaDesc": "Shipping containers for sale and hire in Darwin, from depot stock at Berrimah. Straight answers on the wet season, humidity, tie-down and tight access.",
+   "depot": "A Darwin depot in the Berrimah area",
+   "leadTime": "What is at the Berrimah depot, which is topped up off the wharf at East Arm, and your access. Confirmed when you order.",
+   "truck": "Tilt-tray for most 10ft and 20ft drops; side loader or crane truck for tight or elevated-house blocks; 40ft into industrial yards",
+   "topSay": {
+    "b": "NT stock held at a Darwin depot",
+    "s": "Top End orders are supplied from a depot in the Berrimah area, topped up off the wharf at East Arm. Inspection is by arrangement — ring first.",
+    "tag": "Shipping containers for sale and hire. Northern Territory orders are supplied from stock held at a Darwin depot in the Berrimah area; our own yard is at Forest Hill in Queensland's Lockyer Valley."
+   },
+   "line": "Darwin containers come from stock held at a depot in the Berrimah area, topped up off the wharf at East Arm. The run into the suburbs is short. What matters is the wet season, the humidity, what the council and a certifier expect for a container staying through cyclone season, and getting a truck into established suburban blocks.",
+   "opener": "The Top End, answered straight.",
+   "usesHead": "What Darwin uses containers for",
+   "uses": [
+    "Darwin's industrial areas — Winnellie, Berrimah and out toward East Arm — use containers as secure stores, parts rooms, and dry storage for contractors on defence, port and infrastructure work. Tradespeople use them as site stores on renovations and new builds across the northern suburbs.",
+    "At home it is the stuff a Darwin house has nowhere to put: camping and fishing gear, the boat's spares, furniture during a renovation, and the contents of a house when people are between postings or leases. Plenty of Darwin households move in and out on work transfers, and a container on the block while the next place is sorted is a common arrangement."
+   ],
+   "stockHead": "Where the stock is, and seeing it first",
+   "stock": [
+    "We are not a Territory business and have no office, yard or staff in Darwin. NT stock is held at a third-party depot in the Berrimah area, which is kept topped up off the wharf at East Arm. Your container is loaded there and trucked to you.",
+    "If you want to look it over first, we can arrange an inspection at the depot. Otherwise we send photographs of the specific unit on request, before delivery. Quotes and bookings are handled by phone with our sales team."
+   ],
+   "checksIntro": "Darwin deliveries follow the seasons more than the calendar. Work through these before you order.",
+   "checks": [
+    {
+     "h": "Is it the wet season?",
+     "p": "From around November through to April the Top End gets heavy storms and monsoonal rain. Lawns, backyards and unsealed access turn to mud a loaded truck cannot cross. If your spot is on grass or dirt, a dry-season delivery is simpler. If it has to be the wet, choose a spot the truck can reach on hard ground."
+    },
+    {
+     "h": "Is it staying through cyclone season?",
+     "p": "Darwin is in a cyclone region. If the container is staying, ask the City of Darwin and a building certifier what they expect, including whether it needs tying down and how. We do not supply ratings or tie-down certification, and we will not promise how a container behaves in a cyclone."
+    },
+    {
+     "h": "How will you deal with humidity inside?",
+     "p": "The build-up and the wet bring months of heavy humidity. A sealed steel box sweats, and mould grows on anything organic — leather, fabric, cardboard, timber furniture. Fit vents, use moisture absorbers, keep goods off the floor and away from the walls, and check it regularly through the wet."
+    },
+    {
+     "h": "Is the house up on stilts?",
+     "p": "Many older Darwin homes are elevated, with the space underneath used as living or storage area. Access past them is often narrow, and the house or its eaves can sit right where a tilt-tray needs to lift. A photo of the approach tells us whether it needs a side loader or a crane."
+    },
+    {
+     "h": "What is growing overhead?",
+     "p": "Tropical gardens grow fast. Palms, mango trees and frangipanis reach over driveways, and power lines run through them. The tilt bed rises well above the cab. Look up along the whole route in."
+    },
+    {
+     "h": "Is the grade right for the wet?",
+     "p": "For anything that must stay dry, buy cargo-worthy or new — the grades sold wind and watertight. As-is units are not sold watertight, and through a Darwin wet season that difference shows up fast."
+    }
+   ],
+   "sections": [
+    {
+     "eyebrow": "Darwin",
+     "h": "Build-up, wet and dry: timing a delivery",
+     "p": [
+      "The Top End does not run on four seasons. The dry is the easy time for deliveries: firm ground, clear skies, predictable days. The build-up brings heat and humidity that sap everyone. The wet brings storms, water lying in low spots and ground that will not hold a truck.",
+      "If the container is going onto hardstand, a driveway or a concrete pad, the wet makes little difference to the drop. If it is going onto grass or dirt, tell us. We may suggest a different spot, a load of road base under the truck's path, or a date once the ground has firmed up."
+     ]
+    },
+    {
+     "eyebrow": "On the ground",
+     "h": "Heat, sun and a box you have to open",
+     "p": [
+      "A container in full Darwin sun gets extremely hot inside. It is fine for hardware and outdoor gear. It is no place for electronics, batteries, paints, medicines, food or anything that softens in heat. Shade makes a real difference, so the shaded side of a building is worth a lot.",
+      "Insulation plus a whirlybird or vents changes the inside dramatically. If you plan to work in it — a workshop, a site office — insulate it and think about air-conditioning, because an unlined box in the build-up is not a workplace."
+     ]
+    },
+    {
+     "eyebrow": "Worth knowing",
+     "h": "Storm water, drainage and low ground",
+     "p": [
+      "Parts of Darwin's suburbs sit low and take water in a heavy storm. A watertight-grade container keeps rain out from above, but floodwater comes in at the door seals, and an empty container can float. Put it on the highest ground available, raise it on solid pads, and do not keep anything important at floor level.",
+      "Watch where the roof and yard water goes, too. A container sitting across a drainage path sends the next downpour toward the house or the neighbour's fence. Leave the natural fall of the block alone and let water pass under or around it."
+     ]
+    }
+   ],
+   "accessHead": "What a Darwin delivery needs",
+   "access": [
+    "On a suburban block, a tilt-tray places a 10ft or 20ft if it has a straight run, firm footing and clear air above. Established suburbs such as Nightcliff, Rapid Creek and Parap have mature gardens and elevated houses that can squeeze the approach.",
+    "Industrial yards in Winnellie and Berrimah handle 40ft units easily. Tell us about gates, security procedures and any limits on when trucks can come in."
+   ],
+   "freightHead": "What getting it to you costs",
+   "freight": [
+    "Delivery is quoted with the container for your address. The depot is close to town, but the truck your site needs and the conditions on the day make more difference than the kilometres. You get one figure on the quote."
+   ],
+   "nearHead": "Around Darwin",
+   "nearLead": "We also deliver to",
+   "near": [
+    "Palmerston",
+    "Humpty Doo",
+    "Howard Springs",
+    "Casuarina",
+    "Winnellie",
+    "Nightcliff"
+   ],
+   "faqHead": "Questions from Darwin",
+   "faqs": [
+    {
+     "q": "Do you have a Darwin yard?",
+     "a": "No, we have no premises in the NT. Stock is held at a third-party depot in the Berrimah area, topped up off the East Arm wharf. You can arrange to inspect a container there, or ask for photos before delivery."
+    },
+    {
+     "q": "Can a container be used as a cyclone shelter?",
+     "a": "No. Do not shelter in a shipping container during a cyclone. Follow the official emergency advice for your area."
+    },
+    {
+     "q": "Does a container need tying down in Darwin?",
+     "a": "It may. Ask the City of Darwin and a building certifier what applies to your site and how long it is staying. We do not certify tie-down and will not promise anything about wind performance."
+    },
+    {
+     "q": "How do I stop mould inside?",
+     "a": "Airflow, moisture absorbers, nothing stored damp, and goods kept off the floor and away from the walls. Check it through the wet and air it out on dry days."
+    },
+    {
+     "q": "Can you deliver during the wet?",
+     "a": "Yes, where the truck can reach the spot on firm ground. If the spot is soft, we will talk about alternatives or a better date."
+    },
+    {
+     "q": "Can I hire one while I am between houses?",
+     "a": "Yes. Tell us roughly how long, where it is going and what is going in it, and we will price hire and purchase so you can compare. Hire containers go out in cargo-worthy condition or better."
+    }
+   ],
+   "askHead": "Tell us about the Darwin job",
+   "askSub": "Give us the suburb, the access and what is going in it, and we will price the container with delivery from the Berrimah depot."
+  },
+  {
+   "slug": "palmerston",
+   "name": "Palmerston",
+   "state": "NT",
+   "postcode": "0830",
+   "flagship": false,
+   "ownCopy": true,
+   "title": "Shipping Containers Palmerston NT | Fair Dinkum",
+   "metaDesc": "Shipping containers for sale and hire in Palmerston NT, supplied from depot stock at Berrimah. Plain answers on estate lots, the wet and site access.",
+   "depot": "A Darwin depot in the Berrimah area, a short run down the highway",
+   "leadTime": "Berrimah depot stock that fits the job, and the access at your end. Confirmed when you order.",
+   "truck": "Tilt-tray for most homes; side loader or crane for narrow estate lots; 40ft into commercial yards",
+   "topSay": {
+    "b": "NT stock held at a Darwin depot",
+    "s": "Top End orders are supplied from a depot in the Berrimah area, topped up off the wharf at East Arm. Inspection is by arrangement — ring first.",
+    "tag": "Shipping containers for sale and hire. Northern Territory orders are supplied from stock held at a Darwin depot in the Berrimah area; our own yard is at Forest Hill in Queensland's Lockyer Valley."
+   },
+   "line": "Palmerston is supplied from our NT stock at a depot in the Berrimah area, which sits between Darwin and Palmerston off the Stuart Highway. The haul is short. The real questions are about compact estate lots, wet-season ground, humidity and what the council expects.",
+   "opener": "Short haul, so the site is what counts.",
+   "usesHead": "What Palmerston households and businesses put in them",
+   "uses": [
+    "Palmerston is a young, fast-growing city, and much of it is newer estate housing — Zuccoli, Johnston, Mitchell, Bellamack, Durack — on lots where the house takes up most of the land. Families use a container for the overflow: bikes, camping and fishing gear, and outdoor furniture that will not fit in a single garage.",
+    "The light industrial and commercial area at Yarrawonga uses them for extra lockable space beside workshops. Builders use them as site stores in the new estates. And people arriving in or leaving the Territory for a job use one to hold furniture while the next house is sorted out."
+   ],
+   "stockHead": "Stock close by, but not ours",
+   "stock": [
+    "We do not have a yard, office or staff in Palmerston or anywhere in the NT. Our Top End stock is held at a third-party depot in the Berrimah area, topped up off the wharf at East Arm, and a Palmerston unit is loaded there and trucked down.",
+    "Because the depot is close, inspecting the container before it comes is easy to arrange — ring us to set it up. If that does not suit, we send photos of the specific unit on request, before delivery."
+   ],
+   "checksIntro": "Palmerston deliveries are usually quick work for the truck. These are the things that turn them into slow ones.",
+   "checks": [
+    {
+     "h": "Does your estate have rules on outbuildings?",
+     "p": "Newer estates often have design guidelines or covenants covering outbuildings and what can be seen from the street. Check your purchase documents, or ask the developer, before a container arrives."
+    },
+    {
+     "h": "Is the side access wide enough?",
+     "p": "On estate lots the gap between the house and the fence is often too tight for a truck. If the container has to go in the backyard, measure the access and send a photo. It may need a crane from the street, or a different spot."
+    },
+    {
+     "h": "What is the ground like after rain?",
+     "p": "Lawns and unsealed areas turn soft in the wet. A truck that can drive over them in August may bog in February. If the spot is on grass, tell us and we will plan around it."
+    },
+    {
+     "h": "Where will the water go?",
+     "p": "Heavy tropical downpours move a lot of water across a block quickly. Do not put the container across the natural fall of the land or where roof runoff pools. Raise it on solid pads so water passes underneath."
+    },
+    {
+     "h": "Does it need to stay dry through the wet?",
+     "p": "Then buy a grade sold wind and watertight: cargo-worthy or new. As-is units cost less and are not sold watertight, which in a Top End wet season means water inside."
+    },
+    {
+     "h": "Will it sit there through cyclone season?",
+     "p": "If the container will sit on the block through the wet, ask the City of Palmerston and a building certifier what is expected, including tie-down. We do not provide ratings or certification."
+    }
+   ],
+   "sections": [
+    {
+     "eyebrow": "Palmerston",
+     "h": "Estate lots and tight access",
+     "p": [
+      "Palmerston's newer suburbs were planned around cars, not trucks. Lots are compact, driveways are short and fences go up quickly. A tilt-tray needs a straight run and room to lift its bed, and on many estate lots the only place that works is the front of the block or the driveway itself.",
+      "If the container is going in the backyard, the choices are a side loader through a wide gate, or a crane lifting over the fence or the house. Photos of the frontage, the side access and the backyard let us tell you which, and what is involved."
+     ]
+    },
+    {
+     "eyebrow": "On the ground",
+     "h": "Humidity and what it does to stored goods",
+     "p": [
+      "Months of high humidity through the build-up and the wet turn a sealed container into a damp box. Anything organic — clothing, mattresses, cardboard, leather, timber furniture — can go mouldy, and bare metal tools can rust.",
+      "Vent the container, use moisture absorbers and change them often, keep goods on pallets and away from the walls, and open it up to air out on dry days. If you are storing a household's furniture for months, wrap it in breathable covers rather than plastic, which traps the moisture in."
+     ]
+    },
+    {
+     "eyebrow": "Worth knowing",
+     "h": "Yarrawonga and commercial sites",
+     "p": [
+      "Commercial and light industrial sites around Yarrawonga generally have hardstand and room to move, which makes delivery straightforward, 40ft units included. What slows these jobs down is gate access, other vehicles in the yard, and nobody there to say exactly where it goes.",
+      "Mark the spot, clear it, and have someone on site. If the container is to sit on a slab, check the slab can carry it, including the point load under each corner.",
+      "For a business, think about what the container will do in a year's time as well as now. If it may need to move when the lease changes, keep it somewhere a truck can reach again. If it will hold stock, put the doors where a forklift or pallet jack can work, and give it a light and a lock you trust."
+     ]
+    }
+   ],
+   "accessHead": "The delivery itself",
+   "access": [
+    "A tilt-tray reverses in, raises its bed and slides the container off. It needs firm ground, a straight approach and headroom — watch for eaves, carports, power lines and trees.",
+    "A 40ft is rarely possible on a residential lot in Palmerston. It needs a long run and a lot of space. On commercial sites it is usually fine.",
+    "Tell us about the street as well as the block. Some of the newer streets are narrow, with cars parked along both sides on weekends and bins out on collection day. A truck that has to set up on the road needs room to work, so a quiet weekday is often the easier choice, and a word to the neighbours helps."
+   ],
+   "freightHead": "What delivery costs",
+   "freight": [
+    "Being close to the Berrimah depot helps, but the truck your site needs matters more. We work out delivery with the container for your address and give you a single figure."
+   ],
+   "nearHead": "Around Palmerston",
+   "nearLead": "We also deliver to",
+   "near": [
+    "Darwin",
+    "Humpty Doo",
+    "Howard Springs",
+    "Coolalinga",
+    "Holtze",
+    "Yarrawonga"
+   ],
+   "faqHead": "What Palmerston people ask",
+   "faqs": [
+    {
+     "q": "Is there a yard in Palmerston?",
+     "a": "No — we have no NT premises. Stock sits at a third-party depot in the Berrimah area, between Palmerston and Darwin. You can arrange to inspect a unit there, or ask for photos before delivery."
+    },
+    {
+     "q": "Can you get one into a backyard in Zuccoli?",
+     "a": "Possibly. It depends on the side access and whether the fence is up. Send photos and we will tell you whether it is a side loader, a crane or a different spot."
+    },
+    {
+     "q": "Can I look at the container before it comes?",
+     "a": "Yes. The Berrimah depot is not far from Palmerston, so it is a short trip. Ring us and we will arrange a time with the depot. If you would rather not go, ask for photos of the unit and we will send them before delivery."
+    },
+    {
+     "q": "Will my estate let me have one?",
+     "a": "Check your covenant or design guidelines. They vary by estate, and we cannot tell you what yours allows."
+    },
+    {
+     "q": "Do I need approval from the City of Palmerston?",
+     "a": "It depends on how long it stays, where it sits and what it is for. Ask the City of Palmerston before delivery, and a certifier if it is staying long-term."
+    },
+    {
+     "q": "How do I keep furniture from going mouldy?",
+     "a": "Breathable covers, not plastic. Vents and moisture absorbers. Goods off the floor and walls. Regular checks through the wet."
+    },
+    {
+     "q": "Can I hire one while I change houses?",
+     "a": "Yes. Tell us how long you think you need it and we will price hire and purchase side by side."
+    }
+   ],
+   "askHead": "Tell us about the Palmerston block",
+   "askSub": "Give us the suburb, photos of the access and what is going in it, and we will price the container with delivery from Berrimah."
+  },
+  {
+   "slug": "humpty-doo",
+   "name": "Humpty Doo",
+   "state": "NT",
+   "postcode": "0836",
+   "flagship": false,
+   "ownCopy": true,
+   "title": "Shipping Containers Humpty Doo & Litchfield | Fair Dinkum",
+   "metaDesc": "Shipping containers for sale and hire in Humpty Doo, Howard Springs, Virginia, Berry Springs and Batchelor, from Darwin depot stock. Rural access, plainly.",
+   "depot": "A Darwin depot in the Berrimah area, then out along the Stuart or Arnhem highways",
+   "leadTime": "Berrimah depot stock, and whether the track to your spot will carry a truck. Confirmed when you order.",
+   "truck": "Tilt-tray for 10ft and 20ft; 40ft onto larger blocks and farms with firm access",
+   "topSay": {
+    "b": "NT stock held at a Darwin depot",
+    "s": "Top End orders are supplied from a depot in the Berrimah area, topped up off the wharf at East Arm. Inspection is by arrangement — ring first.",
+    "tag": "Shipping containers for sale and hire. Northern Territory orders are supplied from stock held at a Darwin depot in the Berrimah area; our own yard is at Forest Hill in Queensland's Lockyer Valley."
+   },
+   "line": "Humpty Doo and the Litchfield rural area — Howard Springs, Coolalinga, Virginia, Berry Springs and out to Batchelor — are supplied from our NT stock at a depot in the Berrimah area. Bush blocks, long driveways, wet-season tracks, firebreaks and tall grass decide these deliveries.",
+   "opener": "Rural blocks, straight answers.",
+   "usesHead": "What goes in a container on a rural block",
+   "uses": [
+    "The rural area is acreage country — bush blocks of a few hectares, hobby farms, mango orchards, market gardens growing tropical and Asian vegetables, and horse and cattle properties. A container on those blocks is the dry, lockable shed: tools, pumps and bore spares, feed, fertiliser, packing supplies for the fruit and veg, and the ride-on mower that keeps the grass down.",
+    "Plenty of rural households also use one as the first structure on a new block — somewhere secure for tools and materials while the house goes up. In Coolalinga and closer in around Howard Springs, it is more like suburban storage on a bigger lot."
+   ],
+   "stockHead": "No yard out here — the stock is in Berrimah",
+   "stock": [
+    "We have no yard or staff in the rural area or anywhere in the NT. Our Top End stock is held at a third-party depot in the Berrimah area, topped up off the wharf at East Arm. A container for the rural area is loaded there and trucked out.",
+    "You can arrange an inspection at the depot before it comes, or ask for photos of the exact unit on request, before delivery."
+   ],
+   "checksIntro": "On a bush block, what lies between the front gate and the spot decides the job. Walk it and check these.",
+   "checks": [
+    {
+     "h": "Is the track passable in the wet?",
+     "p": "Many rural driveways, and some local roads, are gravel or dirt, with floodways and low spots that fill in heavy rain. A track a ute handles in the wet may not take a loaded truck. If the delivery falls in the wet, be honest about the track and be ready to move the date or the spot."
+    },
+    {
+     "h": "How wide are the gates, and are there grids?",
+     "p": "Measure the narrowest gate. Tell us about any cattle grids, and whether anyone knows what they will carry. A culvert under the driveway matters too."
+    },
+    {
+     "h": "Is there tall grass around the spot?",
+     "p": "Late in the dry, tall grass — gamba, where it has got in — carries hot, fast fires. Keep a wide cleared area around the container, keep your firebreaks up to scratch, and think hard before storing fuel in it. A container is not a fire shelter and will not protect its contents from fire."
+    },
+    {
+     "h": "Is the spot on high ground?",
+     "p": "Low parts of the rural area go under water in a big wet. Put the container on the highest firm ground available, on pads, with nothing important at floor level. Floodwater gets in at the door seals, and an empty container can float."
+    },
+    {
+     "h": "Where are the bore, the pipes and the power?",
+     "p": "Bores, poly pipe and buried power runs are everywhere out here. Mark them and keep the truck's path well clear of them."
+    },
+    {
+     "h": "Which council are you under?",
+     "p": "Most of the rural area — Humpty Doo, Howard Springs, Virginia, Berry Springs — is in Litchfield Council. Batchelor sits under the Coomalie council. Ask the right one, and a certifier if it is staying, before delivery."
+    }
+   ],
+   "sections": [
+    {
+     "eyebrow": "Humpty Doo",
+     "h": "Laterite, gravel and black soil",
+     "p": [
+      "Much of the rural area sits on laterite gravel ridges — red, hard and firm when dry, and good footing for a container. In the low country near creeks and swamps, the soil can be dark, heavy and very soft through the wet.",
+      "Pick a spot on the gravel if you can. Level it, set the container on solid pads, and make sure water from the next storm will run past it rather than pool against it."
+     ]
+    },
+    {
+     "eyebrow": "On the ground",
+     "h": "Mango orchards and market gardens",
+     "p": [
+      "On an orchard or market garden, place the container where it is useful at harvest — near the packing shed, clear of where trucks and tractors turn — and where a truck can reach it again if it ever needs moving.",
+      "Keep packing materials off the floor and the doors shut when not in use, because humidity and the odd visiting frog or snake come with rural storage up here. A cargo-worthy or new container, sold wind and watertight, keeps the rain off the cartons."
+     ]
+    },
+    {
+     "eyebrow": "Worth knowing",
+     "h": "Berry Springs, Batchelor and further out",
+     "p": [
+      "South along the Stuart Highway, Berry Springs and Batchelor are further from the depot and have more unsealed roads and bush tracks. The same checks apply, with more weight on the road condition and whether the truck can turn around at your end.",
+      "Batchelor sits on the doorstep of Litchfield National Park, and many blocks around it are bush with big trees. Send photos of the driveway and the overhead clearance along it, and tell us about any creek crossings between the road and the spot."
+     ]
+    }
+   ],
+   "accessHead": "Getting a truck onto a bush block",
+   "access": [
+    "A tilt-tray needs a firm track, a straight approach at the drop spot and room above to lift the bed. Low branches along the driveway are common on bush blocks — look up.",
+    "A 40ft is possible on larger properties with firm, wide access and room to turn. It is a bigger truck, so the track has to be good the whole way in.",
+    "Out along the Arnhem Highway past Humpty Doo toward Middle Point and Lambells Lagoon, blocks get bigger and the roads rougher. Tell us exactly where the property is, what the last stretch of road is like, and whether there is a spot near the house the truck can reach without crossing soft ground."
+   ],
+   "freightHead": "The cost of getting it out there",
+   "freight": [
+    "Delivery is quoted with the container, for your block. It depends on how far out you are, the road in and the truck your site needs. There is no single rural-area figure — the quote gives you yours."
+   ],
+   "nearHead": "Across the rural area",
+   "nearLead": "We also deliver to",
+   "near": [
+    "Palmerston",
+    "Darwin",
+    "Howard Springs",
+    "Coolalinga",
+    "Virginia",
+    "Berry Springs",
+    "Batchelor",
+    "Noonamah"
+   ],
+   "faqHead": "Rural-area questions, answered",
+   "faqs": [
+    {
+     "q": "Do you have a yard in Humpty Doo?",
+     "a": "No. We have no premises in the NT. Stock is held at a third-party depot in the Berrimah area. Inspection there can be arranged, or we send photos before delivery."
+    },
+    {
+     "q": "Will you come out during the wet season?",
+     "a": "Yes, if the truck can reach the spot on firm ground. If your track floods or goes soft, we will talk about a better spot or a better date."
+    },
+    {
+     "q": "Is a container safe during a bushfire?",
+     "a": "No. Do not shelter in one, and do not rely on it to protect what is inside. Keep the ground around it cleared and follow official fire advice."
+    },
+    {
+     "q": "Do I need approval from Litchfield Council?",
+     "a": "It depends on your zoning, how long it stays and what it is for. Ask Litchfield Council — or the Coomalie council if you are around Batchelor — before delivery."
+    },
+    {
+     "q": "Can a container be the first thing on a new block?",
+     "a": "Many people use one that way, as a lockable store while the house goes up. Check with the council whether anything applies, and put it where it will not be in the builder's way."
+    },
+    {
+     "q": "Is it too hot inside for a pump or generator?",
+     "a": "Storing them is generally fine, but running an engine inside a closed container is not — it needs proper ventilation and exhaust away from the box. Drain fuel where you can before long-term storage, and keep the doors shaded if possible."
+    },
+    {
+     "q": "What grade for fruit cartons and packing gear?",
+     "a": "Cargo-worthy or new, which are sold wind and watertight. As-is units cost less and are not sold watertight, so they are a gamble for cartons."
+    }
+   ],
+   "askHead": "Tell us about the block",
+   "askSub": "Give us the address, what the track is like and what is going in it, and we will price the container with delivery from Berrimah."
+  }
+ ]
+}

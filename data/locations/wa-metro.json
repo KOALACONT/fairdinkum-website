@@ -1,0 +1,499 @@
+{
+ "locations": [
+  {
+   "slug": "perth",
+   "name": "Perth",
+   "state": "WA",
+   "postcode": "6000",
+   "flagship": false,
+   "ownCopy": true,
+   "title": "Shipping Containers Perth | Sale & Hire | Fair Dinkum",
+   "metaDesc": "Shipping containers for sale and hire in Perth, supplied from a Fremantle depot. Straight answers on sand, verges, battleaxe blocks and hills access.",
+   "depot": "A Fremantle depot, by road",
+   "leadTime": "Which units at the Fremantle depot suit the job, and what your access needs. The date is locked in when you order.",
+   "truck": "Tilt-tray for most 10ft and 20ft drops; side loader or crane truck for tight infill blocks and 40ft",
+   "topSay": {
+    "b": "WA stock held at a Fremantle depot",
+    "s": "Western Australian orders are supplied by road from container stock held at a depot in Fremantle. Inspection there is by arrangement — ring first.",
+    "tag": "Shipping containers for sale and hire. Western Australian orders are supplied by road from stock held at a Fremantle depot; our own yard is at Forest Hill in Queensland's Lockyer Valley."
+   },
+   "line": "Perth is supplied from container stock held at a Fremantle depot, so a metro delivery is a short road trip rather than a cross-country one. The questions that decide a Perth job are mostly at your end: soft sand, a battleaxe driveway, a verge that belongs to the council, or a steep climb up into the hills.",
+   "opener": "No yard of our own in Perth. Here is how it actually works.",
+   "usesHead": "What Perth people are putting in them",
+   "uses": [
+    "The biggest single reason is space the house cannot give you. Perth's newer suburbs are built on small lots with the house hard up against most boundaries, and the garage filled up years ago. A 10ft or 20ft down the side or at the back of a bigger block takes the camping gear, the tinnie's outboard, the tools and the Christmas decorations out of the house for good.",
+    "On the commercial side it is overflow stock and materials for businesses in Welshpool, Kewdale, Malaga, Canning Vale and O'Connor, lockable storage for builders and renovators working across the metro area, and hire units for a fit-out or a house move where the furniture needs somewhere dry for a few months. Up past the scarp in the Perth Hills, and on the lifestyle blocks out toward Bullsbrook and Serpentine, it is feed, fencing gear, mowers and machinery."
+   ],
+   "stockHead": "Where your container actually comes from",
+   "stock": [
+    "We do not have a Perth yard, a Perth office or anyone in a hi-vis shirt with our name on it anywhere in WA, and we are not going to pretend otherwise. Our Western Australian stock is held at a third-party container depot in Fremantle. That is where your unit is loaded, and it comes to you from there on a truck.",
+    "You can look the container over at the depot by arrangement — ring and we will set up a time. If a trip to Fremantle does not suit, we will send photographs of the actual unit on request, before delivery. Quotes and bookings go through the same phone number as every other state, and the phones are answered on Queensland time."
+   ],
+   "checksIntro": "Most Perth deliveries that go wrong go wrong for one of the reasons below. Every one of them is cheaper to sort out on the phone than on the morning of the drop.",
+   "checks": [
+    {
+     "h": "Is the spot on sand, and has it been disturbed?",
+     "p": "Perth is built on sand. Left alone, it carries a container well. Freshly dug, backfilled or loose on top, it lets a loaded tilt-tray sink to the axles and lets the box settle crooked after the first winter rain. If the spot used to be a garden bed or the hole for a pool, tell us. Four solid pads or a strip of compacted limestone under the corners is the simple fix."
+    },
+    {
+     "h": "Will it touch the verge, even for a day?",
+     "p": "Across metro Perth the verge in front of your house is council land, and the rules about leaving anything on it differ from one local government to the next. If the container has to sit on the verge while you load it, or the truck has to stand on it to unload, ring your council first. It is a short call and it saves an awkward letter."
+    },
+    {
+     "h": "Battleaxe block or shared driveway?",
+     "p": "Subdivided lots are everywhere in the older suburbs, and the handle of a battleaxe block is often only just wide enough for a car. Measure the narrowest point — gateposts, a meter box, a neighbour's fence — and check whether the driveway is shared. A truck parked across a shared driveway needs the neighbours told in advance."
+    },
+    {
+     "h": "What is overhead?",
+     "p": "A tilt-tray raises its bed to slide the container off, which puts the high end of the tray well above anything a car needs. Power lines to the house, a patio roof, a carport, and old peppermints or jacarandas over the drive all come into it. One photo taken looking up from the drop spot answers the question."
+    },
+    {
+     "h": "Is it up in the hills?",
+     "p": "Kalamunda, Mundaring, Gooseberry Hill, Roleystone and the rest of the scarp are a different job from the flat. Steep driveways, gravel over laterite, tight bends and trees. Some are fine for a tilt-tray; some need a crane truck parked on the road. Give us the address and a couple of photos and we will say which."
+    },
+    {
+     "h": "Which grade does the job need?",
+     "p": "For storage you care about, buy cargo-worthy used or new single-trip — those grades are sold wind and watertight. As-is units cost less and are not sold watertight; they suit a lock-up under a roof or a base for a project. Tell us what is going in it and we will tell you which fits."
+    }
+   ],
+   "sections": [
+    {
+     "eyebrow": "Perth",
+     "h": "The Fremantle Doctor, and why it matters for doors",
+     "p": [
+      "Most summer afternoons a strong south-westerly comes in off the ocean. It is welcome on the verandah and a nuisance for a container. A pair of steel doors swinging in a gusty sea breeze will take fingers, dent a car and bend their own hinges. Face the doors away from the south-west if the block lets you, and make sure they can be tied back when open.",
+      "The same breeze carries salt well inland through the western suburbs. Near the coast — Cottesloe, Scarborough, City Beach — rinse the container down now and then, touch up scratched paint before it turns to rust, and keep the door seals clean. It is five minutes of work that adds years to the box."
+     ]
+    },
+    {
+     "eyebrow": "On the ground",
+     "h": "Hot summers inside a steel box",
+     "p": [
+      "A Perth summer puts runs of hot days back to back, and an uninsulated container sitting in full afternoon sun gets far hotter inside than the air around it. That is no problem for tools, timber and garden gear. It is a problem for paint, aerosols, batteries, candles, vinyl records and anything held together with glue or a rubber seal.",
+      "Vents at each end help more than people expect. Shade helps more again, so the south side of the house is worth a lot. If you plan to work inside it, line and insulate it — the difference in February is enormous."
+     ]
+    }
+   ],
+   "accessHead": "Getting the truck to the spot",
+   "access": [
+    "A tilt-tray needs a straight run in, firm ground and room to lift the bed. For a 20ft that means a clear stretch a good deal longer than the container itself, plus the length of the truck. Most Perth homes with an ordinary driveway and a gate wide enough for a car can take a 10ft or 20ft this way.",
+    "Infill blocks, tight cul-de-sacs and rear laneways are where a side loader earns its keep, because it sets the container down beside the truck rather than behind it. Where there is simply no way in, a crane truck lifts it over the house or the fence. A 40ft needs a site where a long truck can line up with plenty of clear ground; most suburban blocks cannot take one, most industrial yards can."
+   ],
+   "freightHead": "What the delivery will cost you",
+   "freight": [
+    "We do not put a delivery figure on this page, because a flat run from Fremantle to Kewdale and a crane job up a hills driveway are not the same price. The delivery is worked into the quote for the container, for your address, and the number on the quote is the number you pay."
+   ],
+   "nearHead": "Elsewhere around the metro area",
+   "nearLead": "We also deliver across the rest of greater Perth, including",
+   "near": [
+    "Joondalup",
+    "Rockingham",
+    "Mandurah",
+    "Midland",
+    "Armadale",
+    "Kalamunda",
+    "Ellenbrook"
+   ],
+   "faqHead": "Questions Perth callers ask us",
+   "faqs": [
+    {
+     "q": "Do you have a yard in Perth I can visit?",
+     "a": "No. We have no yard or office in WA. Perth stock is held at a Fremantle container depot run by a third party, and you can inspect a unit there by arrangement. If the trip does not suit, ask and we will send photos of the specific container before delivery."
+    },
+    {
+     "q": "How soon can you get a container to me?",
+     "a": "It comes down to what is at the depot that suits your job and what your access needs. You will get an honest read when you ring, and the date is locked in when you order. If you are working to a settlement or the end of a lease, say so at the start."
+    },
+    {
+     "q": "Can a container sit on my verge?",
+     "a": "Only if your council allows it, and Perth's local governments each set their own rules for the verge. Ring yours before the truck is booked. We would rather you checked than guessed."
+    },
+    {
+     "q": "Will it rust near the beach?",
+     "a": "Any steel box near the coast needs some care. A cargo-worthy or new container arrives painted and sound. Keep the paint intact, wash the salt off occasionally, and do not let sand and leaves pile against the bottom rails. Neglected, it rusts; looked after, it lasts a very long time."
+    },
+    {
+     "q": "Do I need approval to keep one in the backyard?",
+     "a": "Possibly. Whether a container needs approval depends on your local government, how long it is staying and what it is used for, and Perth councils do not all treat it the same way. Call the planning counter before delivery, not after."
+    },
+    {
+     "q": "Can I hire one instead of buying?",
+     "a": "Yes — for moves, renovations and site work. Every hire unit is cargo-worthy grade at the least. Tell us roughly how long you need it and where it is going, and we will price hire and purchase side by side so you can see which makes sense."
+    }
+   ],
+   "askHead": "Tell us the Perth address and the access",
+   "askSub": "Give us the suburb, what is going in it and a photo of the driveway, and we will price the container with delivery from the Fremantle depot worked in."
+  },
+  {
+   "slug": "mandurah",
+   "name": "Mandurah",
+   "state": "WA",
+   "postcode": "6210",
+   "flagship": false,
+   "ownCopy": true,
+   "title": "Shipping Containers Mandurah | Fair Dinkum Containers",
+   "metaDesc": "Shipping containers for sale and hire in Mandurah and the Peel. Fremantle depot stock, plain answers on canal lots, estuary ground and rural access.",
+   "depot": "A Fremantle depot, down the Kwinana Freeway",
+   "leadTime": "The Fremantle stock on hand and the site at your end. Confirmed the day you order.",
+   "truck": "Tilt-tray for 10ft and 20ft; side loader or crane for canal-side and narrow lots",
+   "topSay": {
+    "b": "WA stock held at a Fremantle depot",
+    "s": "Western Australian orders are supplied by road from container stock held at a depot in Fremantle. Inspection there is by arrangement — ring first.",
+    "tag": "Shipping containers for sale and hire. Western Australian orders are supplied by road from stock held at a Fremantle depot; our own yard is at Forest Hill in Queensland's Lockyer Valley."
+   },
+   "line": "Mandurah containers come down the Kwinana Freeway from stock held at a Fremantle depot. Down here the questions are about boats, canals, sandy ground near the estuary and the rural lots out toward Pinjarra — so that is what this page answers.",
+   "opener": "Plain answers for the Peel.",
+   "usesHead": "What they end up holding around Mandurah",
+   "uses": [
+    "A lot of Mandurah life happens on or near the water, and the gear that goes with it has to live somewhere. Crab nets, rods, kayaks, outboards, trailer spares and wetsuits fill a garage quickly, and a 10ft or 20ft at the side of the house takes the overflow. People moving down from Perth into a smaller place use one to hold what will not fit while they decide what to keep.",
+    "Further out it is working storage: hay, feed and tack on the horse and hobby properties east of the freeway, machinery and fertiliser on the farms toward Pinjarra and Waroona, and lockable site boxes for builders busy in Lakelands, Meadow Springs and the newer estates on the northern edge of town."
+   ],
+   "stockHead": "No Mandurah yard — here is the arrangement",
+   "stock": [
+    "We do not have premises in Mandurah or anywhere else in Western Australia. Our WA stock sits at a third-party depot in Fremantle, and a Mandurah order is loaded there and trucked south.",
+    "If you want to see the unit first, we can arrange an inspection at the depot. Or we can send photographs of the specific container on request, before delivery. Everything else — the quote, the questions, the booking — is handled over the phone."
+   ],
+   "checksIntro": "Before you ring, walk around your place and look at the six things below. They decide whether a Mandurah drop is quick and tidy or turns into a second attempt.",
+   "checks": [
+    {
+     "h": "Canal or waterfront lot?",
+     "p": "Houses on the canals at Port Mandurah, Halls Head and Dawesville tend to be built wide on narrow lots, with little room between the side walls and the fence. A tilt-tray will not reach the back of most of them. If the container has to go beside or behind the house, a side loader or a crane from the street is the realistic option. Tell us which canal and send a photo from the kerb."
+    },
+    {
+     "h": "Is your ground low near the estuary?",
+     "p": "Parts of the Peel sit low beside the Peel Inlet and the Harvey Estuary, and after a wet winter some backyards stay soggy for weeks. Pick the highest, firmest patch you have. Put the container on pads so air gets underneath. And do not keep anything down low you would mind losing — a container is no defence against rising water, which gets in at the door seals."
+    },
+    {
+     "h": "Can the boat trailer still get past?",
+     "p": "If the plan is to back a boat down the side of the house, measure it now. People site a container where it looks neat and then discover the trailer cannot get through any more. Leave the path you actually use clear, with room to spare for a bad reverse."
+    },
+    {
+     "h": "Rural access east of the freeway",
+     "p": "On acreage out toward Pinjarra, Nambeelup and North Dandalup check the gate width, whether the driveway crosses a table drain or a culvert, and whether the ground will hold a truck after rain. The plain inland from the coast carries heavier soil than the beach sand and holds water through winter."
+    },
+    {
+     "h": "Which way will the doors face?",
+     "p": "Mandurah gets a strong afternoon sea breeze through summer, and doors that open into it swing hard. Point them away from the south-west, or fit something to hold them open. It saves hinges and fingers."
+    },
+    {
+     "h": "What does the gear inside need?",
+     "p": "Boat gear is often put away damp, and damp gear in a closed steel box sweats and grows mould. If ropes, sails, wetsuits or life jackets are going in, fit vents at both ends and let things dry before you lock up. For contents that must stay dry, buy a grade sold wind and watertight — cargo-worthy or new."
+    }
+   ],
+   "sections": [
+    {
+     "eyebrow": "Mandurah",
+     "h": "Salt, sand and a steel box by the water",
+     "p": [
+      "Anywhere near the estuary or the ocean front, salt air works on steel all year. A new or cargo-worthy container arrives painted and sound; what keeps it that way is washing it down a couple of times a year, dealing with scratches quickly, and stopping sand drifting up against the bottom rails where it holds moisture.",
+      "Sand has one more habit here: it moves. Leave a container door open on a windy afternoon and you will be sweeping it out for a week. Close up when you walk away."
+     ]
+    },
+    {
+     "eyebrow": "On the ground",
+     "h": "Getting it level on Peel sand",
+     "p": [
+      "Coastal sand is decent ground to sit a container on, as long as it is firm. Trouble starts where a block has been built up with fill, where reticulation keeps one corner wet, or where tree roots push up from underneath. A container resting on one high corner twists its frame, and the doors stop closing properly.",
+      "Solid pads under each corner — concrete, or sleepers on a compacted base — and a quick check with a level once it is down will save you grief later. If the doors ever start binding, the fix is nearly always packing one corner, not the doors."
+     ]
+    }
+   ],
+   "accessHead": "What the driver needs from you",
+   "access": [
+    "For a 10ft or 20ft on a standard Mandurah block, a tilt-tray needs a clear straight run, firm ground under its wheels, and no wires or eaves over the point where the bed lifts. Reversing across a kerb and footpath is routine; reversing over a soft lawn after rain is how trucks get stuck.",
+    "A 40ft is a job for a big industrial yard or a farm. On a residential lot in Mandurah it rarely fits, and when it does it needs far more room than people picture. If you have your heart set on one, send photos and we will tell you straight whether it works."
+   ],
+   "freightHead": "Delivery cost, plainly",
+   "freight": [
+    "The delivery component is worked out for your address and included in the quote. It moves with the truck your site needs and the run from Fremantle. There is no flat Mandurah rate on this page, because any single rate would be wrong for half the town."
+   ],
+   "nearHead": "Around the Peel",
+   "nearLead": "We also deliver to",
+   "near": [
+    "Rockingham",
+    "Pinjarra",
+    "Waroona",
+    "Dawesville",
+    "Falcon",
+    "Bunbury"
+   ],
+   "faqHead": "What Mandurah people want to know",
+   "faqs": [
+    {
+     "q": "Is there somewhere in Mandurah I can see the container?",
+     "a": "No — we have no yard in the Peel. WA stock is held at a Fremantle depot, and you can arrange to inspect a unit there. Otherwise we send photos of the actual container on request, before delivery."
+    },
+    {
+     "q": "Can you put a container beside a canal house?",
+     "a": "Often, but rarely with a tilt-tray. Canal homes usually have narrow side access, so it becomes a side loader or crane job from the street. Send a photo from the kerb and one of the spot, and we will tell you what it takes."
+    },
+    {
+     "q": "Will a container keep my boat gear dry?",
+     "a": "A cargo-worthy or new unit is sold wind and watertight, so rain stays out. As-is stock is not sold as watertight. Either way, put gear away dry or it will sweat, and fit vents if you store ropes, sails or wetsuits inside."
+    },
+    {
+     "q": "Do I need council approval in Mandurah?",
+     "a": "It depends on the block, how long the container stays and what it is for. Ask the City of Mandurah — or the Shire of Murray if you are on that side — before delivery day."
+    },
+    {
+     "q": "Can you get one onto a rural block near Pinjarra?",
+     "a": "Yes. Tell us the gate width, the state of the driveway and whether anything soft lies between the road and the spot. Winter is when paddock access gets difficult, so a dry spell is worth waiting for."
+    },
+    {
+     "q": "When would I have it?",
+     "a": "When you order, we confirm a date based on the stock at the Fremantle depot and what your site needs. If you are working to a fixed day, tell us at the start."
+    }
+   ],
+   "askHead": "Give us the Mandurah address",
+   "askSub": "Tell us the suburb, what is going in it and whether the block is canal-side, suburban or rural, and we will price it with delivery from Fremantle included."
+  },
+  {
+   "slug": "rockingham",
+   "name": "Rockingham",
+   "state": "WA",
+   "postcode": "6168",
+   "flagship": false,
+   "ownCopy": true,
+   "title": "Shipping Containers Rockingham, Kwinana & Baldivis",
+   "metaDesc": "Shipping containers for sale and hire in Rockingham, Kwinana and Baldivis, from Fremantle depot stock. Industrial sites, coastal lots and rural blocks.",
+   "depot": "A Fremantle depot, a short run down the coast",
+   "leadTime": "What in the Fremantle stock suits your job, and your access. Locked in when you order.",
+   "truck": "Tilt-tray for most homes; side loader or crane for tight lots; 40ft into industrial yards",
+   "topSay": {
+    "b": "WA stock held at a Fremantle depot",
+    "s": "Western Australian orders are supplied by road from container stock held at a depot in Fremantle. Inspection there is by arrangement — ring first.",
+    "tag": "Shipping containers for sale and hire. Western Australian orders are supplied by road from stock held at a Fremantle depot; our own yard is at Forest Hill in Queensland's Lockyer Valley."
+   },
+   "line": "Rockingham, Kwinana and Baldivis are the nearest of our WA delivery areas to the Fremantle depot where our Western Australian stock is held. That makes the haul simple. What still needs sorting is the ground, the block and — in Kwinana — the site rules.",
+   "opener": "Close to the depot, but the site still decides it.",
+   "usesHead": "Who buys them down this end",
+   "uses": [
+    "The Kwinana industrial strip along Cockburn Sound runs on contractors, and contractors need lockable storage they can put down and pick up again: tool stores, parts rooms, laydown boxes and crib-room shells. Hire suits those jobs, and so does buying a cargo-worthy unit that can follow the crew from one site to the next.",
+    "In the suburbs it is the household story with a Rockingham twist. Boats and fishing gear for Safety Bay, Shoalwater and Port Kennedy, a second garage's worth of tools in Waikiki and Cooloongup, and room for everything a family collected before moving into a newer, smaller house in Wellard or Bertram. In Baldivis the older rural lots still carry horses, feed and farm machinery alongside the new estates, and a container is often the cheapest dry shed on the property."
+   ],
+   "stockHead": "Where the stock sits, and seeing it first",
+   "stock": [
+    "We do not run a yard in Rockingham, Kwinana or anywhere in WA. Western Australian stock is held at a Fremantle depot operated by a third party, and a unit for this area is loaded there and trucked down. Nobody from our business is based locally.",
+    "If you would like to walk around the container before it is delivered, ring and we will arrange a time at the depot. If you would rather skip the drive, ask for photographs of the actual unit and they will come through before delivery."
+   ],
+   "checksIntro": "Six things to look at before you pick up the phone. None take long, and each one has caught somebody out.",
+   "checks": [
+    {
+     "h": "Does the industrial site have access rules?",
+     "p": "Plenty of sites in the Kwinana industrial area run gatehouse sign-in, inductions, restricted delivery windows, or particular PPE and paperwork for drivers. Find out what your site demands before we book, and give us the name of whoever controls the gate. A truck turned away at the boom gate helps nobody."
+    },
+    {
+     "h": "Limestone or loose sand?",
+     "p": "Near the coast around Safety Bay, Shoalwater and Rockingham itself, limestone sits close to the surface — excellent for bearing and hard work to dig. Inland toward Baldivis and Wellard it is deeper grey sand. Loose, dry sand bogs trucks; compacted sand carries a container fine. Know which one your spot is."
+    },
+    {
+     "h": "Has the builder been digging there?",
+     "p": "On newer lots, the strip beside the house often hides a trench of loose backfill over the plumbing, power or stormwater. It looks solid and it is not. Sit the corners on pads and keep clear of the line of the services."
+    },
+    {
+     "h": "Rural lot around Baldivis or Karnup?",
+     "p": "Check the gate, the driveway surface and whether there are horses in the paddock the truck has to cross. Gates and animals are both easier to sort before the driver arrives. On sandy tracks, a firm surface matters more than width."
+    },
+    {
+     "h": "Where will the doors swing?",
+     "p": "The afternoon south-westerly off Cockburn Sound is strong and regular. Face the doors downwind where you can, and give yourself a way to latch them open. A door slammed by a gust is how people break fingers."
+    },
+    {
+     "h": "Buying or hiring?",
+     "p": "For a contract that will wrap up, hire often makes more sense than buying and reselling. For a permanent store on your own block, buying usually comes out cheaper over time. Tell us how long you expect to need it and we will price both."
+    }
+   ],
+   "sections": [
+    {
+     "eyebrow": "Kwinana",
+     "h": "Industrial sites: what makes a delivery go smoothly",
+     "p": [
+      "Industrial yards in Kwinana and along Rockingham Road are usually the easiest ground we deliver to — flat hardstand, wide gates, room for a 40ft. What slows these jobs down is almost never the truck. It is paperwork, gate procedure, and nobody being there to say exactly where the box should land.",
+      "Name one person to meet the driver. Mark the spot. Send through the induction or access requirements with the order. If the container will sit near plant, tanks or pipework, check your own site's rules on separation and hot work before it arrives, because moving it later is a second delivery."
+     ]
+    },
+    {
+     "eyebrow": "On the ground",
+     "h": "Coastal blocks and the salt that comes with them",
+     "p": [
+      "From Point Peron down to Secret Harbour the air carries salt most days. Paint is what stops a container rusting, so look after it: wash the sides now and then, dab rust-inhibiting paint on scratches, and keep the base clear of sand banks and garden mulch. The bottom rails and the door gear are where corrosion starts.",
+      "If the container is for anything valuable, cargo-worthy or new is the grade to buy — both are sold wind and watertight. As-is units are cheaper and are not sold watertight, which makes them fine as a project base or a lock-up under cover and a poor choice for a long-term store near the beach."
+     ]
+    }
+   ],
+   "accessHead": "The drop itself",
+   "access": [
+    "Most Rockingham and Kwinana homes with a normal driveway take a 10ft or 20ft off a tilt-tray. The truck reverses in, raises the bed and lets the container slide off onto the ground or onto pads. It needs a straight approach, firm footing and nothing low overhead — eaves, a patio, power lines or a big tree over the drive.",
+    "Where the house runs close to both boundaries and there is no straight run, a side loader can place the unit beside the truck instead. Over a fence or into a backyard with no vehicle access, it is a crane truck from the street. A 40ft is realistic in industrial yards and on larger rural lots; on most suburban blocks it is not."
+   ],
+   "freightHead": "What delivery adds",
+   "freight": [
+    "Delivery is priced with the container for your particular address. Being close to Fremantle helps, but the truck your site needs and any site requirements make a bigger difference than the distance. You get one figure covering both on the quote."
+   ],
+   "nearHead": "Nearby",
+   "nearLead": "We also deliver around",
+   "near": [
+    "Mandurah",
+    "Perth",
+    "Secret Harbour",
+    "Port Kennedy",
+    "Wellard",
+    "Karnup",
+    "Serpentine"
+   ],
+   "faqHead": "Straight answers for Rockingham, Kwinana and Baldivis",
+   "faqs": [
+    {
+     "q": "Are you a local business?",
+     "a": "No, and we will not pretend to be. We have no office, yard or staff in WA. Containers for this area are held at a third-party depot in Fremantle, and our sales team handles everything by phone and email. You can arrange to inspect a unit at the depot, or have photos of it sent before delivery."
+    },
+    {
+     "q": "Can you deliver into the Kwinana industrial area?",
+     "a": "Yes. Send us the site's access requirements and a contact for the gate. Those sites are usually easy for the truck and occasionally slow on procedure, so getting the paperwork right first pays off."
+    },
+    {
+     "q": "What ground do I need for a container in Baldivis?",
+     "a": "Firm and roughly level. Compacted sand is fine; loose, freshly worked sand is not. Pads or sleepers under the four corners keep the base even and let air move underneath."
+    },
+    {
+     "q": "Does a container count as a building here?",
+     "a": "It can. The City of Rockingham and the City of Kwinana each take their own view depending on how long it stays, where it sits on the lot and what it is used for. Ring the right one before delivery."
+    },
+    {
+     "q": "Is hire cheaper for a short job?",
+     "a": "For a few months, usually. For long-term storage, buying tends to win. We will price both so you can compare on your actual timeframe."
+    },
+    {
+     "q": "Will a container fit down the side of my house?",
+     "a": "Measure the gap at its narrowest point — downpipes, meters and air-conditioner units included — and compare it with the widths on our dimensions page. Then think about how it gets there: a tilt-tray has to reverse straight in, so if the side access has a bend in it, it is a crane job."
+    }
+   ],
+   "askHead": "Tell us about the Rockingham job",
+   "askSub": "Home, farm or industrial site — tell us the suburb, the access and what is going in it, and we will price it with delivery from Fremantle."
+  },
+  {
+   "slug": "joondalup",
+   "name": "Joondalup",
+   "state": "WA",
+   "postcode": "6027",
+   "flagship": false,
+   "ownCopy": true,
+   "title": "Shipping Containers Joondalup & Wanneroo | Fair Dinkum",
+   "metaDesc": "Shipping containers for sale and hire in Joondalup, Wanneroo and the northern corridor to Yanchep. Fremantle depot stock and straight answers on access.",
+   "depot": "A Fremantle depot, up the Mitchell Freeway",
+   "leadTime": "Depot stock that suits your job, and what your block needs. The date is confirmed when you order.",
+   "truck": "Tilt-tray for most homes; side loader for tight estate lots; 40ft onto farms and industrial yards",
+   "topSay": {
+    "b": "WA stock held at a Fremantle depot",
+    "s": "Western Australian orders are supplied by road from container stock held at a depot in Fremantle. Inspection there is by arrangement — ring first.",
+    "tag": "Shipping containers for sale and hire. Western Australian orders are supplied by road from stock held at a Fremantle depot; our own yard is at Forest Hill in Queensland's Lockyer Valley."
+   },
+   "line": "Joondalup, Wanneroo and the corridor north to Yanchep are supplied from container stock held at a Fremantle depot and trucked up the Mitchell Freeway. The corridor runs from established coastal suburbs to brand-new estates to market gardens, and the checks are different for each.",
+   "opener": "Three kinds of place, one set of plain answers.",
+   "usesHead": "What goes in them up the northern corridor",
+   "uses": [
+    "Around the older coastal suburbs — Hillarys, Sorrento, Duncraig, Ocean Reef — it is mostly household overflow, renovation storage and somewhere to keep the boat gear. In the newer estates from Clarkson and Butler through Alkimos, Eglinton and Yanchep, it is families on small lots who ran out of garage in the first year, and builders who want a lockable site box that is still there in the morning.",
+    "Wanneroo is different again. The market gardens and orchards through Carabooda, Nowergup and Mariginiup use containers for packing materials, fertiliser, tools and irrigation spares. The horse properties around Jandabup and Gnangara use them for feed and tack. And the Wangara and Neerabup industrial areas use them the way industrial areas everywhere do — as extra lockable floor space next to the workshop."
+   ],
+   "stockHead": "No yard up here — this is how it works",
+   "stock": [
+    "We are not based in Joondalup or anywhere in Western Australia, and there is no local yard with our name on the gate. WA stock is held at a third-party depot in Fremantle, loaded there, and trucked north to you.",
+    "You are welcome to inspect a container at the Fremantle depot by arrangement. Or ask us for photos of the specific unit you are getting, and we will send them before delivery. Quotes, questions and bookings all go through the sales line."
+   ],
+   "checksIntro": "The northern corridor mixes established suburbs, brand-new estates and working farmland, so the list below covers all three. Skip whatever does not apply to you.",
+   "checks": [
+    {
+     "h": "Does your estate have building guidelines?",
+     "p": "Many of the newer estates in Alkimos, Eglinton, Yanchep and Butler come with developer design guidelines or restrictive covenants covering outbuildings, fencing and what can be seen from the street. A container in view of the road can fall foul of them. Read yours, or ask the developer, before the truck turns up."
+    },
+    {
+     "h": "Is the lot fenced and landscaped yet?",
+     "p": "On a new lot, the easy time to get a container into the backyard is before the side fence, gate and retaining go in. Once the fence is up, the only way over it is often a crane truck. If you are still building, think about the order of things now."
+    },
+    {
+     "h": "Is there limestone just under the sand?",
+     "p": "Along the coast from Ocean Reef to Two Rocks, limestone often sits a short way under the surface. It is good footing and awkward to dig. You will usually level a container here by building up the low corners rather than cutting down the high ones."
+    },
+    {
+     "h": "On a market garden: where are the pipes?",
+     "p": "Irrigation lines, bore pipes and buried power are everywhere on horticultural blocks. A loaded truck rolling over a shallow poly line will crush it. Mark anything underground between the gate and the spot, and keep the route off it."
+    },
+    {
+     "h": "Will the farm track carry a truck?",
+     "p": "Tracks through Wanneroo's sand are fine for a ute and not always fine for a truck carrying a container. If your track is loose, a load of limestone or road base on the worst patch before delivery can make the difference."
+    },
+    {
+     "h": "Are there low trees along the driveway?",
+     "p": "Tuart, banksia and peppermint trees along an older driveway often hang low. The tilt-tray bed lifts high at the back. Look up along the whole route in, not just at the spot where the container lands."
+    }
+   ],
+   "sections": [
+    {
+     "eyebrow": "Wanneroo",
+     "h": "Farms, market gardens and the Gnangara sand",
+     "p": [
+      "East of Wanneroo Road the country opens up into market gardens, orchards and horse properties on deep grey sand. It drains quickly, which is good for a container sitting on it, and it can be soft on top in summer when it dries out and loosens. A truck turning hard on loose sand digs itself in.",
+      "Plan the route so the driver can go in straight and, ideally, come out forwards. Put the container handy to the packing shed or stables but out of the tractor's way. And think about water: if a sprinkler or a leaking fitting wets one side every day, move it — sand that stays damp against the base is what rusts the bottom rails and cross members from underneath."
+     ]
+    },
+    {
+     "eyebrow": "On the ground",
+     "h": "Beachside suburbs and the westerly",
+     "p": [
+      "In Ocean Reef, Mullaloo, Iluka and the other beachside suburbs, the westerly carries salt and sand onto anything left outdoors. A container copes well with it if you keep the paint up and the drainage around it clear, and poorly if sand is allowed to bank up against one side and hold moisture.",
+      "The same breeze pushes steel doors around with real force. Site the container so the doors open away from the prevailing afternoon wind, and use something solid to hold them when you are working inside."
+     ]
+    }
+   ],
+   "accessHead": "What access a truck needs",
+   "access": [
+    "A tilt-tray drop needs a straight approach, firm footing, and headroom where the bed lifts. On older blocks around Joondalup and Duncraig that usually means a driveway and a double gate. On new estate lots it may be nothing but a single garage door and a narrow side path, in which case a side loader or crane is needed.",
+    "Wangara and Neerabup industrial yards are generally straightforward for any size, 40ft included. Farms are fine if the track is firm and there is room to turn or somewhere to reverse out."
+   ],
+   "freightHead": "Delivery, priced for your address",
+   "freight": [
+    "The delivery is part of the container quote, worked out for your address. It varies with how far up the corridor you are and with the truck your site needs. We do not publish a single number because a single number would be wrong for most people."
+   ],
+   "nearHead": "Further along the corridor",
+   "nearLead": "We also deliver to",
+   "near": [
+    "Perth",
+    "Wanneroo",
+    "Yanchep",
+    "Two Rocks",
+    "Clarkson",
+    "Gingin",
+    "Ellenbrook"
+   ],
+   "faqHead": "What northern corridor callers ask",
+   "faqs": [
+    {
+     "q": "Do you have a depot in Joondalup or Wanneroo?",
+     "a": "No. Western Australian stock is held at a Fremantle depot run by another company, and your container is trucked north from there. You can inspect it at the depot by arrangement, or ask for photographs before delivery."
+    },
+    {
+     "q": "Will a container breach my estate covenant?",
+     "a": "It might. Covenants and design guidelines vary from estate to estate. Check the documents from your land purchase or ask the developer before ordering — we cannot tell you what yours allows."
+    },
+    {
+     "q": "Can you get a container into my backyard after the fence is up?",
+     "a": "Sometimes through a double gate, sometimes only with a crane truck lifting over the fence. Send a photo of the side access and the backyard and we will tell you honestly which it is."
+    },
+    {
+     "q": "Can you deliver to a market garden in Carabooda?",
+     "a": "Yes. Tell us the gate width, what the track is like and where the underground services run. Sandy tracks can be soft, so we may ask for photos to judge whether the truck can get in and back out."
+    },
+    {
+     "q": "Do I need approval from the City of Wanneroo or the City of Joondalup?",
+     "a": "It depends on the lot, how long the container stays and what it will be used for, and the two cities have their own rules. Check with the right one before delivery."
+    },
+    {
+     "q": "Should I buy new or used?",
+     "a": "If it will sit in full view on a new estate, a new single-trip unit looks the part and is sold wind and watertight. If it is going behind a shed on a farm, cargo-worthy used is usually the better value and is also sold wind and watertight. As-is units are the cheapest and are not sold watertight."
+    }
+   ],
+   "askHead": "Tell us where on the corridor",
+   "askSub": "Give us the suburb, whether it is an estate lot, a farm or an industrial yard, and a photo of the access. We will price it with delivery from Fremantle included."
+  }
+ ]
+}
