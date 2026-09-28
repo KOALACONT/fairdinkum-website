@@ -44,7 +44,14 @@ const P = require("./data/products.json");
    page grid. It deliberately does NOT affect the rotated locality copy: that is
    keyed on the slug via rank(), so reordering or adding a region cannot
    silently rewrite the wording of the existing pages. */
-const LOC_REGIONS = ["seq", "downs", "north", "south"];
+/* wa-metro, wa-regional and nt (29/09/2026) hold WA and NT localities. Their
+   rows carry "ownCopy": true — every heading and paragraph is written per town
+   in the data rather than drawn from the rotation pools, and they are left out
+   of rank() so adding them cannot change the rotated copy on existing pages.
+   They also carry "topSay", which replaces the masthead's yard line (b, s) and
+   the footer tagline (tag): stock for those towns is held at a Fremantle or
+   Darwin depot, not at Forest Hill. Pages without topSay render as before. */
+const LOC_REGIONS = ["seq", "downs", "north", "south", "wa-metro", "wa-regional", "nt"];
 const LOCS = LOC_REGIONS.reduce((a, r) => a.concat(require(`./data/locations/${r}.json`).locations), []);
 /* Optional per-locality overrides (title, cta, metaDesc) keyed by slug in
    data/locality-overrides.json, merged onto the locality before it renders.
@@ -65,6 +72,9 @@ LOCS.forEach((l) => { if (LOC_OVERRIDES[l.slug]) Object.assign(l, LOC_OVERRIDES[
     if (!Array.isArray(l.sections) || !l.sections.length) throw new Error(`locality ${l.slug} has no sections`);
     if (!Array.isArray(l.faqs) || !l.faqs.length) throw new Error(`locality ${l.slug} has no faqs`);
     if (!Array.isArray(l.near) || !l.near.length) throw new Error(`locality ${l.slug} has no near list`);
+    if (l.ownCopy) ["title", "topSay", "opener", "usesHead", "stockHead", "stock", "checksIntro", "checks", "accessHead", "freightHead", "freight", "nearHead", "nearLead", "faqHead", "askHead", "askSub"].forEach((k) => {
+      if (!l[k] || (Array.isArray(l[k]) && !l[k].length)) throw new Error(`ownCopy locality ${l.slug} is missing "${k}"`);
+    });
   });
 })();
 const POSTS = require("./data/posts.js");
@@ -332,12 +342,12 @@ const NAV = [
   { href: "/contact/", label: "Contact" }
 ];
 
-function mast() {
+function mast(topSay) {
   const megaPanel = `<div class="mega">${MEGA.map((m) => `<a href="${m.href}">${IMG(m.photo, m.name + " shipping container", { w: 400, h: 300 }) || '<span class="mega-ph"></span>'}<b>${esc(m.name)}</b><span>${esc(m.blurb.length > 84 ? m.blurb.slice(0, 81).trim() + "…" : m.blurb)}</span></a>`).join("")}</div>`;
   return `<header class="top">
 <div class="wrap">
   <a class="top-brand" href="/" aria-label="${esc(BRAND)} home">${markDark}</a>
-  <div class="top-say"><b>${esc(S.yardPromise)} — ${esc(ADDR.suburb)}, ${esc(ADDR.state)}</b><span>${esc(S.yardDetail)}</span></div>
+  <div class="top-say">${topSay ? `<b>${esc(topSay.b)}</b><span>${esc(topSay.s)}</span>` : `<b>${esc(S.yardPromise)} — ${esc(ADDR.suburb)}, ${esc(ADDR.state)}</b><span>${esc(S.yardDetail)}</span>`}</div>
   <div class="top-act">
     ${SHOW_REVIEWS ? `<span class="top-rating" title="${esc(REV.source || "Google")}, as at ${esc(auDate(REV.asOf))}"><b>${esc(String(REV.rating))}</b><span class="stars" aria-hidden="true">★★★★★</span><small>${esc(String(REV.count))} Google reviews</small></span>` : ""}
     <a class="top-tel" href="${S.phoneHref}"><small>Talk to a person</small>${esc(S.phone)}</a>
@@ -431,14 +441,14 @@ function ask(heading, sub, idSuffix) {
 }
 
 /* --------------------------------------------------- three-column footer -- */
-function foot() {
+function foot(tag) {
   const col = (label, items) => `<div><h4>${esc(label)}</h4><ul>${items.map((x) => `<li><a href="${x[0]}">${esc(x[1])}</a></li>`).join("")}</ul></div>`;
   return `<footer class="foot">
 <div class="wrap">
   <div class="foot-top">
     <div>
       <div class="foot-brand"><a href="/" aria-label="${esc(BRAND)} home">${markLight}</a></div>
-      <p class="foot-tag">${esc(S.tagline)}</p>
+      <p class="foot-tag">${esc(tag || S.tagline)}</p>
       <div class="foot-contact">
         <a class="foot-tel" href="${S.phoneHref}">${esc(S.phone)}</a>
         <a class="foot-mail" href="mailto:${S.email}">${esc(S.email)}</a>
@@ -468,7 +478,7 @@ function withBrandMascot(route, body) {
   if (route === "/faqs/") body = body.replace("<h1>", img("fd-curious", "fd-curious") + "<h1>");
   return body.replace('<section class="ask" id="quote"><div class="wrap">', '<section class="ask" id="quote"><div class="wrap">' + img("fd-quote", "fd-quote"));
 }
-const shell = (o, body) => head(o.t, o.d, o.c, o.schema, o.noindex) + mast() + `<main id="main">` + withBrandMascot(o.c, body) + `</main>` + foot();
+const shell = (o, body) => head(o.t, o.d, o.c, o.schema, o.noindex) + mast(o.topSay) + `<main id="main">` + withBrandMascot(o.c, body) + `</main>` + foot(o.topSay && o.topSay.tag);
 const crumbHtml = (c) => `<nav class="crumb" aria-label="Breadcrumb"><div class="wrap">${c.map((x, i) => (i === c.length - 1 ? `<strong>${esc(x[0])}</strong>` : `<a href="${x[1]}">${esc(x[0])}</a> <span aria-hidden="true">/</span> `)).join("")}</div></nav>`;
 
 /* ------------------------------------------------------------ primitives -- */
@@ -577,11 +587,13 @@ function hash32(str) {
 const RANKS = Object.create(null);
 function rank(salt, slug) {
   if (!RANKS[salt]) {
-    const order = LOCS.map((l) => l.slug).slice().sort((a, b) => hash32(salt + ":" + a) - hash32(salt + ":" + b));
+    const order = LOCS.filter((l) => !l.ownCopy).map((l) => l.slug).slice().sort((a, b) => hash32(salt + ":" + a) - hash32(salt + ":" + b));
     RANKS[salt] = Object.create(null);
     order.forEach((s, i) => { RANKS[salt][s] = i; });
   }
-  return RANKS[salt][slug] || 0;
+  /* ownCopy localities are not ranked (see LOC_REGIONS); they fall back to a
+     plain hash so their pool photos still vary from page to page. */
+  return slug in RANKS[salt] ? RANKS[salt][slug] : hash32(salt + ":" + slug);
 }
 const pick = (pool, salt, slug) => pool[rank(salt, slug) % pool.length];
 
