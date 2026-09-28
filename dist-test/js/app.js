@@ -156,8 +156,10 @@
 
   // Quote forms
   document.querySelectorAll("form[data-quote]").forEach(function (form) {
+    var submitting = false;
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (submitting || !form.reportValidity()) return;
       var trap = form.querySelector('input[name="business_url"]');
       if (trap && trap.value) return; // honeypot
 
@@ -215,10 +217,16 @@
 
       var btn = form.querySelector('button[type="submit"]');
       var was = btn ? btn.textContent : "";
+      submitting = true;
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
 
-      function ok() {
-        metaEvent("Lead");
+      function ok(receipt) {
+        if (receipt.duplicate !== true) {
+          metaEvent("Lead");
+          if (metaEnabled && window.fbq && form.hasAttribute("data-purchase-enquiry") && f.intent === "buy" && /^(20ft|40ft|unsure)$/.test(f.size)) {
+            try { window.fbq("trackSingleCustom", metaPixelId, "ContainerPurchaseEnquiry", {container_size:f.size}); } catch (e) {}
+          }
+        }
         var d = document.createElement("div");
         d.className = "q-ok";
         d.innerHTML = "<strong>Got it — that's with us.</strong> " +
@@ -231,6 +239,7 @@
       /* The failure path shows a real failure. Never fake a success here: a lead
          that silently vanished is worse than one the customer knows to re-send. */
       function bad() {
+        submitting = false;
         if (btn) { btn.disabled = false; btn.textContent = was; }
         var d = form.querySelector(".q-bad") || document.createElement("div");
         d.className = "q-bad";
@@ -244,7 +253,12 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
-      }).then(function (r) { r.ok ? ok() : bad(); }).catch(bad);
+      }).then(function (r) {
+        if (!r.ok) { bad(); return; }
+        return r.json().then(function (j) {
+          if (j && j.success === true && typeof j.id === "string" && j.id) ok(j); else bad();
+        }, bad);
+      }).catch(bad);
     });
   });
 
