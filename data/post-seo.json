@@ -1,0 +1,43 @@
+{
+  "_note": "Search-result title and meta description for each guide, keyed by slug. The on-page H1 and the /blog/ card text still come from data/posts.js. Titles are passed through fitTitle(), so keep them at 60 characters or less; descriptions at 150 or less. 23/09/2026.",
+  "container-grades-explained": {
+    "title": "Container grades explained — new, cargo-worthy, as-is",
+    "desc": "What new, cargo-worthy and as-is actually mean, what each grade is safe to use for, and why the grade you pick moves the price more than size does."
+  },
+  "container-delivery-access-guide": {
+    "title": "Container delivery and access — what the truck needs",
+    "desc": "Run-in length, pinch-point width, headroom and ground bearing decide every container delivery. What a tilt-tray, side loader and crane truck need."
+  },
+  "buying-a-used-shipping-container": {
+    "title": "Buying a used shipping container — what to check",
+    "desc": "How to inspect a used shipping container: floor first, then doors, roof, castings and rails. What is cosmetic, what is not, and what the plates mean."
+  },
+  "20ft-vs-40ft-shipping-container": {
+    "title": "20ft vs 40ft shipping container — which do you need?",
+    "desc": "An honest 20ft vs 40ft comparison: cost per cubic metre, access, resale, and when two 20fts beat one 40ft and when they do not."
+  },
+  "shipping-container-dimensions-australia": {
+    "title": "Shipping container dimensions — Australian reference",
+    "desc": "External and internal dimensions, door openings, cubic capacity and tare weights for 10ft, 20ft, 40ft and high cube containers, plus clearances."
+  },
+  "preparing-your-site-for-a-container": {
+    "title": "Preparing your site for a shipping container",
+    "desc": "How to prepare ground for a shipping container: corner footings, levelling, drainage and clearance, and why a twisted container stops closing."
+  },
+  "condensation-in-shipping-containers": {
+    "title": "Condensation in shipping containers — how to stop it",
+    "desc": "Why shipping containers sweat, why container rain ruins more stored goods than leaks do, and what works: ventilation, insulation and desiccant."
+  },
+  "hiring-vs-buying-a-shipping-container": {
+    "title": "Hiring vs buying a shipping container — which suits?",
+    "desc": "When shipping container hire makes sense and when buying does, how to find your break-even, what to check in a hire agreement, and moving costs."
+  },
+  "container-security-and-lock-boxes": {
+    "title": "Container security — lock boxes, padlocks and siting",
+    "desc": "How to secure a shipping container: lock boxes, the right padlock, where to point the doors, lighting and sight lines, and a realistic view of risk."
+  },
+  "shipping-container-modifications": {
+    "title": "Shipping container modifications — what is safe to cut",
+    "desc": "Doors, windows, roller doors, lining, insulation, power and shelving: what can safely be cut into a container, what carries load, when to buy new."
+  }
+}
